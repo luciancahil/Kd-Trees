@@ -7,21 +7,21 @@ API:          PASSED
 
 Spotbugs:     PASSED
 PMD:          FAILED (3 warnings)
-Checkstyle:   FAILED (0 errors, 94 warnings)
+Checkstyle:   FAILED (0 errors, 95 warnings)
 
-Correctness:  16/35 tests passed
+Correctness:  15/35 tests passed
 Memory:       16/16 tests passed
-Timing:       18/42 tests passed
+Timing:       26/42 tests passed
 
-Aggregate score: 56.00%
+Aggregate score: 58.10%
 [Compilation: 5%, API: 5%, Spotbugs: 0%, PMD: 0%, Checkstyle: 0%, Correctness: 60%, Memory: 10%, Timing: 20%]
 
 ASSESSMENT DETAILS
 
 The following files were submitted:
 ----------------------------------
-6.2K Jul 28 18:59 KdTree.java
-3.9K Jul 28 18:59 PointSET.java
+6.3K Jul 28 19:12 KdTree.java
+3.9K Jul 28 19:12 PointSET.java
 
 
 ********************************************************************************
@@ -55,8 +55,8 @@ KdTree:
 
 % spotbugs *.class
 *-----------------------------------------------------------
-L B IT_NO_SUCH_ELEMENT It: The 'next()' method must throw a 'java.util.NoSuchElementException' if it is called when there are no more elements to return.  At KdTree.java:[lines 171-176]
-L P SIC_INNER_SHOULD_BE_STATIC_NEEDS_THIS SIC: Should the inner class 'TSet$inOrderIterator' be refactored into a static nested class?  At KdTree.java:[lines 161-181]
+L B IT_NO_SUCH_ELEMENT It: The 'next()' method must throw a 'java.util.NoSuchElementException' if it is called when there are no more elements to return.  At KdTree.java:[lines 186-191]
+L P SIC_INNER_SHOULD_BE_STATIC_NEEDS_THIS SIC: Should the inner class 'TSet$inOrderIterator' be refactored into a static nested class?  At KdTree.java:[lines 176-196]
 
 
 ================================================================
@@ -65,8 +65,8 @@ L P SIC_INNER_SHOULD_BE_STATIC_NEEDS_THIS SIC: Should the inner class 'TSet$inOr
 % pmd .
 *-----------------------------------------------------------
 KdTree.java:9: The private instance (or static) variable 'tree' can be made 'final'; it is initialized only in the declaration or constructor. [ImmutableField]
-KdTree.java:138: All instance (and static) variables must be 'private'. [OnlyPrivateInstanceVariables]
-KdTree.java:181: Use the 'isEmpty()' method instead of comparing 'size()' to '0'. [UseCollectionIsEmpty]
+KdTree.java:153: All instance (and static) variables must be 'private'. [OnlyPrivateInstanceVariables]
+KdTree.java:196: Use the 'isEmpty()' method instead of comparing 'size()' to '0'. [UseCollectionIsEmpty]
 PMD ends with 3 warnings.
 
 
@@ -90,40 +90,40 @@ PMD ends with 3 warnings.
 [WARN] KdTree.java:85:12: 'if' is not followed by whitespace. [WhitespaceAround]
 [WARN] KdTree.java:100:8: 'for' is not followed by whitespace. [WhitespaceAround]
 [WARN] KdTree.java:100:41: '+=' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:136:1: The .java file must have exactly one top-level class. [OneTopLevelClass]
-[WARN] KdTree.java:136:39: '>' is followed by an illegal character. [GenericWhitespace]
-[WARN] KdTree.java:136:40: '{' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:138:5: Declare static and instance variables in order of their access modifiers: public, protected, package, and private. [DeclarationOrder]
-[WARN] KdTree.java:145:9: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:154:33: '{' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:154:34: 'return' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:154:51: ';' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:154:52: '}' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:161:19: The class 'inOrderIterator' must start with an uppercase letter and use CamelCase. [TypeName]
-[WARN] KdTree.java:161:62: '>' is followed by an illegal character. [GenericWhitespace]
-[WARN] KdTree.java:161:63: '{' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:173:13: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:174:13: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:189:3: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:190:1: The .java file must have exactly one top-level class. [OneTopLevelClass]
-[WARN] KdTree.java:190:15: '{' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:194:51: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:196:53: '{' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:206:9: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:207:13: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:209:13: '}' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:209:14: 'else' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:212:9: '}' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:151:1: The .java file must have exactly one top-level class. [OneTopLevelClass]
+[WARN] KdTree.java:151:39: '>' is followed by an illegal character. [GenericWhitespace]
+[WARN] KdTree.java:151:40: '{' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:153:5: Declare static and instance variables in order of their access modifiers: public, protected, package, and private. [DeclarationOrder]
+[WARN] KdTree.java:160:9: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:169:33: '{' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:169:34: 'return' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:169:51: ';' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:169:52: '}' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:176:19: The class 'inOrderIterator' must start with an uppercase letter and use CamelCase. [TypeName]
+[WARN] KdTree.java:176:62: '>' is followed by an illegal character. [GenericWhitespace]
+[WARN] KdTree.java:176:63: '{' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:188:13: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:189:13: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:204:3: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:205:1: The .java file must have exactly one top-level class. [OneTopLevelClass]
+[WARN] KdTree.java:205:15: '{' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:209:51: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:211:53: '{' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:221:9: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:222:13: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:224:13: '}' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:224:14: 'else' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:227:9: '}' is not followed by whitespace. [WhitespaceAround]
 ...
-Checkstyle ends with 0 errors and 92 warnings.
+Checkstyle ends with 0 errors and 93 warnings.
 
 % custom checkstyle checks for PointSET.java
 *-----------------------------------------------------------
 
 % custom checkstyle checks for KdTree.java
 *-----------------------------------------------------------
-[WARN] KdTree.java:136:12: Using interface inheritance suggests poor design in this program. [Design]
-[WARN] KdTree.java:161:39: Using interface inheritance suggests poor design in this program. [Design]
+[WARN] KdTree.java:151:12: Using interface inheritance suggests poor design in this program. [Design]
+[WARN] KdTree.java:176:39: Using interface inheritance suggests poor design in this program. [Design]
 Checkstyle ends with 0 errors and 2 warnings.
 
 
@@ -253,11 +253,82 @@ Test 1b: insert non-degenerate points; check size() and isEmpty() after each ins
 Test 1c: insert distinct points; check size() and isEmpty() after each insertion
   * 1 random distinct points in a 1-by-1 grid
   * 10 random distinct points in a 8-by-8 grid
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
+    TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
+    TestKdTree.test1c(TestKdTree.java:1603)
+    TestKdTree.main(TestKdTree.java:1935)
+
   * 20 random distinct points in a 16-by-16 grid
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
+    TSet.add(KdTree.java:162)
+    ...
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
+    TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
+    TestKdTree.test1c(TestKdTree.java:1604)
+    TestKdTree.main(TestKdTree.java:1935)
+
   * 10000 random distinct points in a 128-by-128 grid
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:225)
+    ...
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
+    TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
+    TestKdTree.test1c(TestKdTree.java:1605)
+    TestKdTree.main(TestKdTree.java:1935)
+
   * 100000 random distinct points in a 1024-by-1024 grid
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:225)
+    ...
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
+    TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
+    TestKdTree.test1c(TestKdTree.java:1606)
+    TestKdTree.main(TestKdTree.java:1935)
+
   * 100000 random distinct points in a 65536-by-65536 grid
-==> passed
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:231)
+    ...
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
+    TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
+    TestKdTree.test1c(TestKdTree.java:1607)
+    TestKdTree.main(TestKdTree.java:1935)
+
+==> FAILED
 
 Test 1d: insert general points; check size() and isEmpty() after each insertion
   * 5 random general points in a 1-by-1 grid
@@ -267,66 +338,80 @@ Test 1d: insert general points; check size() and isEmpty() after each insertion
     - student   isEmpty() = false
     - reference isEmpty() = false
     - sequence of points inserted: 
-      A  0.0 0.0
-      B  1.0 1.0
-      C  0.0 0.0
+      A  1.0 1.0
+      B  0.0 1.0
+      C  0.0 1.0
 
   * 10 random general points in a 4-by-4 grid
-    - failed after inserting point 6 of 10
-    - student   size()    = 6
-    - reference size()    = 5
-    - student   isEmpty() = false
-    - reference isEmpty() = false
-    - sequence of points inserted: 
-      A  0.75 0.0
-      B  0.0 0.5
-      C  0.25 0.0
-      D  1.0 0.25
-      E  0.5 0.25
-      F  0.0 0.5
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
+    TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
+    TestKdTree.test1d(TestKdTree.java:1615)
+    TestKdTree.main(TestKdTree.java:1938)
 
   * 50 random general points in a 8-by-8 grid
-    - failed after inserting point 14 of 50
-    - student   size()    = 14
-    - reference size()    = 13
-    - student   isEmpty() = false
-    - reference isEmpty() = false
-    - sequence of points inserted: 
-      A  0.625 0.25
-      B  0.25 0.5
-      C  1.0 0.5
-      D  0.625 1.0
-      E  0.875 0.625
-      F  0.25 0.875
-      G  0.875 1.0
-      H  0.625 0.125
-      I  0.375 0.5
-      J  0.25 1.0
-      K  0.875 0.75
-      L  1.0 1.0
-      M  0.625 0.0
-      N  0.625 0.25
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
+    TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
+    TestKdTree.test1d(TestKdTree.java:1616)
+    TestKdTree.main(TestKdTree.java:1938)
 
   * 100000 random general points in a 16-by-16 grid
-    - failed after inserting point 43 of 100000
-    - student   size()    = 43
-    - reference size()    = 42
-    - student   isEmpty() = false
-    - reference isEmpty() = false
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:231)
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
+    TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
+    TestKdTree.test1d(TestKdTree.java:1617)
+    TestKdTree.main(TestKdTree.java:1938)
 
   * 100000 random general points in a 128-by-128 grid
-    - failed after inserting point 277 of 100000
-    - student   size()    = 277
-    - reference size()    = 276
-    - student   isEmpty() = false
-    - reference isEmpty() = false
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    ...
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
+    TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
+    TestKdTree.test1d(TestKdTree.java:1618)
+    TestKdTree.main(TestKdTree.java:1938)
 
   * 100000 random general points in a 1024-by-1024 grid
-    - failed after inserting point 1256 of 100000
-    - student   size()    = 1256
-    - reference size()    = 1255
-    - student   isEmpty() = false
-    - reference isEmpty() = false
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    ...
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
+    TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
+    TestKdTree.test1d(TestKdTree.java:1619)
+    TestKdTree.main(TestKdTree.java:1938)
 
 ==> FAILED
 
@@ -335,7 +420,7 @@ Test 2a: insert points from file; check contains() with random query points
 
     java.lang.NullPointerException
 
-    TSet.contains(KdTree.java:151)
+    TSet.contains(KdTree.java:166)
     KdTree.contains(KdTree.java:40)
     TestKdTree.checkContains(TestKdTree.java:245)
     TestKdTree.checkContains(TestKdTree.java:229)
@@ -343,124 +428,126 @@ Test 2a: insert points from file; check contains() with random query points
     TestKdTree.main(TestKdTree.java:1941)
 
   * input1.txt
-    - failed on trial 84 of 10000
-    - query point          = (0.5, 0.19)
-    - student   contains() = true
-    - reference contains() = false
-    - sequence of points inserted: 
-      A  0.5 0.5
+
+    java.lang.NullPointerException
+
+    TreeNode.contains(KdTree.java:261)
+    TSet.contains(KdTree.java:166)
+    KdTree.contains(KdTree.java:40)
+    TestKdTree.checkContains(TestKdTree.java:245)
+    TestKdTree.checkContains(TestKdTree.java:229)
+    TestKdTree.test2a(TestKdTree.java:1628)
+    TestKdTree.main(TestKdTree.java:1941)
 
   * input5.txt
-    - failed on trial 15 of 10000
-    - query point          = (0.7, 0.59)
-    - student   contains() = true
-    - reference contains() = false
-    - sequence of points inserted: 
-      A  0.7 0.2
-      B  0.5 0.4
-      C  0.2 0.3
-      D  0.4 0.7
-      E  0.9 0.6
+
+    java.lang.NullPointerException
+
+    TreeNode.contains(KdTree.java:261)
+    TreeNode.contains(KdTree.java:257)
+    TSet.contains(KdTree.java:166)
+    KdTree.contains(KdTree.java:40)
+    TestKdTree.checkContains(TestKdTree.java:245)
+    TestKdTree.checkContains(TestKdTree.java:229)
+    TestKdTree.test2a(TestKdTree.java:1629)
+    TestKdTree.main(TestKdTree.java:1941)
 
   * input10.txt
-    - failed on trial 561 of 10000
-    - query point          = (0.03, 0.51)
-    - student   contains() = true
-    - reference contains() = false
-    - sequence of points inserted: 
-      A  0.372 0.497
-      B  0.564 0.413
-      C  0.226 0.577
-      D  0.144 0.179
-      E  0.083 0.51
-      F  0.32 0.708
-      G  0.417 0.362
-      H  0.862 0.825
-      I  0.785 0.725
-      J  0.499 0.208
+
+    java.lang.NullPointerException
+
+    TreeNode.contains(KdTree.java:261)
+    TreeNode.contains(KdTree.java:257)
+    TreeNode.contains(KdTree.java:251)
+    TSet.contains(KdTree.java:166)
+    KdTree.contains(KdTree.java:40)
+    TestKdTree.checkContains(TestKdTree.java:245)
+    TestKdTree.checkContains(TestKdTree.java:229)
+    TestKdTree.test2a(TestKdTree.java:1630)
+    TestKdTree.main(TestKdTree.java:1941)
 
 ==> FAILED
 
 Test 2b: insert non-degenerate points; check contains() with random query points
   * 1 random non-degenerate points in a 1-by-1 grid
-    - failed on trial 9 of 10000
-    - query point          = (1.0, 0.0)
-    - student   contains() = true
-    - reference contains() = false
-    - sequence of points inserted: 
-      A  1.0 1.0
+
+    java.lang.NullPointerException
+
+    TreeNode.contains(KdTree.java:261)
+    TSet.contains(KdTree.java:166)
+    KdTree.contains(KdTree.java:40)
+    TestKdTree.checkContains(TestKdTree.java:245)
+    TestKdTree.checkContains(TestKdTree.java:223)
+    TestKdTree.test2b(TestKdTree.java:1638)
+    TestKdTree.main(TestKdTree.java:1944)
 
   * 5 random non-degenerate points in a 8-by-8 grid
-    - failed on trial 7 of 10000
-    - query point          = (0.875, 0.75)
-    - student   contains() = true
-    - reference contains() = false
-    - sequence of points inserted: 
-      A  0.875 0.25
-      B  0.625 0.75
-      C  0.125 0.5
-      D  0.375 1.0
-      E  0.5 0.875
+
+    java.lang.NullPointerException
+
+    TreeNode.contains(KdTree.java:261)
+    TSet.contains(KdTree.java:166)
+    KdTree.contains(KdTree.java:40)
+    TestKdTree.checkContains(TestKdTree.java:245)
+    TestKdTree.checkContains(TestKdTree.java:223)
+    TestKdTree.test2b(TestKdTree.java:1639)
+    TestKdTree.main(TestKdTree.java:1944)
 
   * 10 random non-degenerate points in a 16-by-16 grid
-    - failed on trial 7 of 10000
-    - query point          = (0.0625, 0.375)
-    - student   contains() = true
-    - reference contains() = false
-    - sequence of points inserted: 
-      A  0.0625 0.25
-      B  0.75 1.0
-      C  0.6875 0.0625
-      D  0.5 0.8125
-      E  0.125 0.1875
-      F  1.0 0.125
-      G  0.0 0.3125
-      H  0.8125 0.9375
-      I  0.5625 0.5625
-      J  0.4375 0.625
+
+    java.lang.NullPointerException
+
+    TreeNode.contains(KdTree.java:261)
+    TreeNode.contains(KdTree.java:257)
+    TreeNode.contains(KdTree.java:251)
+    TSet.contains(KdTree.java:166)
+    KdTree.contains(KdTree.java:40)
+    TestKdTree.checkContains(TestKdTree.java:245)
+    TestKdTree.checkContains(TestKdTree.java:223)
+    TestKdTree.test2b(TestKdTree.java:1640)
+    TestKdTree.main(TestKdTree.java:1944)
 
   * 20 random non-degenerate points in a 32-by-32 grid
-    - failed on trial 3 of 10000
-    - query point          = (0.71875, 0.25)
-    - student   contains() = true
-    - reference contains() = false
-    - sequence of points inserted: 
-      A  0.96875 0.5625
-      B  0.09375 0.84375
-      C  0.3125 0.53125
-      D  0.84375 0.46875
-      E  0.0 0.78125
-      F  0.28125 0.875
-      G  0.1875 0.40625
-      H  0.21875 0.21875
-      I  0.375 0.9375
-      J  0.59375 0.15625
-      K  0.5625 0.34375
-      L  0.25 0.03125
-      M  0.40625 0.625
-      N  1.0 0.6875
-      O  0.625 0.5
-      P  0.5 0.59375
-      Q  0.65625 0.65625
-      R  0.0625 0.25
-      S  0.90625 0.09375
-      T  0.75 0.125
+
+    java.lang.NullPointerException
+
+    TreeNode.contains(KdTree.java:261)
+    TreeNode.contains(KdTree.java:257)
+    TreeNode.contains(KdTree.java:257)
+    TreeNode.contains(KdTree.java:257)
+    TreeNode.contains(KdTree.java:251)
+    ...
+    KdTree.contains(KdTree.java:40)
+    TestKdTree.checkContains(TestKdTree.java:245)
+    TestKdTree.checkContains(TestKdTree.java:223)
+    TestKdTree.test2b(TestKdTree.java:1641)
+    TestKdTree.main(TestKdTree.java:1944)
 
   * 500 random non-degenerate points in a 1024-by-1024 grid
-    - failed on trial 146 of 10000
-    - query point          = (0.927734375, 0.9326171875)
-    - student   contains() = true
-    - reference contains() = false
+
+    java.lang.NullPointerException
+
+    TreeNode.contains(KdTree.java:261)
+    TreeNode.contains(KdTree.java:257)
+    TreeNode.contains(KdTree.java:251)
+    TreeNode.contains(KdTree.java:257)
+    TreeNode.contains(KdTree.java:257)
+    ...
+    KdTree.contains(KdTree.java:40)
+    TestKdTree.checkContains(TestKdTree.java:245)
+    TestKdTree.checkContains(TestKdTree.java:223)
+    TestKdTree.test2b(TestKdTree.java:1642)
+    TestKdTree.main(TestKdTree.java:1944)
 
   * 10000 random non-degenerate points in a 65536-by-65536 grid
 
     java.lang.NullPointerException
 
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:230)
+    TreeNode.contains(KdTree.java:261)
+    TreeNode.contains(KdTree.java:257)
+    TreeNode.contains(KdTree.java:257)
+    TreeNode.contains(KdTree.java:257)
+    TreeNode.contains(KdTree.java:251)
     ...
     KdTree.contains(KdTree.java:40)
     TestKdTree.checkContains(TestKdTree.java:245)
@@ -472,65 +559,58 @@ Test 2b: insert non-degenerate points; check contains() with random query points
 
 Test 2c: insert distinct points; check contains() with random query points
   * 1 random distinct points in a 1-by-1 grid
-    - failed on trial 1 of 10000
-    - query point          = (0.0, 1.0)
-    - student   contains() = true
-    - reference contains() = false
-    - sequence of points inserted: 
-      A  0.0 0.0
+
+    java.lang.NullPointerException
+
+    TreeNode.contains(KdTree.java:261)
+    TSet.contains(KdTree.java:166)
+    KdTree.contains(KdTree.java:40)
+    TestKdTree.checkContains(TestKdTree.java:245)
+    TestKdTree.checkContains(TestKdTree.java:223)
+    TestKdTree.test2c(TestKdTree.java:1651)
+    TestKdTree.main(TestKdTree.java:1947)
 
   * 10 random distinct points in a 4-by-4 grid
 
     java.lang.NullPointerException
 
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TSet.contains(KdTree.java:151)
-    KdTree.contains(KdTree.java:40)
-    TestKdTree.checkContains(TestKdTree.java:245)
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:225)
+    TSet.add(KdTree.java:162)
+    ...
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2c(TestKdTree.java:1652)
     TestKdTree.main(TestKdTree.java:1947)
 
   * 20 random distinct points in a 8-by-8 grid
-    - failed on trial 2 of 10000
-    - query point          = (0.25, 0.75)
-    - student   contains() = true
-    - reference contains() = false
-    - sequence of points inserted: 
-      A  0.25 0.625
-      B  0.625 0.75
-      C  0.5 0.375
-      D  0.125 0.875
-      E  0.875 0.25
-      F  0.125 0.375
-      G  0.625 0.875
-      H  0.125 1.0
-      I  0.875 0.5
-      J  0.75 0.375
-      K  1.0 0.875
-      L  0.25 0.875
-      M  0.75 0.5
-      N  0.5 0.25
-      O  0.875 0.0
-      P  0.625 1.0
-      Q  0.5 0.0
-      R  0.375 0.75
-      S  0.5 0.125
-      T  1.0 0.125
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkContains(TestKdTree.java:239)
+    TestKdTree.checkContains(TestKdTree.java:223)
+    TestKdTree.test2c(TestKdTree.java:1653)
+    TestKdTree.main(TestKdTree.java:1947)
 
   * 10000 random distinct points in a 128-by-128 grid
 
     java.lang.NullPointerException
 
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
     ...
-    KdTree.contains(KdTree.java:40)
-    TestKdTree.checkContains(TestKdTree.java:245)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2c(TestKdTree.java:1654)
     TestKdTree.main(TestKdTree.java:1947)
@@ -539,14 +619,14 @@ Test 2c: insert distinct points; check contains() with random query points
 
     java.lang.NullPointerException
 
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
     ...
-    KdTree.contains(KdTree.java:40)
-    TestKdTree.checkContains(TestKdTree.java:245)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2c(TestKdTree.java:1655)
     TestKdTree.main(TestKdTree.java:1947)
@@ -555,14 +635,14 @@ Test 2c: insert distinct points; check contains() with random query points
 
     java.lang.NullPointerException
 
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
     ...
-    KdTree.contains(KdTree.java:40)
-    TestKdTree.checkContains(TestKdTree.java:245)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2c(TestKdTree.java:1656)
     TestKdTree.main(TestKdTree.java:1947)
@@ -574,10 +654,10 @@ Test 2d: insert general points; check contains() with random query points
 
     java.lang.NullPointerException
 
-    TreeNode.contains(KdTree.java:236)
-    TSet.contains(KdTree.java:151)
-    KdTree.contains(KdTree.java:40)
-    TestKdTree.checkContains(TestKdTree.java:245)
+    TreeNode.add(KdTree.java:237)
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2d(TestKdTree.java:1664)
     TestKdTree.main(TestKdTree.java:1950)
@@ -586,14 +666,14 @@ Test 2d: insert general points; check contains() with random query points
 
     java.lang.NullPointerException
 
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:230)
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:231)
     ...
-    KdTree.contains(KdTree.java:40)
-    TestKdTree.checkContains(TestKdTree.java:245)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2d(TestKdTree.java:1665)
     TestKdTree.main(TestKdTree.java:1950)
@@ -602,23 +682,33 @@ Test 2d: insert general points; check contains() with random query points
 
     java.lang.NullPointerException
 
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:231)
     ...
-    KdTree.contains(KdTree.java:40)
-    TestKdTree.checkContains(TestKdTree.java:245)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2d(TestKdTree.java:1666)
     TestKdTree.main(TestKdTree.java:1950)
 
   * 10000 random general points in a 1024-by-1024 grid
-    - failed on trial 49 of 10000
-    - query point          = (0.888671875, 0.52734375)
-    - student   contains() = false
-    - reference contains() = true
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    ...
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkContains(TestKdTree.java:239)
+    TestKdTree.checkContains(TestKdTree.java:223)
+    TestKdTree.test2d(TestKdTree.java:1667)
+    TestKdTree.main(TestKdTree.java:1950)
 
 ==> FAILED
 
@@ -627,8 +717,8 @@ Test 3a: insert points from file; check range() with random query rectangles
 
     java.lang.NullPointerException
 
-    TSet$inOrderIterator.next(KdTree.java:173)
-    TSet$inOrderIterator.next(KdTree.java:161)
+    TSet$inOrderIterator.next(KdTree.java:188)
+    TSet$inOrderIterator.next(KdTree.java:176)
     KdTree.range(KdTree.java:59)
     TestKdTree.checkRange(TestKdTree.java:576)
     TestKdTree.checkRange(TestKdTree.java:529)
@@ -651,99 +741,249 @@ Test 3b: insert non-degenerate points; check range() with random query rectangle
 
 Test 3c: insert distinct points; check range() with random query rectangles
   * 2 random distinct points and random rectangles in a 2-by-2 grid
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkRange(TestKdTree.java:544)
+    TestKdTree.checkRange(TestKdTree.java:523)
+    TestKdTree.test3c(TestKdTree.java:1698)
+    TestKdTree.main(TestKdTree.java:1959)
+
   * 10 random distinct points and random rectangles in a 4-by-4 grid
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:237)
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkRange(TestKdTree.java:544)
+    TestKdTree.checkRange(TestKdTree.java:523)
+    TestKdTree.test3c(TestKdTree.java:1699)
+    TestKdTree.main(TestKdTree.java:1959)
+
   * 20 random distinct points and random rectangles in a 8-by-8 grid
-    - failed on trial 1 of 10000
-    - query rectangle = [0.375, 1.0] x [0.0, 0.25]
-    - sequence of points inserted: 
-      A  1.0 1.0
-      B  0.875 0.75
-      C  0.625 0.125
-      D  0.375 0.5
-      E  0.625 0.0
-      F  0.25 0.0
-      G  0.0 0.375
-      H  0.0 0.625
-      I  0.875 0.375
-      J  0.875 0.625
-      K  0.5 0.625
-      L  0.125 0.75
-      M  0.625 0.375
-      N  0.875 1.0
-      O  0.125 0.625
-      P  0.375 1.0
-      Q  1.0 0.5
-      R  0.75 0.875
-      S  0.25 1.0
-      T  0.5 0.125
-    - student   range():  C T 
-    - reference range():  C T E 
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkRange(TestKdTree.java:544)
+    TestKdTree.checkRange(TestKdTree.java:523)
+    TestKdTree.test3c(TestKdTree.java:1700)
+    TestKdTree.main(TestKdTree.java:1959)
 
   * 100 random distinct points and random rectangles in a 16-by-16 grid
-    - failed on trial 1 of 10000
-    - query rectangle = [0.375, 0.75] x [0.0625, 0.5625]
-    - student   range():  B K W S E T V U A A 
-    - reference range():  B K S X S C E N V A W U A G T A E F T 
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkRange(TestKdTree.java:544)
+    TestKdTree.checkRange(TestKdTree.java:523)
+    TestKdTree.test3c(TestKdTree.java:1701)
+    TestKdTree.main(TestKdTree.java:1959)
 
   * 1000 random distinct points and random rectangles in a 64-by-64 grid
-    - failed on trial 1 of 10000
-    - query rectangle = [0.203125, 0.234375] x [0.359375, 0.6875]
-    - student   range():  S C A F K O X B I 
-    - reference range():  S C A O U S I P S V X B K F K Y 
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:237)
+    TSet.add(KdTree.java:162)
+    ...
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkRange(TestKdTree.java:544)
+    TestKdTree.checkRange(TestKdTree.java:523)
+    TestKdTree.test3c(TestKdTree.java:1702)
+    TestKdTree.main(TestKdTree.java:1959)
 
   * 10000 random distinct points and random rectangles in a 128-by-128 grid
-    - failed on trial 1 of 10000
-    - query rectangle = [0.4140625, 0.5234375] x [0.125, 0.8671875]
-    - student   range():  C Q V K V Y N A F Z O W H H O B B F Y E P K Z A N T ...
-    - reference range():  V D E B J F A G O I F I I Y F X V P G Z A W Z O V Q ...
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
+    ...
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkRange(TestKdTree.java:544)
+    TestKdTree.checkRange(TestKdTree.java:523)
+    TestKdTree.test3c(TestKdTree.java:1703)
+    TestKdTree.main(TestKdTree.java:1959)
 
 ==> FAILED
 
 Test 3d: insert general points; check range() with random query rectangles
   * 5000 random general points and random rectangles in a 2-by-2 grid
-    - failed on trial 1 of 10000
-    - query rectangle = [0.0, 0.0] x [0.0, 0.5]
-    - student   range():  empty
-    - reference range():  V T 
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:225)
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkRange(TestKdTree.java:544)
+    TestKdTree.checkRange(TestKdTree.java:523)
+    TestKdTree.test3d(TestKdTree.java:1711)
+    TestKdTree.main(TestKdTree.java:1962)
 
   * 5000 random general points and random rectangles in a 16-by-16 grid
-    - failed on trial 1 of 10000
-    - query rectangle = [0.25, 0.375] x [0.0, 1.0]
-    - student   range():  B W H M W A R B V W D U X M H Y 
-    - reference range():  B W M H P P D A J X C D P H W J V D D Q L H Y U W P ...
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    TSet.add(KdTree.java:162)
+    ...
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkRange(TestKdTree.java:544)
+    TestKdTree.checkRange(TestKdTree.java:523)
+    TestKdTree.test3d(TestKdTree.java:1712)
+    TestKdTree.main(TestKdTree.java:1962)
 
   * 5000 random general points and random rectangles in a 128-by-128 grid
-    - failed on trial 1 of 10000
-    - query rectangle = [0.6875, 0.8671875] x [0.109375, 0.609375]
-    - student   range():  U W R P J D K J P Z V J C W C Z H T E Y O M G I Y Y ...
-    - reference range():  U W P H O Z A Z F D M A M Q T V D Y I R M O D K L F ...
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:237)
+    ...
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkRange(TestKdTree.java:544)
+    TestKdTree.checkRange(TestKdTree.java:523)
+    TestKdTree.test3d(TestKdTree.java:1713)
+    TestKdTree.main(TestKdTree.java:1962)
 
   * 5000 random general points and random rectangles in a 1024-by-1024 grid
-    - failed on trial 1 of 10000
-    - query rectangle = [0.4794921875, 0.8251953125] x [0.4208984375, 0.94921875]
-    - student   range():  H U W E B Z U K Z N W C V O U A J W X N J G A D Z L ...
-    - reference range():  N J T C L L U C B O V J Y L A L Z M F C J T R I W S ...
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    ...
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkRange(TestKdTree.java:544)
+    TestKdTree.checkRange(TestKdTree.java:523)
+    TestKdTree.test3d(TestKdTree.java:1714)
+    TestKdTree.main(TestKdTree.java:1962)
 
 ==> FAILED
 
 Test 3e: insert random points; check range() with tiny rectangles
          enclosing each point
   * 5 tiny rectangles and 5 general points in a 2-by-2 grid
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:237)
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkRangeTiny(TestKdTree.java:613)
+    TestKdTree.test3e(TestKdTree.java:1722)
+    TestKdTree.main(TestKdTree.java:1965)
+
   * 10 tiny rectangles and 10 general points in a 4-by-4 grid
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkRangeTiny(TestKdTree.java:613)
+    TestKdTree.test3e(TestKdTree.java:1723)
+    TestKdTree.main(TestKdTree.java:1965)
+
   * 20 tiny rectangles and 20 general points in a 8-by-8 grid
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkRangeTiny(TestKdTree.java:613)
+    TestKdTree.test3e(TestKdTree.java:1724)
+    TestKdTree.main(TestKdTree.java:1965)
+
   * 5000 tiny rectangles and 5000 general points in a 128-by-128 grid
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:225)
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkRangeTiny(TestKdTree.java:613)
+    TestKdTree.test3e(TestKdTree.java:1725)
+    TestKdTree.main(TestKdTree.java:1965)
+
   * 5000 tiny rectangles and 5000 general points in a 1024-by-1024 grid
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:231)
+    ...
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkRangeTiny(TestKdTree.java:613)
+    TestKdTree.test3e(TestKdTree.java:1726)
+    TestKdTree.main(TestKdTree.java:1965)
+
   * 5000 tiny rectangles and 5000 general points in a 65536-by-65536 grid
-==> passed
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:225)
+    ...
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkRangeTiny(TestKdTree.java:613)
+    TestKdTree.test3e(TestKdTree.java:1727)
+    TestKdTree.main(TestKdTree.java:1965)
+
+==> FAILED
 
 Test 4a: insert points from file; check range() with random query rectangles
          and check traversal of kd-tree
   * input5.txt
     - student range() returns correct set of points
-    - student   range():  empty
-    - reference range():  empty
+    - student   range():  D 
+    - reference range():  D 
     - performs incorrect traversal of kd-tree during call to range()
-    - query rectangle = [0.59, 0.78] x [0.5, 0.77]
+    - query rectangle = [0.06, 0.47] x [0.66, 0.73]
     - sequence of points inserted: 
       A  0.7 0.2
       B  0.5 0.4
@@ -753,15 +993,15 @@ Test 4a: insert points from file; check range() with random query rectangles
     - student kd-tree nodes involved in calls to Point2D methods:
       A B E C D 
     - reference kd-tree nodes involved in calls to Point2D methods:
-      A B D E 
+      A B D 
     - failed on trial 1 of 1000
 
   * input10.txt
     - student range() returns correct set of points
-    - student   range():  A B G J 
-    - reference range():  A B G J 
+    - student   range():  empty
+    - reference range():  empty
     - performs incorrect traversal of kd-tree during call to range()
-    - query rectangle = [0.34, 0.96] x [0.02, 0.67]
+    - query rectangle = [0.16, 0.68] x [0.06, 0.17]
     - sequence of points inserted: 
       A  0.372 0.497
       B  0.564 0.413
@@ -776,7 +1016,7 @@ Test 4a: insert points from file; check range() with random query rectangles
     - student kd-tree nodes involved in calls to Point2D methods:
       A C B D F G H E J I 
     - reference kd-tree nodes involved in calls to Point2D methods:
-      A C D F B G J H I 
+      A C D B G J 
     - failed on trial 1 of 1000
 
 ==> FAILED
@@ -784,91 +1024,106 @@ Test 4a: insert points from file; check range() with random query rectangles
 Test 4b: insert non-degenerate points; check range() with random query rectangles
          and check traversal of kd-tree
   * 3 random non-degenerate points and 1000 random rectangles in a 4-by-4 grid
+    - student range() returns correct set of points
+    - student   range():  empty
+    - reference range():  empty
+    - performs incorrect traversal of kd-tree during call to range()
+    - query rectangle = [0.0, 0.5] x [0.75, 1.0]
+    - sequence of points inserted: 
+      A  1.0 0.5
+      B  0.75 0.25
+      C  0.25 0.0
+    - student kd-tree nodes involved in calls to Point2D methods:
+      A B C 
+    - reference kd-tree nodes involved in calls to Point2D methods:
+      A B 
+    - failed on trial 1 of 1000
+
   * 6 random non-degenerate points and 1000 random rectangles in a 8-by-8 grid
     - student range() returns correct set of points
     - student   range():  empty
     - reference range():  empty
     - performs incorrect traversal of kd-tree during call to range()
-    - query rectangle = [0.125, 0.25] x [0.125, 0.875]
+    - query rectangle = [0.0, 0.625] x [0.25, 0.375]
     - sequence of points inserted: 
-      A  0.875 0.25
-      B  0.5 0.0
-      C  1.0 0.75
-      D  0.0 1.0
-      E  0.625 0.375
-      F  0.375 0.5
+      A  0.5 0.0
+      B  1.0 0.5
+      C  0.375 1.0
+      D  0.875 0.875
+      E  0.25 0.625
+      F  0.125 0.125
     - student kd-tree nodes involved in calls to Point2D methods:
-      A B C D E F 
+      A C B E D F 
     - reference kd-tree nodes involved in calls to Point2D methods:
-      A B D E F 
-    - failed on trial 1 of 1000
+      A C E F B 
+    - failed on trial 4 of 1000
 
   * 10 random non-degenerate points and 1000 random rectangles in a 16-by-16 grid
     - student range() returns correct set of points
-    - student   range():  E 
-    - reference range():  E 
+    - student   range():  D F I 
+    - reference range():  D F I 
     - performs incorrect traversal of kd-tree during call to range()
-    - query rectangle = [0.375, 0.875] x [0.0, 0.1875]
+    - query rectangle = [0.625, 0.875] x [0.0625, 0.875]
     - sequence of points inserted: 
-      A  0.1875 0.75
-      B  1.0 0.875
-      C  0.5625 1.0
-      D  0.75 0.4375
-      E  0.8125 0.0625
-      F  0.6875 0.8125
-      G  0.3125 0.375
-      H  0.25 0.625
-      I  0.0625 0.5
-      J  0.9375 0.9375
+      A  0.3125 0.3125
+      B  0.125 0.5
+      C  0.5 0.8125
+      D  0.6875 0.625
+      E  0.9375 0.75
+      F  0.75 0.4375
+      G  0.0625 0.5625
+      H  0.4375 0.6875
+      I  0.8125 0.25
+      J  0.5625 1.0
     - student kd-tree nodes involved in calls to Point2D methods:
-      A I B D C F E J G H 
+      A B C G D J H E F I 
     - reference kd-tree nodes involved in calls to Point2D methods:
-      A B D F G E 
+      A C D H E F I J 
     - failed on trial 1 of 1000
 
   * 20 random non-degenerate points and 1000 random rectangles in a 32-by-32 grid
     - student range() returns correct set of points
-    - student   range():  E N T 
-    - reference range():  E N T 
+    - student   range():  empty
+    - reference range():  empty
     - performs incorrect traversal of kd-tree during call to range()
-    - query rectangle = [0.0625, 0.375] x [0.59375, 0.84375]
+    - query rectangle = [0.15625, 0.25] x [0.8125, 0.875]
     - sequence of points inserted: 
-      A  0.125 0.5625
-      B  0.15625 0.09375
-      C  0.59375 0.625
-      D  0.65625 1.0
-      E  0.3125 0.6875
-      F  0.28125 0.1875
-      G  0.4375 0.53125
-      H  0.0 0.125
-      I  0.75 0.0
-      J  0.96875 0.375
-      K  0.8125 0.875
-      L  0.6875 0.0625
-      M  0.03125 0.28125
-      N  0.21875 0.65625
-      O  0.34375 0.5
-      P  0.9375 0.25
-      Q  0.1875 0.9375
-      R  0.875 0.15625
-      S  0.78125 0.8125
-      T  0.25 0.71875
+      A  0.09375 0.5
+      B  0.46875 0.15625
+      C  1.0 0.375
+      D  0.75 0.3125
+      E  0.40625 0.53125
+      F  0.96875 0.4375
+      G  0.28125 0.28125
+      H  0.6875 0.78125
+      I  0.8125 0.625
+      J  0.125 0.71875
+      K  0.0625 0.65625
+      L  0.875 0.9375
+      M  0.3125 0.09375
+      N  0.625 0.0
+      O  0.1875 0.96875
+      P  0.71875 0.34375
+      Q  0.5 1.0
+      R  0.375 0.5625
+      S  0.21875 0.59375
+      T  0.34375 0.6875
     - student kd-tree nodes involved in calls to Point2D methods:
-      A H B M I C L E D F Q J N G T K O P R S 
+      A K B M C N D G E J F R O P H S Q I T L 
     - reference kd-tree nodes involved in calls to Point2D methods:
-      A H M B C E F N G Q T 
+      A B C D E J O 
     - failed on trial 1 of 1000
 
   * 30 random non-degenerate points and 1000 random rectangles in a 64-by-64 grid
     - student range() returns correct set of points
-    - student   range():  empty
-    - reference range():  empty
+    - student   range():  S T R D 
+    - reference range():  T R S D 
     - performs incorrect traversal of kd-tree during call to range()
-    - query rectangle = [0.40625, 0.96875] x [0.40625, 0.546875]
+    - query rectangle = [0.015625, 0.796875] x [0.65625, 0.828125]
     - number of entries in student   solution: 30
-    - number of entries in reference solution: 11
-    - 19 extra entries in student solution, including:
-      '(0.078125, 0.890625)'
+    - number of entries in reference solution: 19
+    - 11 extra entries in student solution, including:
+      '(0.421875, 0.96875)'
 
     - failed on trial 1 of 1000
 
@@ -891,129 +1146,129 @@ Test 5b: insert non-degenerate points; check nearest() with random query points
 
 Test 5c: insert distinct points; check nearest() with random query points
   * 10 random distinct points in a 4-by-4 grid
-    - failed on trial 2 of 10000
-    - sequence of points inserted: 
-      A  0.5 0.75
-      B  0.75 0.25
-      C  0.25 0.75
-      D  0.75 1.0
-      E  0.25 0.25
-      F  1.0 0.25
-      G  0.25 0.0
-      H  0.5 1.0
-      I  0.0 1.0
-      J  1.0 0.5
-    - query point                   = (1.0, 0.0)
-    - student   nearest()           = (0.75, 0.25)
-    - reference nearest()           = (1.0, 0.25)
-    - student   distanceSquaredTo() = 0.125
-    - reference distanceSquaredTo() = 0.0625
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkNearest(TestKdTree.java:298)
+    TestKdTree.checkNearest(TestKdTree.java:276)
+    TestKdTree.test5c(TestKdTree.java:1783)
+    TestKdTree.main(TestKdTree.java:1980)
 
   * 15 random distinct points in a 8-by-8 grid
-    - failed on trial 6 of 10000
-    - sequence of points inserted: 
-      A  0.125 0.5
-      B  0.125 1.0
-      C  0.625 0.875
-      D  0.125 0.25
-      E  0.0 0.0
-      F  0.25 0.5
-      G  0.875 0.5
-      H  0.375 0.0
-      I  0.0 0.5
-      J  0.0 0.875
-      K  0.375 0.875
-      L  0.25 0.625
-      M  0.75 0.125
-      N  0.75 0.375
-      O  1.0 0.75
-    - query point                   = (0.375, 0.75)
-    - student   nearest()           = (0.625, 0.875)
-    - reference nearest()           = (0.375, 0.875)
-    - student   distanceSquaredTo() = 0.078125
-    - reference distanceSquaredTo() = 0.015625
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkNearest(TestKdTree.java:298)
+    TestKdTree.checkNearest(TestKdTree.java:276)
+    TestKdTree.test5c(TestKdTree.java:1784)
+    TestKdTree.main(TestKdTree.java:1980)
 
   * 20 random distinct points in a 16-by-16 grid
-    - failed on trial 1 of 10000
-    - sequence of points inserted: 
-      A  0.8125 0.375
-      B  0.0 0.25
-      C  0.0 0.375
-      D  0.8125 0.6875
-      E  0.875 0.5
-      F  0.1875 0.625
-      G  0.375 0.75
-      H  0.625 0.25
-      I  0.875 0.625
-      J  0.625 0.0625
-      K  0.3125 0.1875
-      L  0.3125 1.0
-      M  0.3125 0.25
-      N  0.3125 0.3125
-      O  0.5625 0.625
-      P  0.0 0.3125
-      Q  0.875 0.375
-      R  0.125 0.6875
-      S  0.0625 0.4375
-      T  0.6875 0.0
-    - query point                   = (0.875, 0.75)
-    - student   nearest()           = (0.875, 0.625)
-    - reference nearest()           = (0.8125, 0.6875)
-    - student   distanceSquaredTo() = 0.015625
-    - reference distanceSquaredTo() = 0.0078125
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkNearest(TestKdTree.java:298)
+    TestKdTree.checkNearest(TestKdTree.java:276)
+    TestKdTree.test5c(TestKdTree.java:1785)
+    TestKdTree.main(TestKdTree.java:1980)
 
   * 100 random distinct points in a 32-by-32 grid
-    - failed on trial 1 of 10000
-    - query point                   = (0.8125, 0.4375)
-    - student   nearest()           = (0.875, 0.46875)
-    - reference nearest()           = (0.84375, 0.4375)
-    - student   distanceSquaredTo() = 0.0048828125
-    - reference distanceSquaredTo() = 0.0009765625
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:225)
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkNearest(TestKdTree.java:298)
+    TestKdTree.checkNearest(TestKdTree.java:276)
+    TestKdTree.test5c(TestKdTree.java:1786)
+    TestKdTree.main(TestKdTree.java:1980)
 
   * 10000 random distinct points in a 65536-by-65536 grid
-    - failed on trial 51 of 10000
-    - query point                   = (0.8927459716796875, 0.173583984375)
-    - student   nearest()           = (0.8854217529296875, 0.1764373779296875)
-    - reference nearest()           = (0.8949127197265625, 0.1681365966796875)
-    - student   distanceSquaredTo() = 0.000061786035076
-    - reference distanceSquaredTo() = 0.000034368829802
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
+    ...
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkNearest(TestKdTree.java:298)
+    TestKdTree.checkNearest(TestKdTree.java:276)
+    TestKdTree.test5c(TestKdTree.java:1787)
+    TestKdTree.main(TestKdTree.java:1980)
 
 ==> FAILED
 
 Test 5d: insert general points; check nearest() with random query points
   * 10000 random general points in a 16-by-16 grid
-    - failed on trial 1 of 10000
-    - query point                   = (0.375, 0.3125)
-    - student   nearest()           = (0.4375, 0.3125)
-    - reference nearest()           = (0.375, 0.3125)
-    - student   distanceSquaredTo() = 0.00390625
-    - reference distanceSquaredTo() = 0
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:225)
+    ...
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkNearest(TestKdTree.java:298)
+    TestKdTree.checkNearest(TestKdTree.java:276)
+    TestKdTree.test5d(TestKdTree.java:1795)
+    TestKdTree.main(TestKdTree.java:1983)
 
   * 10000 random general points in a 128-by-128 grid
-    - failed on trial 3 of 10000
-    - query point                   = (0.59375, 0.3125)
-    - student   nearest()           = (0.5859375, 0.3125)
-    - reference nearest()           = (0.59375, 0.3125)
-    - student   distanceSquaredTo() = 0.00006103515625
-    - reference distanceSquaredTo() = 0
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkNearest(TestKdTree.java:298)
+    TestKdTree.checkNearest(TestKdTree.java:276)
+    TestKdTree.test5d(TestKdTree.java:1796)
+    TestKdTree.main(TestKdTree.java:1983)
 
   * 10000 random general points in a 1024-by-1024 grid
-    - failed on trial 5 of 10000
-    - query point                   = (0.638671875, 0.517578125)
-    - student   nearest()           = (0.6298828125, 0.5205078125)
-    - reference nearest()           = (0.6376953125, 0.5166015625)
-    - student   distanceSquaredTo() = 0.000085830688477
-    - reference distanceSquaredTo() = 0.000001907348633
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    ...
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkNearest(TestKdTree.java:298)
+    TestKdTree.checkNearest(TestKdTree.java:276)
+    TestKdTree.test5d(TestKdTree.java:1797)
+    TestKdTree.main(TestKdTree.java:1983)
 
 ==> FAILED
 
 Test 6a: insert points from file; check nearest() with random query points
          and check traversal of kd-tree
   * input5.txt
-    - student   nearest() = (0.4, 0.7)
-    - reference nearest() = (0.4, 0.7)
+    - student   nearest() = (0.2, 0.3)
+    - reference nearest() = (0.2, 0.3)
     - performs incorrect traversal of kd-tree during call to nearest()
-    - query point = (0.34, 0.78)
+    - query point = (0.07, 0.58)
     - sequence of points inserted: 
       A  0.7 0.2
       B  0.5 0.4
@@ -1023,14 +1278,14 @@ Test 6a: insert points from file; check nearest() with random query points
     - student sequence of kd-tree nodes involved in calls to Point2D methods:
       A B E C D 
     - reference sequence of kd-tree nodes involved in calls to Point2D methods:
-      A B D 
+      A B D C 
     - failed on trial 1 of 1000
 
   * input10.txt
-    - student   nearest() = (0.499, 0.208)
-    - reference nearest() = (0.499, 0.208)
+    - student   nearest() = (0.083, 0.51)
+    - reference nearest() = (0.083, 0.51)
     - performs incorrect traversal of kd-tree during call to nearest()
-    - query point = (0.72, 0.15)
+    - query point = (0.22, 0.4)
     - sequence of points inserted: 
       A  0.372 0.497
       B  0.564 0.413
@@ -1045,7 +1300,7 @@ Test 6a: insert points from file; check nearest() with random query points
     - student sequence of kd-tree nodes involved in calls to Point2D methods:
       A C B D F G H E J I 
     - reference sequence of kd-tree nodes involved in calls to Point2D methods:
-      A B G J 
+      A C D E B G H I 
     - failed on trial 1 of 1000
 
 ==> FAILED
@@ -1053,109 +1308,109 @@ Test 6a: insert points from file; check nearest() with random query points
 Test 6b: insert non-degenerate points; check nearest() with random query points
          and check traversal of kd-tree
   * 5 random non-degenerate points in a 8-by-8 grid
-    - student   nearest() = (0.75, 0.5)
-    - reference nearest() = (0.75, 0.5)
+    - student   nearest() = (0.375, 0.75)
+    - reference nearest() = (0.375, 0.75)
     - performs incorrect traversal of kd-tree during call to nearest()
-    - query point = (1.0, 0.375)
+    - query point = (1.0, 1.0)
     - sequence of points inserted: 
-      A  0.0 1.0
-      B  0.625 0.625
-      C  0.5 0.0
-      D  0.75 0.5
-      E  0.875 0.875
+      A  0.375 0.75
+      B  0.875 0.125
+      C  0.0 0.625
+      D  0.25 0.25
+      E  0.125 0.375
     - student sequence of kd-tree nodes involved in calls to Point2D methods:
-      A B C E D 
+      A C B D E 
     - reference sequence of kd-tree nodes involved in calls to Point2D methods:
-      A B C D E 
+      A B C 
     - failed on trial 1 of 1000
 
   * 10 random non-degenerate points in a 16-by-16 grid
-    - student   nearest() = (0.25, 0.625)
-    - reference nearest() = (0.25, 0.625)
+    - student   nearest() = (0.5, 0.8125)
+    - reference nearest() = (0.5, 0.8125)
     - performs incorrect traversal of kd-tree during call to nearest()
-    - query point = (0.3125, 0.75)
+    - query point = (0.4375, 1.0)
     - sequence of points inserted: 
-      A  0.5625 0.3125
-      B  0.9375 0.5
-      C  0.8125 0.5625
-      D  0.0625 0.25
-      E  1.0 0.6875
-      F  0.4375 0.875
-      G  0.875 0.0625
-      H  0.25 0.625
-      I  0.1875 0.1875
-      J  0.125 0.375
+      A  0.5 0.8125
+      B  0.8125 0.375
+      C  0.75 0.1875
+      D  0.375 0.0625
+      E  0.6875 0.4375
+      F  0.3125 0.625
+      G  0.0 0.25
+      H  0.625 0.125
+      I  0.1875 0.0
+      J  0.875 0.3125
     - student sequence of kd-tree nodes involved in calls to Point2D methods:
-      A D B I F G C H E J 
+      A D B I F C E G H J 
     - reference sequence of kd-tree nodes involved in calls to Point2D methods:
-      A D F H J 
+      A D F G B E 
     - failed on trial 1 of 1000
 
   * 20 random non-degenerate points in a 32-by-32 grid
-    - student   nearest() = (0.125, 0.90625)
-    - reference nearest() = (0.125, 0.90625)
+    - student   nearest() = (0.625, 0.71875)
+    - reference nearest() = (0.625, 0.71875)
     - performs incorrect traversal of kd-tree during call to nearest()
-    - query point = (0.0, 0.9375)
+    - query point = (0.5625, 0.65625)
     - sequence of points inserted: 
-      A  0.6875 0.71875
-      B  0.8125 0.0625
-      C  0.5625 0.3125
-      D  0.84375 0.78125
-      E  0.40625 0.5
-      F  0.71875 0.96875
-      G  0.1875 0.46875
-      H  0.28125 0.53125
-      I  0.09375 0.25
-      J  0.21875 0.1875
-      K  0.03125 0.09375
-      L  0.46875 1.0
-      M  1.0 0.5625
-      N  0.375 0.40625
-      O  0.4375 0.34375
-      P  0.65625 0.8125
-      Q  0.0625 0.15625
-      R  0.125 0.90625
-      S  0.53125 0.125
-      T  0.25 0.03125
+      A  0.15625 0.96875
+      B  0.3125 0.3125
+      C  0.65625 0.9375
+      D  0.4375 0.28125
+      E  1.0 0.75
+      F  0.9375 0.375
+      G  0.25 0.40625
+      H  0.5 0.78125
+      I  0.75 0.4375
+      J  0.375 0.46875
+      K  0.28125 0.0
+      L  0.0 0.84375
+      M  0.84375 0.59375
+      N  0.09375 0.34375
+      O  0.78125 0.09375
+      P  0.6875 0.8125
+      Q  0.53125 1.0
+      R  0.03125 0.5625
+      S  0.625 0.71875
+      T  0.34375 0.125
     - student sequence of kd-tree nodes involved in calls to Point2D methods:
-      A C B I E D K J G L F M Q S N H O T R P 
+      A L B N D C R K O G E T H F P J Q I S M 
     - reference sequence of kd-tree nodes involved in calls to Point2D methods:
-      A C E G H R 
+      A B C G H Q S J 
     - failed on trial 1 of 1000
 
   * 30 random non-degenerate points in a 64-by-64 grid
-    - student   nearest() = (0.109375, 0.171875)
-    - reference nearest() = (0.109375, 0.171875)
+    - student   nearest() = (0.734375, 0.859375)
+    - reference nearest() = (0.734375, 0.859375)
     - performs incorrect traversal of kd-tree during call to nearest()
     - number of student   entries = 30
-    - number of reference entries = 10
-    - entry 3 of the two sequences are not equal
-    - student   entry 3 = (0.0625, 0.65625)
-    - reference entry 3 = (0.765625, 0.515625)
+    - number of reference entries = 13
+    - entry 1 of the two sequences are not equal
+    - student   entry 1 = (0.34375, 0.984375)
+    - reference entry 1 = (0.875, 0.625)
 
     - failed on trial 1 of 1000
 
   * 50 random non-degenerate points in a 128-by-128 grid
-    - student   nearest() = (0.5546875, 0.8984375)
-    - reference nearest() = (0.5546875, 0.8984375)
+    - student   nearest() = (0.4296875, 0.4375)
+    - reference nearest() = (0.4296875, 0.4375)
     - performs incorrect traversal of kd-tree during call to nearest()
     - number of student   entries = 50
-    - number of reference entries = 15
-    - entry 2 of the two sequences are not equal
-    - student   entry 2 = (0.5546875, 0.8984375)
-    - reference entry 2 = (0.09375, 0.8515625)
+    - number of reference entries = 17
+    - entry 1 of the two sequences are not equal
+    - student   entry 1 = (0.2890625, 0.15625)
+    - reference entry 1 = (0.4765625, 0.8359375)
 
     - failed on trial 1 of 1000
 
   * 1000 random non-degenerate points in a 2048-by-2048 grid
-    - student   nearest() = (0.88525390625, 0.5634765625)
-    - reference nearest() = (0.88525390625, 0.5634765625)
+    - student   nearest() = (0.9013671875, 0.74365234375)
+    - reference nearest() = (0.9013671875, 0.74365234375)
     - performs incorrect traversal of kd-tree during call to nearest()
     - number of student   entries = 1000
-    - number of reference entries = 13
+    - number of reference entries = 18
     - entry 1 of the two sequences are not equal
-    - student   entry 1 = (0.18994140625, 0.7421875)
-    - reference entry 1 = (0.9033203125, 0.23291015625)
+    - student   entry 1 = (0.1083984375, 0.45751953125)
+    - reference entry 1 = (0.38671875, 0.69775390625)
 
     - failed on trial 1 of 1000
 
@@ -1167,7 +1422,7 @@ Test 7: check with no points
 
     java.lang.NullPointerException
 
-    TSet.contains(KdTree.java:151)
+    TSet.contains(KdTree.java:166)
     KdTree.contains(KdTree.java:40)
     TestKdTree.checkContains(TestKdTree.java:245)
     TestKdTree.checkContains(TestKdTree.java:218)
@@ -1179,8 +1434,8 @@ Test 7: check with no points
 
     java.lang.NullPointerException
 
-    TSet$inOrderIterator.next(KdTree.java:173)
-    TSet$inOrderIterator.next(KdTree.java:161)
+    TSet$inOrderIterator.next(KdTree.java:188)
+    TSet$inOrderIterator.next(KdTree.java:176)
     KdTree.range(KdTree.java:59)
     TestKdTree.checkRange(TestKdTree.java:576)
     TestKdTree.checkRange(TestKdTree.java:518)
@@ -1203,153 +1458,85 @@ Test 9a: check intermixed sequence of calls to insert(), isEmpty(),
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
   * 20000 calls with non-degenerate points in a 16-by-16 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
-
-    java.lang.NullPointerException
-
-    TreeNode.contains(KdTree.java:236)
-    TSet.contains(KdTree.java:151)
-    KdTree.contains(KdTree.java:40)
-    TestKdTree.checkAll(TestKdTree.java:880)
-    TestKdTree.test9a(TestKdTree.java:1853)
-    TestKdTree.main(TestKdTree.java:1998)
-
-    - sequence of operations was:
-           st.insert(0.5, 0.6875)
-           st.insert(0.8125, 0.125)
-           st.range([0.375, 0.625] x [0.0625, 0.4375])  ==>  empty
-           st.insert(0.875, 0.75)
-           st.contains((1.0, 0.25))
-
   * 20000 calls with non-degenerate points in a 128-by-128 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
-
-    java.lang.NullPointerException
-
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:230)
-    TreeNode.contains(KdTree.java:236)
-    TSet.contains(KdTree.java:151)
-    KdTree.contains(KdTree.java:40)
-    TestKdTree.checkAll(TestKdTree.java:880)
-    TestKdTree.test9a(TestKdTree.java:1854)
-    TestKdTree.main(TestKdTree.java:1998)
-
-
   * 20000 calls with non-degenerate points in a 1024-by-1024 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
-
-    java.lang.NullPointerException
-
-    TreeNode.contains(KdTree.java:236)
-    TSet.contains(KdTree.java:151)
-    KdTree.contains(KdTree.java:40)
-    TestKdTree.checkAll(TestKdTree.java:880)
-    TestKdTree.test9a(TestKdTree.java:1855)
-    TestKdTree.main(TestKdTree.java:1998)
-
-    - sequence of operations was:
-           st.insert(0.19921875, 0.0849609375)
-           st.nearest((0.1689453125, 0.6474609375))   ==>  (0.19921875, 0.0849609375)
-           st.nearest((0.91796875, 0.16015625))   ==>  (0.19921875, 0.0849609375)
-           st.contains((0.4248046875, 0.7822265625))  ==>  false
-           st.contains((0.490234375, 0.0400390625))  ==>  false
-           st.contains((0.287109375, 0.775390625))  ==>  false
-           st.insert(0.2333984375, 0.50390625)
-           st.size()  ==>  2
-           st.insert(0.599609375, 0.30859375)
-           st.range([0.6943359375, 0.9541015625] x [0.25390625, 0.82421875])  ==>  empty
-           st.nearest((0.7021484375, 0.11328125))   ==>  (0.599609375, 0.30859375)
-           st.range([0.212890625, 0.8203125] x [0.482421875, 0.5234375])  ==>  G 
-           st.nearest((0.20703125, 0.0634765625))   ==>  (0.19921875, 0.0849609375)
-           st.range([0.3701171875, 0.3896484375] x [0.6474609375, 0.80078125])  ==>  empty
-           st.nearest((0.1591796875, 0.93359375))   ==>  (0.2333984375, 0.50390625)
-           st.contains((0.041015625, 0.3291015625))  ==>  false
-           st.isEmpty()  ==>  false
-           st.insert(0.421875, 0.865234375)
-           st.contains((0.2431640625, 0.7724609375))
-
   * 20000 calls with non-degenerate points in a 8192-by-8192 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
-
-    java.lang.NullPointerException
-
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:230)
-    TreeNode.contains(KdTree.java:230)
-    TSet.contains(KdTree.java:151)
-    KdTree.contains(KdTree.java:40)
-    TestKdTree.checkAll(TestKdTree.java:880)
-    TestKdTree.test9a(TestKdTree.java:1856)
-    TestKdTree.main(TestKdTree.java:1998)
-
-
   * 20000 calls with non-degenerate points in a 65536-by-65536 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
-
-    java.lang.NullPointerException
-
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:230)
-    TreeNode.contains(KdTree.java:230)
-    TSet.contains(KdTree.java:151)
-    KdTree.contains(KdTree.java:40)
-    TestKdTree.checkAll(TestKdTree.java:880)
-    TestKdTree.test9a(TestKdTree.java:1857)
-    TestKdTree.main(TestKdTree.java:1998)
-
-
-==> FAILED
+==> passed
 
 Test 9b: check intermixed sequence of calls to insert(), isEmpty(),
          size(), contains(), range(), and nearest() with probabilities
          (p1, p2, p3, p4, p5, p6), respectively
   * 20000 calls with distinct points in a 1-by-1 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
-    - failed on trial 7 of 20000
-    - student   contains() = true
-    - reference contains() = false
+
+    java.lang.NullPointerException
+
+    TreeNode.contains(KdTree.java:261)
+    TSet.contains(KdTree.java:166)
+    KdTree.contains(KdTree.java:40)
+    TestKdTree.checkAll(TestKdTree.java:880)
+    TestKdTree.test9b(TestKdTree.java:1866)
+    TestKdTree.main(TestKdTree.java:2001)
+
     - sequence of operations was:
+           st.isEmpty()  ==>  true
            st.insert(0.0, 0.0)
-           st.contains((1.0, 0.0))  ==>  false
-           st.insert(1.0, 0.0)
-           st.nearest((0.0, 1.0))   ==>  (0.0, 0.0)
-           st.insert(1.0, 1.0)
-           st.nearest((0.0, 1.0))   ==>  (0.0, 0.0)
-           st.contains((0.0, 1.0))  ==>  true
+           st.size()  ==>  1
+           st.nearest((1.0, 0.0))   ==>  (0.0, 0.0)
+           st.contains((0.0, 1.0))
 
   * 20000 calls with distinct points in a 16-by-16 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
-    - failed on trial 15 of 20000
-    - rectangle = [0.1875, 0.9375] x [0.1875, 0.3125]
-    - student   range():  T 
-    - reference range():  T S 
+
+    java.lang.NullPointerException
+
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:225)
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkAll(TestKdTree.java:829)
+    TestKdTree.test9b(TestKdTree.java:1867)
+    TestKdTree.main(TestKdTree.java:2001)
+
     - sequence of operations was:
-           st.insert(1.0, 0.3125)
-           st.range([0.25, 0.5] x [0.1875, 0.75])  ==>  empty
-           st.insert(0.625, 0.25)
-           st.nearest((0.3125, 0.25))   ==>  (0.625, 0.25)
-           st.range([0.75, 1.0] x [0.1875, 0.9375])  ==>  W 
-           st.nearest((0.375, 0.5))   ==>  (0.625, 0.25)
-           st.size()  ==>  2
-           st.nearest((0.0, 0.375))   ==>  (0.625, 0.25)
-           st.nearest((0.0, 0.625))   ==>  (0.625, 0.25)
-           st.nearest((0.3125, 0.6875))   ==>  (0.625, 0.25)
-           st.insert(0.125, 0.875)
-           st.insert(0.5625, 0.75)
-           st.insert(0.0, 0.8125)
-           st.insert(0.875, 0.25)
-           st.range([0.1875, 0.9375] x [0.1875, 0.3125])  ==>  T 
+           st.isEmpty()  ==>  true
+           st.insert(1.0, 0.625)
+           st.nearest((0.5, 0.5625))   ==>  (1.0, 0.625)
+           st.insert(0.9375, 0.125)
+           st.contains((0.5625, 1.0))  ==>  false
+           st.insert(0.5, 0.0625)
+           st.nearest((0.0, 0.0625))   ==>  (0.5, 0.0625)
+           st.range([0.25, 0.75] x [0.0625, 0.25])  ==>  T 
+           st.nearest((0.875, 0.375))   ==>  (0.9375, 0.125)
+           st.contains((0.0, 0.4375))  ==>  false
+           st.contains((0.9375, 0.25))  ==>  false
+           st.isEmpty()  ==>  false
+           st.insert(0.3125, 0.5625)
+           st.contains((0.75, 0.75))  ==>  false
+           st.nearest((0.4375, 0.6875))   ==>  (0.3125, 0.5625)
+           st.contains((0.0625, 0.4375))  ==>  false
+           st.insert(0.0, 0.75)
+           st.size()  ==>  5
+           st.insert(0.3125, 0.375)
 
   * 20000 calls with distinct points in a 128-by-128 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
 
     java.lang.NullPointerException
 
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TSet.contains(KdTree.java:151)
+    TreeNode.contains(KdTree.java:261)
+    TreeNode.contains(KdTree.java:257)
+    TreeNode.contains(KdTree.java:257)
+    TreeNode.contains(KdTree.java:257)
+    TreeNode.contains(KdTree.java:251)
+    ...
+    TSet.contains(KdTree.java:166)
     KdTree.contains(KdTree.java:40)
     TestKdTree.checkAll(TestKdTree.java:880)
     TestKdTree.test9b(TestKdTree.java:1868)
@@ -1361,85 +1548,54 @@ Test 9b: check intermixed sequence of calls to insert(), isEmpty(),
 
     java.lang.NullPointerException
 
-    TreeNode.contains(KdTree.java:236)
-    TSet.contains(KdTree.java:151)
-    KdTree.contains(KdTree.java:40)
-    TestKdTree.checkAll(TestKdTree.java:880)
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    ...
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9b(TestKdTree.java:1869)
     TestKdTree.main(TestKdTree.java:2001)
 
-    - sequence of operations was:
-           st.insert(0.0693359375, 0.994140625)
-           st.insert(0.7353515625, 0.1298828125)
-           st.insert(0.0732421875, 0.6630859375)
-           st.nearest((0.7236328125, 0.4951171875))   ==>  (0.7353515625, 0.1298828125)
-           st.size()  ==>  3
-           st.size()  ==>  3
-           st.contains((0.26171875, 0.6318359375))
 
   * 20000 calls with distinct points in a 8192-by-8192 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
 
     java.lang.NullPointerException
 
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:230)
-    TreeNode.contains(KdTree.java:230)
-    TSet.contains(KdTree.java:151)
-    KdTree.contains(KdTree.java:40)
-    TestKdTree.checkAll(TestKdTree.java:880)
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:231)
+    ...
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9b(TestKdTree.java:1870)
     TestKdTree.main(TestKdTree.java:2001)
 
-    - sequence of operations was:
-           st.isEmpty()  ==>  true
-           st.insert(0.650390625, 0.0047607421875)
-           st.contains((0.7467041015625, 0.606689453125))  ==>  false
-           st.contains((0.2777099609375, 0.599853515625))  ==>  false
-           st.nearest((0.3388671875, 0.1737060546875))   ==>  (0.650390625, 0.0047607421875)
-           st.insert(0.5540771484375, 0.505615234375)
-           st.nearest((0.4129638671875, 0.47119140625))   ==>  (0.5540771484375, 0.505615234375)
-           st.insert(0.9656982421875, 0.9111328125)
-           st.isEmpty()  ==>  false
-           st.size()  ==>  3
-           st.nearest((0.35400390625, 0.7969970703125))   ==>  (0.5540771484375, 0.505615234375)
-           st.nearest((0.7125244140625, 0.997314453125))   ==>  (0.9656982421875, 0.9111328125)
-           st.nearest((0.4971923828125, 0.9134521484375))   ==>  (0.5540771484375, 0.505615234375)
-           st.range([0.59716796875, 0.688232421875] x [0.0738525390625, 0.742431640625])  ==>  empty
-           st.range([0.417724609375, 0.5538330078125] x [0.1236572265625, 0.260986328125])  ==>  empty
-           st.size()  ==>  3
-           st.range([0.3651123046875, 0.40087890625] x [0.17578125, 0.48388671875])  ==>  empty
-           st.nearest((0.3709716796875, 0.30078125))   ==>  (0.5540771484375, 0.505615234375)
-           st.range([0.239501953125, 0.4080810546875] x [0.584716796875, 0.6517333984375])  ==>  empty
-           st.insert(0.027587890625, 0.1217041015625)
-           st.insert(0.5565185546875, 0.5933837890625)
-           st.insert(0.9488525390625, 0.7149658203125)
-           st.insert(0.1168212890625, 0.4722900390625)
-           st.contains((0.019287109375, 0.60693359375))  ==>  false
-           st.insert(0.587646484375, 0.8726806640625)
-           st.contains((0.40966796875, 0.01513671875))
 
   * 20000 calls with distinct points in a 65536-by-65536 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
 
     java.lang.NullPointerException
 
-    TreeNode.contains(KdTree.java:236)
-    TSet.contains(KdTree.java:151)
-    KdTree.contains(KdTree.java:40)
-    TestKdTree.checkAll(TestKdTree.java:880)
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:225)
+    ...
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9b(TestKdTree.java:1871)
     TestKdTree.main(TestKdTree.java:2001)
 
-    - sequence of operations was:
-           st.size()  ==>  0
-           st.insert(0.081878662109375, 0.727294921875)
-           st.range([0.2721099853515625, 0.4826507568359375] x [0.2713623046875, 0.7771759033203125])  ==>  empty
-           st.size()  ==>  1
-           st.insert(0.8126220703125, 0.412506103515625)
-           st.insert(0.9104766845703125, 0.4595489501953125)
-           st.range([0.695709228515625, 0.923736572265625] x [0.006988525390625, 0.5722503662109375])  ==>  G H 
-           st.contains((0.543914794921875, 0.1247406005859375))
 
 ==> FAILED
 
@@ -1448,118 +1604,94 @@ Test 9c: check intermixed sequence of calls to insert(), isEmpty(),
          (p1, p2, p3, p4, p5, p6), respectively
   * 20000 calls with general points in a 1-by-1 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
-    - failed on trial 5 of 20000
-    - student   contains() = true
-    - reference contains() = false
-    - sequence of operations was:
-           st.insert(1.0, 0.0)
-           st.insert(1.0, 0.0)
-           st.range([1.0, 1.0] x [1.0, 1.0])  ==>  empty
-           st.range([1.0, 1.0] x [0.0, 0.0])  ==>  R 
-           st.contains((1.0, 1.0))  ==>  true
+    - failed on trial 51 of 20000
+    - student   size() = 12
+    - reference size() = 4
 
   * 20000 calls with general points in a 16-by-16 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
-    - failed on trial 34 of 20000
-    - student   contains() = true
-    - reference contains() = false
+
+    java.lang.NullPointerException
+
+    TreeNode.contains(KdTree.java:261)
+    TreeNode.contains(KdTree.java:257)
+    TreeNode.contains(KdTree.java:251)
+    TreeNode.contains(KdTree.java:257)
+    TreeNode.contains(KdTree.java:257)
+    ...
+    TSet.contains(KdTree.java:166)
+    KdTree.contains(KdTree.java:40)
+    TestKdTree.checkAll(TestKdTree.java:880)
+    TestKdTree.test9c(TestKdTree.java:1881)
+    TestKdTree.main(TestKdTree.java:2004)
+
 
   * 20000 calls with general points in a 128-by-128 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
 
     java.lang.NullPointerException
 
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:230)
-    TreeNode.contains(KdTree.java:236)
-    TSet.contains(KdTree.java:151)
-    KdTree.contains(KdTree.java:40)
-    TestKdTree.checkAll(TestKdTree.java:880)
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:231)
+    ...
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9c(TestKdTree.java:1882)
     TestKdTree.main(TestKdTree.java:2004)
 
-    - sequence of operations was:
-           st.size()  ==>  0
-           st.insert(0.6796875, 0.8984375)
-           st.contains((0.578125, 0.625))  ==>  false
-           st.insert(0.125, 0.59375)
-           st.contains((0.4921875, 0.3984375))  ==>  false
-           st.insert(0.515625, 0.921875)
-           st.insert(0.1796875, 0.515625)
-           st.contains((0.953125, 0.3671875))  ==>  false
-           st.contains((0.265625, 0.0703125))  ==>  false
-           st.contains((0.6875, 0.0625))  ==>  false
-           st.range([0.0234375, 0.5078125] x [0.078125, 0.0859375])  ==>  empty
-           st.range([0.3828125, 0.546875] x [0.3125, 0.421875])  ==>  empty
-           st.insert(0.5078125, 0.296875)
-           st.nearest((0.7578125, 0.3046875))   ==>  (0.5078125, 0.296875)
-           st.insert(0.6171875, 0.046875)
-           st.range([0.046875, 0.3125] x [0.09375, 0.46875])  ==>  empty
-           st.insert(0.7890625, 0.0859375)
-           st.insert(0.828125, 0.296875)
-           st.isEmpty()  ==>  false
-           st.contains((0.828125, 0.40625))
 
   * 20000 calls with general points in a 1024-by-1024 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
 
     java.lang.NullPointerException
 
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:236)
-    TSet.contains(KdTree.java:151)
-    KdTree.contains(KdTree.java:40)
-    TestKdTree.checkAll(TestKdTree.java:880)
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    ...
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9c(TestKdTree.java:1883)
     TestKdTree.main(TestKdTree.java:2004)
 
-    - sequence of operations was:
-           st.isEmpty()  ==>  true
-           st.insert(0.7685546875, 0.6318359375)
-           st.range([0.255859375, 0.830078125] x [0.4375, 0.837890625])  ==>  D 
-           st.nearest((0.369140625, 0.369140625))   ==>  (0.7685546875, 0.6318359375)
-           st.range([0.197265625, 0.5390625] x [0.20703125, 0.328125])  ==>  empty
-           st.isEmpty()  ==>  false
-           st.insert(0.638671875, 0.1455078125)
-           st.insert(0.19140625, 0.99609375)
-           st.insert(0.90625, 0.4775390625)
-           st.contains((0.982421875, 0.9990234375))
 
   * 20000 calls with general points in a 8192-by-8192 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
 
     java.lang.NullPointerException
 
-    TreeNode.contains(KdTree.java:236)
-    TSet.contains(KdTree.java:151)
-    KdTree.contains(KdTree.java:40)
-    TestKdTree.checkAll(TestKdTree.java:880)
+    TreeNode.add(KdTree.java:237)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:225)
+    TreeNode.add(KdTree.java:231)
+    TreeNode.add(KdTree.java:225)
+    ...
+    TSet.add(KdTree.java:162)
+    KdTree.insert(KdTree.java:31)
+    TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9c(TestKdTree.java:1884)
     TestKdTree.main(TestKdTree.java:2004)
 
-    - sequence of operations was:
-           st.insert(0.4588623046875, 0.9453125)
-           st.contains((0.3966064453125, 0.8446044921875))  ==>  false
-           st.insert(0.8065185546875, 0.7613525390625)
-           st.nearest((0.7576904296875, 0.8017578125))   ==>  (0.8065185546875, 0.7613525390625)
-           st.contains((0.1234130859375, 0.572265625))  ==>  false
-           st.size()  ==>  2
-           st.insert(0.4765625, 0.30419921875)
-           st.range([0.4383544921875, 0.8782958984375] x [0.14013671875, 0.4923095703125])  ==>  L 
-           st.range([0.576904296875, 0.6866455078125] x [0.6072998046875, 0.63134765625])  ==>  empty
-           st.insert(0.6458740234375, 0.3729248046875)
-           st.insert(0.7266845703125, 0.1104736328125)
-           st.contains((0.4852294921875, 0.765625))
 
   * 20000 calls with general points in a 65536-by-65536 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
 
     java.lang.NullPointerException
 
-    TreeNode.contains(KdTree.java:236)
-    TreeNode.contains(KdTree.java:230)
-    TreeNode.contains(KdTree.java:236)
-    TSet.contains(KdTree.java:151)
+    TreeNode.contains(KdTree.java:261)
+    TreeNode.contains(KdTree.java:251)
+    TreeNode.contains(KdTree.java:257)
+    TreeNode.contains(KdTree.java:257)
+    TreeNode.contains(KdTree.java:257)
+    ...
+    TSet.contains(KdTree.java:166)
     KdTree.contains(KdTree.java:40)
     TestKdTree.checkAll(TestKdTree.java:880)
     TestKdTree.test9c(TestKdTree.java:1885)
@@ -1568,15 +1700,7 @@ Test 9c: check intermixed sequence of calls to insert(), isEmpty(),
 
 ==> FAILED
 
-Test 10: insert n random points into two different KdTree objects;
-        check that repeated calls to size(), contains(), range(),
-        and nearest() with the same arguments yield same results
-  * 10 random general points in a 4-by-4 grid
-
-    java.lang.NullPointerException
-
-    TreeNode.contains(KdTree.java:236)
-    Tre
+Test 10: insert n random points into two different KdTree obje
 
 ...
 

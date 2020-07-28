@@ -125,6 +125,12 @@ public class KdTree {
 	   
 	   RectHV rect = new RectHV(0.2, 0.3, 0.4, 0.6);
 	   System.out.println("Within rect: " + ps.range(rect));
+	   
+	   Point2D sameLine = new Point2D(0.47, 0);
+	   System.out.println("Sameline contains: "  + ps.contains(sameLine));
+	   System.out.println("Size before adding Sameline: " + ps.size());
+	   ps.insert(sameLine);
+	   System.out.println("Size after adding sameline: " + ps.size());
    }
 }
 
@@ -231,11 +237,17 @@ class TreeNode{
 				right.add(p);
 			}
 		}else {
-			return;			//point is already contained
+			if(val.equals(p))
+				return;
+			
+			right.add(p);
 		}
 	}
 	
 	public boolean contains(Point2D p) {
+		if(val.equals(p))
+			return true;
+		
 		double comparision = compareTo(p);
 		
 		if(comparision < 0) {
@@ -248,11 +260,11 @@ class TreeNode{
 			if(right == null) {			//return false if null
 				return false;
 			}else {						//keep looking if the tree exists
-				return left.contains(p);
+				return right.contains(p);
 			}
 		}
 		
-		return true;
+		return right.contains(p);
 	}
 
 	
