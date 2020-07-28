@@ -11,6 +11,7 @@ public class KdTree {
 	
 	public KdTree() {                               // construct an empty set of points
 		size = 0;
+		tree = new TSet();
    }
 
    public boolean isEmpty() {	                   // is the set empty? 
@@ -26,8 +27,8 @@ public class KdTree {
 	   if(p == null) {
 		   throw new IllegalArgumentException();
 	   }
-	   if(!tree.contains(p))
-		   tree.add(p);
+
+	   tree.add(p);
    }
    
    
@@ -91,7 +92,9 @@ public class KdTree {
    }
 
    public static void main(String[] args) {             // unit testing of the methods (optional) 
-	   PointSET ps = new PointSET();
+	   KdTree ps = new KdTree();
+	   System.out.println("hi");
+	   
 	   
 	   System.out.println("Is Empty Before: " + ps.isEmpty());
 	   for(int i = 0; i < args.length; i+= 2) {
@@ -139,6 +142,8 @@ class TSet implements Iterable<Point2D>{
 	}
 	
 	public void add(Point2D p) {
+		if(root == null)
+			root = new TreeNode(p, true);
 		root.add(p);
 	}
 	
@@ -194,6 +199,8 @@ class TreeNode{
 	}
 	
 	public void add(Point2D p) {
+		
+		
 		double comparision = compareTo(p);
 		
 		if(comparision < 0) {
@@ -206,7 +213,7 @@ class TreeNode{
 			if(right == null) {			//set value if null
 				right = new TreeNode(p, !isVertical);
 			}else {						//keep looking if the tree exists
-				left.add(p);
+				right.add(p);
 			}
 		}else {
 			return;			//point is already contained
