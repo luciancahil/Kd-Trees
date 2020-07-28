@@ -9,19 +9,19 @@ Spotbugs:     PASSED
 PMD:          FAILED (4 warnings)
 Checkstyle:   FAILED (0 errors, 84 warnings)
 
-Correctness:  6/35 tests passed
+Correctness:  4/35 tests passed
 Memory:       8/16 tests passed
 Timing:       14/42 tests passed
 
-Aggregate score: 31.95%
+Aggregate score: 28.52%
 [Compilation: 5%, API: 5%, Spotbugs: 0%, PMD: 0%, Checkstyle: 0%, Correctness: 60%, Memory: 10%, Timing: 20%]
 
 ASSESSMENT DETAILS
 
 The following files were submitted:
 ----------------------------------
-5.7K Jul 28 18:24 KdTree.java
-3.4K Jul 28 18:24 PointSET.java
+5.7K Jul 28 18:18 KdTree.java
+3.4K Jul 28 18:18 PointSET.java
 
 
 ********************************************************************************
@@ -182,12 +182,77 @@ Test 3: insert random points; check nearest() with random query points
 
 Test 4: insert random points; check range() with random query rectangles
   * 2 random points and random rectangles in a 2-by-2 grid
+    - failed on trial 1 of 2
+    - query rectangle = [0.0, 0.25] x [0.0, 0.25]
+    - sequence of points inserted: 
+      A  0.0 0.5
+      B  0.0 0.0
+    - student   range():  empty
+    - reference range():  (0.0, 0.0) 
+
   * 10 random points and random rectangles in a 4-by-4 grid
+    - failed on trial 1 of 10
+    - query rectangle = [0.0, 0.125] x [0.0, 0.125]
+    - sequence of points inserted: 
+      A  0.5 0.25
+      B  0.25 0.25
+      C  0.75 0.25
+      D  0.0 0.0
+      E  0.5 0.75
+      F  1.0 0.5
+      G  0.0 0.75
+      H  0.5 0.5
+      I  0.25 1.0
+      J  0.25 0.5
+    - student   range():  empty
+    - reference range():  (0.0, 0.0) 
+
   * 20 random points and random rectangles in a 8-by-8 grid
+    - failed on trial 1 of 19
+    - query rectangle = [0.0625, 0.1875] x [0.0, 0.0625]
+    - sequence of points inserted: 
+      A  0.875 0.25
+      B  0.5 0.0
+      C  0.625 0.75
+      D  0.375 0.625
+      E  0.625 1.0
+      F  0.25 0.875
+      G  0.375 0.375
+      H  0.5 1.0
+      I  0.0 0.625
+      J  0.125 0.875
+      K  1.0 0.375
+      L  0.25 1.0
+      M  0.125 0.0
+      N  0.5 0.75
+      O  0.125 0.5
+      P  0.375 1.0
+      Q  0.0 1.0
+      R  0.625 0.125
+      S  0.25 0.875
+      T  0.875 1.0
+    - student   range():  empty
+    - reference range():  (0.125, 0.0) 
+
   * 100 random points and random rectangles in a 16-by-16 grid
+    - failed on trial 1 of 85
+    - query rectangle = [0.46875, 0.53125] x [0.0, 0.03125]
+    - student   range():  empty
+    - reference range():  (0.5, 0.0) 
+
   * 1000 random points and random rectangles in a 64-by-64 grid
+    - failed on trial 1 of 878
+    - query rectangle = [0.0, 0.0078125] x [0.0, 0.0078125]
+    - student   range():  empty
+    - reference range():  (0.0, 0.0) 
+
   * 10000 random points and random rectangles in a 128-by-128 grid
-==> passed
+    - failed on trial 1 of 7530
+    - query rectangle = [0.0, 0.00390625] x [0.0, 0.00390625]
+    - student   range():  empty
+    - reference range():  (0.0, 0.0) 
+
+==> FAILED
 
 Test 5: call methods before inserting any points
  * size() and isEmpty()
@@ -235,23 +300,65 @@ Test 7: check intermixed sequence of calls to insert(), isEmpty(),
         probabilities (p1, p2, p3, p4, p5, p6, p7), respectively
   * 10000 calls with random points in a 1-by-1 grid
     and probabilities (0.3, 0.1, 0.1, 0.1, 0.2, 0.2)
+    - failed on trial 11 of 10000
+    - rectangle = [0.0, 1.0] x [0.0, 1.0]
+    - student   range():  empty
+    - reference range():  (0.0, 0.0) 
+    - sequence of operations was:
+           set.isEmpty()  ==>  true
+           set.isEmpty()  ==>  true
+           set.isEmpty()  ==>  true
+           set.size()     ==>  0
+           set.isEmpty()  ==>  true
+           set.insert((0.0, 0.0))
+           set.nearest((0.0, 0.0))   ==>  (0.0, 0.0)
+           set.isEmpty()  ==>  false
+           set.nearest((0.0, 1.0))   ==>  (0.0, 0.0)
+           set.contains((0.0, 1.0))  ==>  false
+           set.range([0.0, 1.0] x [0.0, 1.0])  ==>  empty
+
   * 10000 calls with random points in a 16-by-16 grid
     and probabilities (0.3, 0.1, 0.1, 0.1, 0.2, 0.2)
+    - failed on trial 29 of 10000
+    - rectangle = [0.5625, 0.75] x [0.0, 0.625]
+    - student   range():  (0.625, 0.0625) 
+    - reference range():  (0.625, 0.0625) (0.75, 0.3125) (0.75, 0.375) 
+
   * 10000 calls with random points in a 128-by-128 grid
     and probabilities (0.3, 0.1, 0.1, 0.1, 0.2, 0.2)
+    - failed on trial 30 of 10000
+    - rectangle = [0.40625, 0.8203125] x [0.2890625, 0.9453125]
+    - student   range():  (0.5390625, 0.34375) (0.4921875, 0.3984375) (0.6875, 0.671875) (0.6953125, 0.8671875) 
+    - reference range():  (0.5546875, 0.2890625) (0.5390625, 0.34375) (0.4921875, 0.3984375) (0.6875, 0.671875) (0.6953125, 0.8671875) 
+
   * 10000 calls with random points in a 1024-by-1024 grid
     and probabilities (0.3, 0.1, 0.1, 0.1, 0.2, 0.2)
+    - failed on trial 86 of 10000
+    - rectangle = [0.0625, 0.220703125] x [0.064453125, 0.982421875]
+    - student   range():  (0.1123046875, 0.5048828125) (0.08984375, 0.6650390625) (0.109375, 0.8369140625) (0.103515625, 0.96484375) 
+    - reference range():  (0.0625, 0.5) (0.1123046875, 0.5048828125) (0.08984375, 0.6650390625) (0.109375, 0.8369140625) (0.103515625, 0.96484375) 
+
   * 10000 calls with random points in a 8192-by-8192 grid
     and probabilities (0.3, 0.1, 0.1, 0.1, 0.2, 0.2)
+    - failed on trial 105 of 10000
+    - rectangle = [0.626953125, 0.73876953125] x [0.15234375, 0.461669921875]
+    - student   range():  empty
+    - reference range():  (0.73876953125, 0.3338623046875) 
+
   * 10000 calls with random points in a 65536-by-65536 grid
     and probabilities (0.3, 0.1, 0.1, 0.1, 0.2, 0.2)
-==> passed
+    - failed on trial 1312 of 10000
+    - rectangle = [0.33673095703125, 0.5510711669921875] x [0.2076568603515625, 0.846954345703125]
+    - student   range():  (0.486114501953125, 0.2151947021484375) (0.5004730224609375, 0.2185516357421875) (0.5124053955078125, 0.219696044921875) (0.3395843505859375, 0.2246246337890625) (0.456146240234375, 0.225067138671875) (0.5385284423828125, 0.2262725830078125) (0.386505126953125, 0.253662109375) (0.520751953125, 0.2643280029296875) (0.3863983154296875, 0.27630615234375) (0.451446533203125, 0.281982421875) (0.5369415283203125, 0.2949676513671875) (0.44110107421875, 0.3237152099609375) (0.399993896484375, 0.336517333984375) (0.361663818359375, 0.3522186279296875) (0.43511962890625, 0.352325439453125) (0.4951019287109375, 0.3570556640625) (0.345672607421875, 0.36309814453125) (0.3498992919921875, 0.37255859375) (0.440521240234375, 0.37359619140625) (0.4680633544921875, 0.3962554931640625) (0.5035858154296875, 0.4091644287109375) (0.3675537109375, 0.4160003662109375) (0.4516143798828125, 0.428558349609375) (0.4360504150390625, 0.4451446533203125) (0.47955322265625, 0.4477386474609375) (0.494903564453125, 0.456787109375) ...
+    - reference range():  (0.486114501953125, 0.2151947021484375) (0.5004730224609375, 0.2185516357421875) (0.5124053955078125, 0.219696044921875) (0.3395843505859375, 0.2246246337890625) (0.456146240234375, 0.225067138671875) (0.5385284423828125, 0.2262725830078125) (0.386505126953125, 0.253662109375) (0.520751953125, 0.2643280029296875) (0.3863983154296875, 0.27630615234375) (0.451446533203125, 0.281982421875) (0.5369415283203125, 0.2949676513671875) (0.44110107421875, 0.3237152099609375) (0.399993896484375, 0.336517333984375) (0.361663818359375, 0.3522186279296875) (0.43511962890625, 0.352325439453125) (0.4951019287109375, 0.3570556640625) (0.345672607421875, 0.36309814453125) (0.3498992919921875, 0.37255859375) (0.440521240234375, 0.37359619140625) (0.4680633544921875, 0.3962554931640625) (0.5035858154296875, 0.4091644287109375) (0.3675537109375, 0.4160003662109375) (0.4516143798828125, 0.428558349609375) (0.4360504150390625, 0.4451446533203125) (0.47955322265625, 0.4477386474609375) (0.494903564453125, 0.456787109375) ...
+
+==> FAILED
 
 Test 8: check that two PointSET objects can be created at the same time
 ==> passed
 
 
-Total: 6/8 tests passed!
+Total: 4/8 tests passed!
 
 
 ================================================================
@@ -1434,7 +1541,7 @@ Test 9a: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:1998)
 
     - sequence of operations was:
-           st.insert(0.25, 0.875)
+           st.insert(0.3125, 0.5625)
 
   * 20000 calls with non-degenerate points in a 128-by-128 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1448,8 +1555,7 @@ Test 9a: check intermixed sequence of calls to insert(), isEmpty(),
 
     - sequence of operations was:
            st.size()  ==>  0
-           st.size()  ==>  0
-           st.insert(0.5546875, 0.2578125)
+           st.insert(0.9296875, 0.8984375)
 
   * 20000 calls with non-degenerate points in a 1024-by-1024 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1462,7 +1568,7 @@ Test 9a: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:1998)
 
     - sequence of operations was:
-           st.insert(0.201171875, 0.1826171875)
+           st.insert(0.6748046875, 0.814453125)
 
   * 20000 calls with non-degenerate points in a 8192-by-8192 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1476,7 +1582,7 @@ Test 9a: check intermixed sequence of calls to insert(), isEmpty(),
 
     - sequence of operations was:
            st.isEmpty()  ==>  true
-           st.insert(0.0975341796875, 0.842529296875)
+           st.insert(0.610595703125, 0.8924560546875)
 
   * 20000 calls with non-degenerate points in a 65536-by-65536 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1489,7 +1595,7 @@ Test 9a: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:1998)
 
     - sequence of operations was:
-           st.insert(0.4381256103515625, 0.455902099609375)
+           st.insert(0.6591033935546875, 0.874725341796875)
 
 ==> FAILED
 
@@ -1507,7 +1613,7 @@ Test 9b: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2001)
 
     - sequence of operations was:
-           st.insert(1.0, 0.0)
+           st.insert(1.0, 1.0)
 
   * 20000 calls with distinct points in a 16-by-16 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1520,192 +1626,12 @@ Test 9b: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2001)
 
     - sequence of operations was:
-           st.insert(0.4375, 0.6875)
+           st.insert(0.0625, 0.625)
 
   * 20000 calls with distinct points in a 128-by-128 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
 
-    java.lang.NullPointerException
-
-    KdTree.insert(KdTree.java:26)
-    TestKdTree.checkAll(TestKdTree.java:829)
-    TestKdTree.test9b(TestKdTree.java:1868)
-    TestKdTree.main(TestKdTree.java:2001)
-
-    - sequence of operations was:
-           st.isEmpty()  ==>  true
-           st.insert(0.7578125, 0.71875)
-
-  * 20000 calls with distinct points in a 1024-by-1024 grid
-    and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
-
-    java.lang.NullPointerException
-
-    KdTree.insert(KdTree.java:26)
-    TestKdTree.checkAll(TestKdTree.java:829)
-    TestKdTree.test9b(TestKdTree.java:1869)
-    TestKdTree.main(TestKdTree.java:2001)
-
-    - sequence of operations was:
-           st.size()  ==>  0
-           st.insert(0.7080078125, 0.228515625)
-
-  * 20000 calls with distinct points in a 8192-by-8192 grid
-    and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
-
-    java.lang.NullPointerException
-
-    KdTree.insert(KdTree.java:26)
-    TestKdTree.checkAll(TestKdTree.java:829)
-    TestKdTree.test9b(TestKdTree.java:1870)
-    TestKdTree.main(TestKdTree.java:2001)
-
-    - sequence of operations was:
-           st.insert(0.8280029296875, 0.4864501953125)
-
-  * 20000 calls with distinct points in a 65536-by-65536 grid
-    and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
-
-    java.lang.NullPointerException
-
-    KdTree.insert(KdTree.java:26)
-    TestKdTree.checkAll(TestKdTree.java:829)
-    TestKdTree.test9b(TestKdTree.java:1871)
-    TestKdTree.main(TestKdTree.java:2001)
-
-    - sequence of operations was:
-           st.insert(0.4972991943359375, 0.243133544921875)
-
-==> FAILED
-
-Test 9c: check intermixed sequence of calls to insert(), isEmpty(),
-         size(), contains(), range(), and nearest() with probabilities
-         (p1, p2, p3, p4, p5, p6), respectively
-  * 20000 calls with general points in a 1-by-1 grid
-    and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
-
-    java.lang.NullPointerException
-
-    KdTree.insert(KdTree.java:26)
-    TestKdTree.checkAll(TestKdTree.java:829)
-    TestKdTree.test9c(TestKdTree.java:1880)
-    TestKdTree.main(TestKdTree.java:2004)
-
-    - sequence of operations was:
-           st.insert(0.0, 0.0)
-
-  * 20000 calls with general points in a 16-by-16 grid
-    and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
-
-    java.lang.NullPointerException
-
-    KdTree.insert(KdTree.java:26)
-    TestKdTree.checkAll(TestKdTree.java:829)
-    TestKdTree.test9c(TestKdTree.java:1881)
-    TestKdTree.main(TestKdTree.java:2004)
-
-    - sequence of operations was:
-           st.insert(0.4375, 1.0)
-
-  * 20000 calls with general points in a 128-by-128 grid
-    and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
-
-    java.lang.NullPointerException
-
-    KdTree.insert(KdTree.java:26)
-    TestKdTree.checkAll(TestKdTree.java:829)
-    TestKdTree.test9c(TestKdTree.java:1882)
-    TestKdTree.main(TestKdTree.java:2004)
-
-    - sequence of operations was:
-           st.insert(0.3515625, 0.59375)
-
-  * 20000 calls with general points in a 1024-by-1024 grid
-    and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
-
-    java.lang.NullPointerException
-
-    KdTree.insert(KdTree.java:26)
-    TestKdTree.checkAll(TestKdTree.java:829)
-    TestKdTree.test9c(TestKdTree.java:1883)
-    TestKdTree.main(TestKdTree.java:2004)
-
-    - sequence of operations was:
-           st.insert(0.7197265625, 0.67578125)
-
-  * 20000 calls with general points in a 8192-by-8192 grid
-    and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
-
-    java.lang.NullPointerException
-
-    KdTree.insert(KdTree.java:26)
-    TestKdTree.checkAll(TestKdTree.java:829)
-    TestKdTree.test9c(TestKdTree.java:1884)
-    TestKdTree.main(TestKdTree.java:2004)
-
-    - sequence of operations was:
-           st.insert(0.3489990234375, 0.05322265625)
-
-  * 20000 calls with general points in a 65536-by-65536 grid
-    and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
-
-    java.lang.NullPointerException
-
-    KdTree.insert(KdTree.java:26)
-    TestKdTree.checkAll(TestKdTree.java:829)
-    TestKdTree.test9c(TestKdTree.java:1885)
-    TestKdTree.main(TestKdTree.java:2004)
-
-    - sequence of operations was:
-           st.insert(0.5805511474609375, 0.9371490478515625)
-
-==> FAILED
-
-Test 10: insert n random points into two different KdTree objects;
-        check that repeated calls to size(), contains(), range(),
-        and nearest() with the same arguments yield same results
-  * 10 random general points in a 4-by-4 grid
-
-    java.lang.NullPointerException
-
-    KdTree.insert(KdTree.java:26)
-    TestKdTree.checkImmutabilityTwoKdTreeObjects(TestKdTree.java:1187)
-    TestKdTree.test10(TestKdTree.java:1896)
-    TestKdTree.main(TestKdTree.java:2007)
-
-    - sequence of operations was:
-           KdTree st1 = new KdTree();
-           st1.insert((0.5, 0.0))
-  * 20 random general points in a 8-by-8 grid
-
-    java.lang.NullPointerException
-
-    KdTree.insert(KdTree.java:26)
-    TestKdTree.checkImmutabilityTwoKdTreeObjects(TestKdTree.java:1187)
-    TestKdTree.test10(TestKdTree.java:1897)
-    TestKdTree.main(TestKdTree.java:2007)
-
-    - sequence of operations was:
-           KdTree st1 = new KdTree();
-           st1.insert((0.75, 0.5))
-  * 100 random general points in a 128-by-128 grid
-
-    java.lang.NullPointerException
-
-    KdTree.insert(KdTree.java:26)
-    TestKdTree.checkImmutabilityTwoKdTreeObjects(TestKdTree.java:1187)
-    TestKdTree.test10(TestKdTree.java:1898)
-    TestKdTree.main(TestKdTree.java:2007)
-
-    - sequence of operations was:
-           KdTree st1 = new KdTree();
-           st1.insert((0.4453125, 0.2890625))
-  * 1000 random general points in a 65536-by-65536 grid
-
-    java.lang.NullPointerException
-
-    KdTree.insert(KdTree.java:26)
-    TestKdTree.checkIm
+    java.lang.NullPointe
 
 ...
 

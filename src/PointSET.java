@@ -47,7 +47,7 @@ public class PointSET {
 		   		double x = p.x();
 		   		double y = p.y();
 		   		
-		   		if(x > rect.xmin() && x < rect.xmax() && y > rect.ymin() && y < rect.ymax()) {
+		   		if(x >= rect.xmin() && x <= rect.xmax() && y >= rect.ymin() && y <= rect.ymax()) {
 		   			inRange.add(p);
 		   		}
 		   	}
