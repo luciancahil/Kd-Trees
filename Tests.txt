@@ -7,21 +7,21 @@ API:          PASSED
 
 Spotbugs:     PASSED
 PMD:          FAILED (4 warnings)
-Checkstyle:   FAILED (0 errors, 92 warnings)
+Checkstyle:   FAILED (0 errors, 94 warnings)
 
-Correctness:  7/35 tests passed
+Correctness:  8/35 tests passed
 Memory:       8/16 tests passed
 Timing:       14/42 tests passed
 
-Aggregate score: 33.67%
+Aggregate score: 35.38%
 [Compilation: 5%, API: 5%, Spotbugs: 0%, PMD: 0%, Checkstyle: 0%, Correctness: 60%, Memory: 10%, Timing: 20%]
 
 ASSESSMENT DETAILS
 
 The following files were submitted:
 ----------------------------------
-6.0K Jul 28 18:30 KdTree.java
-3.8K Jul 28 18:30 PointSET.java
+6.0K Jul 28 18:36 KdTree.java
+3.9K Jul 28 18:36 PointSET.java
 
 
 ********************************************************************************
@@ -55,19 +55,19 @@ KdTree:
 
 % spotbugs *.class
 *-----------------------------------------------------------
-M D RV_RETURN_VALUE_IGNORED_NO_SIDE_EFFECT RV: Calls the method 'contains()' but ignores its return value. The method, however, does not produce any effect other than returning a value.  At KdTree.java:[line 220]
-L B IT_NO_SUCH_ELEMENT It: The 'next()' method must throw a 'java.util.NoSuchElementException' if it is called when there are no more elements to return.  At KdTree.java:[lines 163-168]
+M D RV_RETURN_VALUE_IGNORED_NO_SIDE_EFFECT RV: Calls the method 'contains()' but ignores its return value. The method, however, does not produce any effect other than returning a value.  At KdTree.java:[line 223]
+L B IT_NO_SUCH_ELEMENT It: The 'next()' method must throw a 'java.util.NoSuchElementException' if it is called when there are no more elements to return.  At KdTree.java:[lines 166-171]
 M C UWF_UNWRITTEN_FIELD UwF: The instance (or static) variable 'tree' is never initialized; all reads of it will return the default value (0 or null). Check for errors (should it have been initialized?), or remove if useless.  At KdTree.java:[line 29]
-M C UWF_UNWRITTEN_FIELD UwF: The instance (or static) variable 'root' is never initialized; all reads of it will return the default value (0 or null). Check for errors (should it have been initialized?), or remove if useless.  At KdTree.java:[line 158]
-L P SIC_INNER_SHOULD_BE_STATIC_NEEDS_THIS SIC: Should the inner class 'TSet$inOrderIterator' be refactored into a static nested class?  At KdTree.java:[lines 153-173]
+M C UWF_UNWRITTEN_FIELD UwF: The instance (or static) variable 'root' is never initialized; all reads of it will return the default value (0 or null). Check for errors (should it have been initialized?), or remove if useless.  At KdTree.java:[line 161]
+L P SIC_INNER_SHOULD_BE_STATIC_NEEDS_THIS SIC: Should the inner class 'TSet$inOrderIterator' be refactored into a static nested class?  At KdTree.java:[lines 156-176]
 M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'tree', which appears to be null.  At KdTree.java:[line 29]
 M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'tree', which appears to be null.  At KdTree.java:[line 39]
-M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'root', which appears to be null.  At KdTree.java:[line 143]
-M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'root', which appears to be null.  At KdTree.java:[line 139]
-M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'tree', which appears to be null.  At KdTree.java:[line 58]
 M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'root', which appears to be null.  At KdTree.java:[line 146]
+M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'root', which appears to be null.  At KdTree.java:[line 142]
+M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'tree', which appears to be null.  At KdTree.java:[line 58]
+M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'root', which appears to be null.  At KdTree.java:[line 149]
 M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'tree', which appears to be null.  At KdTree.java:[line 44]
-M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'tree', which appears to be null.  At KdTree.java:[line 75]
+M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'tree', which appears to be null.  At KdTree.java:[line 78]
 
 
 ================================================================
@@ -76,9 +76,9 @@ M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'tree'
 % pmd .
 *-----------------------------------------------------------
 KdTree.java:8: The private instance (or static) variable 'size' can be made 'final'; it is initialized only in the declaration or constructor. [ImmutableField]
-KdTree.java:132: All instance (and static) variables must be 'private'. [OnlyPrivateInstanceVariables]
-KdTree.java:173: Use the 'isEmpty()' method instead of comparing 'size()' to '0'. [UseCollectionIsEmpty]
-KdTree.java:223: The 'if' or 'else' clause appears to serve no purpose because its body is empty. [EmptyIfStmt]
+KdTree.java:135: All instance (and static) variables must be 'private'. [OnlyPrivateInstanceVariables]
+KdTree.java:176: Use the 'isEmpty()' method instead of comparing 'size()' to '0'. [UseCollectionIsEmpty]
+KdTree.java:226: The 'if' or 'else' clause appears to serve no purpose because its body is empty. [EmptyIfStmt]
 PMD ends with 4 warnings.
 
 
@@ -98,44 +98,44 @@ PMD ends with 4 warnings.
 [WARN] KdTree.java:58:9: 'for' is not followed by whitespace. [WhitespaceAround]
 [WARN] KdTree.java:62:13: 'if' is not followed by whitespace. [WhitespaceAround]
 [WARN] KdTree.java:71:8: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:78:8: 'for' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:81:12: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:94:8: 'for' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:94:41: '+=' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:130:1: The .java file must have exactly one top-level class. [OneTopLevelClass]
-[WARN] KdTree.java:130:39: '>' is followed by an illegal character. [GenericWhitespace]
-[WARN] KdTree.java:130:40: '{' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:132:5: Declare static and instance variables in order of their access modifiers: public, protected, package, and private. [DeclarationOrder]
-[WARN] KdTree.java:146:33: '{' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:146:34: 'return' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:146:51: ';' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:146:52: '}' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:153:19: The class 'inOrderIterator' must start with an uppercase letter and use CamelCase. [TypeName]
-[WARN] KdTree.java:153:62: '>' is followed by an illegal character. [GenericWhitespace]
-[WARN] KdTree.java:153:63: '{' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:165:13: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:166:13: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:181:3: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:182:1: The .java file must have exactly one top-level class. [OneTopLevelClass]
-[WARN] KdTree.java:182:15: '{' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:186:51: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:188:53: '{' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:196:9: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:197:13: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:199:13: '}' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:199:14: 'else' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:202:9: '}' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:202:10: 'else' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:75:8: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:81:8: 'for' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:84:12: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:97:8: 'for' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:97:41: '+=' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:133:1: The .java file must have exactly one top-level class. [OneTopLevelClass]
+[WARN] KdTree.java:133:39: '>' is followed by an illegal character. [GenericWhitespace]
+[WARN] KdTree.java:133:40: '{' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:135:5: Declare static and instance variables in order of their access modifiers: public, protected, package, and private. [DeclarationOrder]
+[WARN] KdTree.java:149:33: '{' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:149:34: 'return' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:149:51: ';' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:149:52: '}' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:156:19: The class 'inOrderIterator' must start with an uppercase letter and use CamelCase. [TypeName]
+[WARN] KdTree.java:156:62: '>' is followed by an illegal character. [GenericWhitespace]
+[WARN] KdTree.java:156:63: '{' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:168:13: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:169:13: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:184:3: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:185:1: The .java file must have exactly one top-level class. [OneTopLevelClass]
+[WARN] KdTree.java:185:15: '{' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:189:51: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:191:53: '{' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:199:9: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:200:13: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:202:13: '}' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:202:14: 'else' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:205:9: '}' is not followed by whitespace. [WhitespaceAround]
 ...
-Checkstyle ends with 0 errors and 90 warnings.
+Checkstyle ends with 0 errors and 92 warnings.
 
 % custom checkstyle checks for PointSET.java
 *-----------------------------------------------------------
 
 % custom checkstyle checks for KdTree.java
 *-----------------------------------------------------------
-[WARN] KdTree.java:130:12: Using interface inheritance suggests poor design in this program. [Design]
-[WARN] KdTree.java:153:39: Using interface inheritance suggests poor design in this program. [Design]
+[WARN] KdTree.java:133:12: Using interface inheritance suggests poor design in this program. [Design]
+[WARN] KdTree.java:156:39: Using interface inheritance suggests poor design in this program. [Design]
 Checkstyle ends with 0 errors and 2 warnings.
 
 
@@ -193,19 +193,8 @@ Test 5: call methods before inserting any points
  * size() and isEmpty()
  * contains()
  * nearest()
-
-    java.util.NoSuchElementException
-
-    java.base/java.util.TreeMap.key(TreeMap.java:1324)
-    java.base/java.util.TreeMap.firstKey(TreeMap.java:289)
-    java.base/java.util.TreeSet.first(TreeSet.java:394)
-    PointSET.nearest(PointSET.java:75)
-    TestPointSET.checkNearest(TestPointSET.java:212)
-    TestPointSET.test5(TestPointSET.java:707)
-    TestPointSET.main(TestPointSET.java:794)
-
  * range()
-==> FAILED
+==> passed
 
 Test 6: call methods with null argument
   * insert()
@@ -235,7 +224,7 @@ Test 8: check that two PointSET objects can be created at the same time
 ==> passed
 
 
-Total: 7/8 tests passed!
+Total: 8/8 tests passed!
 
 
 ================================================================
@@ -1042,15 +1031,6 @@ Test 4b: insert non-degenerate points; check range() with random query rectangle
 
 Test 5a: insert points from file; check nearest() with random query points
   * input0.txt
-
-    java.lang.NullPointerException
-
-    KdTree.nearest(KdTree.java:75)
-    TestKdTree.checkNearest(TestKdTree.java:316)
-    TestKdTree.checkNearest(TestKdTree.java:282)
-    TestKdTree.test5a(TestKdTree.java:1759)
-    TestKdTree.main(TestKdTree.java:1974)
-
   * input1.txt
 
     java.lang.NullPointerException
@@ -1323,15 +1303,6 @@ Test 7: check with no points
     TestKdTree.main(TestKdTree.java:1992)
 
   * nearest()
-
-    java.lang.NullPointerException
-
-    KdTree.nearest(KdTree.java:75)
-    TestKdTree.checkNearest(TestKdTree.java:316)
-    TestKdTree.checkNearest(TestKdTree.java:271)
-    TestKdTree.test7(TestKdTree.java:1832)
-    TestKdTree.main(TestKdTree.java:1992)
-
   * range()
 
     java.lang.NullPointerException
@@ -1418,7 +1389,7 @@ Test 9a: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:1998)
 
     - sequence of operations was:
-           st.insert(0.8125, 0.25)
+           st.insert(0.6875, 0.0625)
 
   * 20000 calls with non-degenerate points in a 128-by-128 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1431,8 +1402,7 @@ Test 9a: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:1998)
 
     - sequence of operations was:
-           st.size()  ==>  0
-           st.insert(0.359375, 0.6875)
+           st.insert(0.4453125, 0.9765625)
 
   * 20000 calls with non-degenerate points in a 1024-by-1024 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1445,8 +1415,8 @@ Test 9a: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:1998)
 
     - sequence of operations was:
-           st.size()  ==>  0
-           st.insert(0.5771484375, 0.1064453125)
+           st.isEmpty()  ==>  true
+           st.insert(0.6767578125, 0.333984375)
 
   * 20000 calls with non-degenerate points in a 8192-by-8192 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1459,7 +1429,8 @@ Test 9a: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:1998)
 
     - sequence of operations was:
-           st.insert(0.8494873046875, 0.9207763671875)
+           st.isEmpty()  ==>  true
+           st.insert(0.213134765625, 0.094482421875)
 
   * 20000 calls with non-degenerate points in a 65536-by-65536 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1472,8 +1443,7 @@ Test 9a: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:1998)
 
     - sequence of operations was:
-           st.isEmpty()  ==>  true
-           st.insert(0.675933837890625, 0.931304931640625)
+           st.insert(0.675445556640625, 0.94403076171875)
 
 ==> FAILED
 
@@ -1491,8 +1461,7 @@ Test 9b: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2001)
 
     - sequence of operations was:
-           st.isEmpty()  ==>  true
-           st.insert(1.0, 1.0)
+           st.insert(1.0, 0.0)
 
   * 20000 calls with distinct points in a 16-by-16 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1505,7 +1474,7 @@ Test 9b: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2001)
 
     - sequence of operations was:
-           st.insert(0.0, 0.5)
+           st.insert(0.125, 0.0625)
 
   * 20000 calls with distinct points in a 128-by-128 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1518,7 +1487,7 @@ Test 9b: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2001)
 
     - sequence of operations was:
-           st.insert(0.0625, 0.21875)
+           st.insert(0.359375, 0.546875)
 
   * 20000 calls with distinct points in a 1024-by-1024 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1531,7 +1500,7 @@ Test 9b: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2001)
 
     - sequence of operations was:
-           st.insert(0.6806640625, 0.171875)
+           st.insert(0.6806640625, 0.982421875)
 
   * 20000 calls with distinct points in a 8192-by-8192 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1544,7 +1513,7 @@ Test 9b: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2001)
 
     - sequence of operations was:
-           st.insert(0.451904296875, 0.603759765625)
+           st.insert(0.00390625, 0.42822265625)
 
   * 20000 calls with distinct points in a 65536-by-65536 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1557,9 +1526,7 @@ Test 9b: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2001)
 
     - sequence of operations was:
-           st.isEmpty()  ==>  true
-           st.size()  ==>  0
-           st.insert(0.531768798828125, 0.04681396484375)
+           st.insert(0.3441162109375, 0.191741943359375)
 
 ==> FAILED
 
@@ -1577,7 +1544,9 @@ Test 9c: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2004)
 
     - sequence of operations was:
-           st.insert(1.0, 1.0)
+           st.isEmpty()  ==>  true
+           st.size()  ==>  0
+           st.insert(0.0, 1.0)
 
   * 20000 calls with general points in a 16-by-16 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1590,8 +1559,7 @@ Test 9c: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2004)
 
     - sequence of operations was:
-           st.isEmpty()  ==>  true
-           st.insert(0.4375, 0.75)
+           st.insert(0.625, 0.75)
 
   * 20000 calls with general points in a 128-by-128 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1604,7 +1572,7 @@ Test 9c: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2004)
 
     - sequence of operations was:
-           st.insert(0.0703125, 0.2890625)
+           st.insert(0.1015625, 0.71875)
 
   * 20000 calls with general points in a 1024-by-1024 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1617,7 +1585,7 @@ Test 9c: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2004)
 
     - sequence of operations was:
-           st.insert(0.1513671875, 0.806640625)
+           st.insert(0.4560546875, 0.0908203125)
 
   * 20000 calls with general points in a 8192-by-8192 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1630,7 +1598,7 @@ Test 9c: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2004)
 
     - sequence of operations was:
-           st.insert(0.0062255859375, 0.425537109375)
+           st.insert(0.451416015625, 0.2977294921875)
 
   * 20000 calls with general points in a 65536-by-65536 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1643,7 +1611,7 @@ Test 9c: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2004)
 
     - sequence of operations was:
-           st.insert(0.716705322265625, 0.2610626220703125)
+           st.insert(0.566925048828125, 0.0121612548828125)
 
 ==> FAILED
 
@@ -1661,7 +1629,7 @@ Test 10: insert n random points into two different KdTree objects;
 
     - sequence of operations was:
            KdTree st1 = new KdTree();
-           st1.insert((0.0, 0.0))
+           st1.insert((0.75, 0.25))
   * 20 random general points in a 8-by-8 grid
 
     java.lang.NullPointerException
@@ -1673,7 +1641,7 @@ Test 10: insert n random points into two different KdTree objects;
 
     - sequence of operations was:
            KdTree st1 = new KdTree();
-           st1.insert((0.75, 0.75))
+           st1.insert((0.875, 0.25))
   * 100 random general points in a 128-by-128 grid
 
     java.lang.NullPointerException
@@ -1685,7 +1653,7 @@ Test 10: insert n random points into two different KdTree objects;
 
     - sequence of operations was:
            KdTree st1 = new KdTree();
-           st1.insert((0.90625, 0.0))
+           st1.insert((0.5390625, 0.7578125))
   * 1000 random general points in a 65536-by-65536 grid
 
     java.lang.NullPointerException
@@ -1697,7 +1665,7 @@ Test 10: insert n random points into two different KdTree objects;
 
     - sequence of operations was:
            KdTree st1 = new KdTree();
-           st1.insert((0.979156494140625, 0.17523193359375))
+           st1.insert((0.1888580322265625, 0.0636749267578125))
 ==> FAILED
 
 
@@ -1713,6 +1681,35 @@ Analyzing memory of Point2D
 *-----------------------------------------------------------
 Memory of Point2D object = 32 bytes
 
+================================================================
+
+
+
+Analyzing memory of RectHV
+*-----------------------------------------------------------
+Memory of RectHV object = 48 bytes
+
+================================================================
+
+
+
+Analyzing memory of PointSET
+*-----------------------------------------------------------
+Running 8 total tests.
+
+Memory usage of a PointSET with n points (including Point2D and RectHV objects).
+Maximum allowed memory is 96n + 200 bytes.
+
+                 n       student (bytes)    reference (bytes)
+--------------------------------------------------------------
+=> passed        1          248                264
+=> passed        2          344                360
+=> passed        5          632                648
+=> passed       10         1112               1128
+=> passed       25         2552               2568
+=> passed      100         9752               9768
+=> passed      400        38552              38568
+=> p
 
 ...
 

@@ -17,7 +17,6 @@ public class PointSET {
 	   }
 	   
 	   public int size() {                       // number of points in the set 
-		   
 		   	return size;
 	   }
 	   
@@ -72,6 +71,9 @@ public class PointSET {
 			   throw new IllegalArgumentException();
 		   }
 		   
+		   if(size == 0)
+			   return null;
+		   
 		   Point2D closest = tree.first();
 		   double distance = Math.pow((p.x() - closest.x()), 2) + Math.pow((p.y() - closest.y()), 2);
 		   
@@ -91,6 +93,7 @@ public class PointSET {
 		   PointSET ps = new PointSET();
 		   
 		   System.out.println("Is Empty Before: " + ps.isEmpty());
+		   ps.nearest(new Point2D(0, 0));
 		   for(int i = 0; i < args.length; i+= 2) {
 			   double x = Double.parseDouble(args[i]);
 			   double y = Double.parseDouble(args[i + 1]);
@@ -104,6 +107,7 @@ public class PointSET {
 		   
 		   Point2D testing = new Point2D(0.47, x);
 		   Point2D inside = new Point2D(x, y);
+		   
 		   
 		   System.out.println("Is Empty After: " + ps.isEmpty());
 		   

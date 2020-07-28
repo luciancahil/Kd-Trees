@@ -72,6 +72,9 @@ public class KdTree {
 		   throw new IllegalArgumentException();
 	   }
 	   
+	   if(size == 0)
+		   return null;
+	   
 	   Point2D closest = tree.first();
 	   double distance = Math.pow((p.x() - closest.x()), 2) + Math.pow((p.y() - closest.y()), 2);
 	   
