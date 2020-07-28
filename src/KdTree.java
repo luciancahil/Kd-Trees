@@ -97,7 +97,9 @@ public class KdTree {
    public static void main(String[] args) {             // unit testing of the methods (optional) 
 	   KdTree ps = new KdTree();
 	   System.out.println("hi");
+	   RectHV rect = new RectHV(0.2, 0.3, 0.4, 0.6);
 	   
+	   ps.range(rect);
 	   
 	   System.out.println("Is Empty Before: " + ps.isEmpty());
 	   for(int i = 0; i < args.length; i+= 2) {
@@ -126,7 +128,7 @@ public class KdTree {
 	   ps.insert(testing);
 	   System.out.println("Size After Inserting testing: " + ps.size());
 	   
-	   RectHV rect = new RectHV(0.2, 0.3, 0.4, 0.6);
+	   
 	   System.out.println("Within rect: " + ps.range(rect));
 	   
 	   Point2D sameLine = new Point2D(0.47, 0);
@@ -194,7 +196,8 @@ class TSet implements Iterable<Point2D>{
 		
 		public inOrderIterator() {
 			queue = new LinkedList<TreeNode>();
-			queue.add(root);
+			if(root != null)
+				queue.add(root);
 		}
 		
 		@Override

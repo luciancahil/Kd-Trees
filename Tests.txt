@@ -7,21 +7,21 @@ API:          PASSED
 
 Spotbugs:     PASSED
 PMD:          FAILED (3 warnings)
-Checkstyle:   FAILED (0 errors, 95 warnings)
+Checkstyle:   FAILED (0 errors, 96 warnings)
 
-Correctness:  29/35 tests passed
+Correctness:  31/35 tests passed
 Memory:       16/16 tests passed
 Timing:       26/42 tests passed
 
-Aggregate score: 82.10%
+Aggregate score: 85.52%
 [Compilation: 5%, API: 5%, Spotbugs: 0%, PMD: 0%, Checkstyle: 0%, Correctness: 60%, Memory: 10%, Timing: 20%]
 
 ASSESSMENT DETAILS
 
 The following files were submitted:
 ----------------------------------
-6.7K Jul 28 19:33 KdTree.java
-3.9K Jul 28 19:33 PointSET.java
+6.7K Jul 28 19:42 KdTree.java
+3.9K Jul 28 19:42 PointSET.java
 
 
 ********************************************************************************
@@ -55,8 +55,8 @@ KdTree:
 
 % spotbugs *.class
 *-----------------------------------------------------------
-L B IT_NO_SUCH_ELEMENT It: The 'next()' method must throw a 'java.util.NoSuchElementException' if it is called when there are no more elements to return.  At KdTree.java:[lines 200-205]
-L P SIC_INNER_SHOULD_BE_STATIC_NEEDS_THIS SIC: Should the inner class 'TSet$inOrderIterator' be refactored into a static nested class?  At KdTree.java:[lines 190-210]
+L B IT_NO_SUCH_ELEMENT It: The 'next()' method must throw a 'java.util.NoSuchElementException' if it is called when there are no more elements to return.  At KdTree.java:[lines 203-208]
+L P SIC_INNER_SHOULD_BE_STATIC_NEEDS_THIS SIC: Should the inner class 'TSet$inOrderIterator' be refactored into a static nested class?  At KdTree.java:[lines 192-213]
 
 
 ================================================================
@@ -65,8 +65,8 @@ L P SIC_INNER_SHOULD_BE_STATIC_NEEDS_THIS SIC: Should the inner class 'TSet$inOr
 % pmd .
 *-----------------------------------------------------------
 KdTree.java:9: The private instance (or static) variable 'tree' can be made 'final'; it is initialized only in the declaration or constructor. [ImmutableField]
-KdTree.java:160: All instance (and static) variables must be 'private'. [OnlyPrivateInstanceVariables]
-KdTree.java:210: Use the 'isEmpty()' method instead of comparing 'size()' to '0'. [UseCollectionIsEmpty]
+KdTree.java:162: All instance (and static) variables must be 'private'. [OnlyPrivateInstanceVariables]
+KdTree.java:213: Use the 'isEmpty()' method instead of comparing 'size()' to '0'. [UseCollectionIsEmpty]
 PMD ends with 3 warnings.
 
 
@@ -83,47 +83,47 @@ PMD ends with 3 warnings.
 [WARN] KdTree.java:46:8: 'for' is not followed by whitespace. [WhitespaceAround]
 [WARN] KdTree.java:52:6: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
 [WARN] KdTree.java:54:8: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:60:9: 'for' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:64:13: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:73:8: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:77:8: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:83:8: 'for' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:86:12: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:101:8: 'for' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:101:41: '+=' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:158:1: The .java file must have exactly one top-level class. [OneTopLevelClass]
-[WARN] KdTree.java:158:39: '>' is followed by an illegal character. [GenericWhitespace]
-[WARN] KdTree.java:158:40: '{' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:160:5: Declare static and instance variables in order of their access modifiers: public, protected, package, and private. [DeclarationOrder]
-[WARN] KdTree.java:167:9: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:176:9: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:183:33: '{' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:183:34: 'return' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:183:51: ';' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:183:52: '}' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:190:19: The class 'inOrderIterator' must start with an uppercase letter and use CamelCase. [TypeName]
-[WARN] KdTree.java:190:62: '>' is followed by an illegal character. [GenericWhitespace]
-[WARN] KdTree.java:190:63: '{' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:202:13: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:203:13: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:218:3: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:219:1: The .java file must have exactly one top-level class. [OneTopLevelClass]
-[WARN] KdTree.java:219:15: '{' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:223:51: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:225:53: '{' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:233:9: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:237:9: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:238:13: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:62:9: 'for' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:66:13: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:75:8: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:79:8: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:85:8: 'for' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:88:12: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:103:8: 'for' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:103:41: '+=' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:160:1: The .java file must have exactly one top-level class. [OneTopLevelClass]
+[WARN] KdTree.java:160:39: '>' is followed by an illegal character. [GenericWhitespace]
+[WARN] KdTree.java:160:40: '{' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:162:5: Declare static and instance variables in order of their access modifiers: public, protected, package, and private. [DeclarationOrder]
+[WARN] KdTree.java:169:9: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:178:9: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:185:33: '{' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:185:34: 'return' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:185:51: ';' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:185:52: '}' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:192:19: The class 'inOrderIterator' must start with an uppercase letter and use CamelCase. [TypeName]
+[WARN] KdTree.java:192:62: '>' is followed by an illegal character. [GenericWhitespace]
+[WARN] KdTree.java:192:63: '{' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:197:13: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:205:13: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:206:13: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:221:3: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:222:1: The .java file must have exactly one top-level class. [OneTopLevelClass]
+[WARN] KdTree.java:222:15: '{' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:226:51: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:228:53: '{' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:236:9: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:240:9: 'if' is not followed by whitespace. [WhitespaceAround]
 ...
-Checkstyle ends with 0 errors and 93 warnings.
+Checkstyle ends with 0 errors and 94 warnings.
 
 % custom checkstyle checks for PointSET.java
 *-----------------------------------------------------------
 
 % custom checkstyle checks for KdTree.java
 *-----------------------------------------------------------
-[WARN] KdTree.java:158:12: Using interface inheritance suggests poor design in this program. [Design]
-[WARN] KdTree.java:190:39: Using interface inheritance suggests poor design in this program. [Design]
+[WARN] KdTree.java:160:12: Using interface inheritance suggests poor design in this program. [Design]
+[WARN] KdTree.java:192:39: Using interface inheritance suggests poor design in this program. [Design]
 Checkstyle ends with 0 errors and 2 warnings.
 
 
@@ -302,21 +302,10 @@ Test 2d: insert general points; check contains() with random query points
 
 Test 3a: insert points from file; check range() with random query rectangles
   * input0.txt
-
-    java.lang.NullPointerException
-
-    TSet$inOrderIterator.next(KdTree.java:202)
-    TSet$inOrderIterator.next(KdTree.java:190)
-    KdTree.range(KdTree.java:60)
-    TestKdTree.checkRange(TestKdTree.java:576)
-    TestKdTree.checkRange(TestKdTree.java:529)
-    TestKdTree.test3a(TestKdTree.java:1675)
-    TestKdTree.main(TestKdTree.java:1953)
-
   * input1.txt
   * input5.txt
   * input10.txt
-==> FAILED
+==> passed
 
 Test 3b: insert non-degenerate points; check range() with random query rectangles
   * 1 random non-degenerate points and random rectangles in a 2-by-2 grid
@@ -360,7 +349,7 @@ Test 4a: insert points from file; check range() with random query rectangles
     - student   range():  empty
     - reference range():  empty
     - performs incorrect traversal of kd-tree during call to range()
-    - query rectangle = [0.85, 0.92] x [0.65, 0.87]
+    - query rectangle = [0.19, 0.36] x [0.49, 0.72]
     - sequence of points inserted: 
       A  0.7 0.2
       B  0.5 0.4
@@ -370,15 +359,15 @@ Test 4a: insert points from file; check range() with random query rectangles
     - student kd-tree nodes involved in calls to Point2D methods:
       A B E C D 
     - reference kd-tree nodes involved in calls to Point2D methods:
-      A E 
-    - failed on trial 1 of 1000
+      A B D 
+    - failed on trial 2 of 1000
 
   * input10.txt
     - student range() returns correct set of points
-    - student   range():  A F G 
-    - reference range():  A F G 
+    - student   range():  G 
+    - reference range():  G 
     - performs incorrect traversal of kd-tree during call to range()
-    - query rectangle = [0.26, 0.51] x [0.29, 1.0]
+    - query rectangle = [0.1, 0.48] x [0.33, 0.44]
     - sequence of points inserted: 
       A  0.372 0.497
       B  0.564 0.413
@@ -393,7 +382,7 @@ Test 4a: insert points from file; check range() with random query rectangles
     - student kd-tree nodes involved in calls to Point2D methods:
       A C B D F G H E J I 
     - reference kd-tree nodes involved in calls to Point2D methods:
-      A C D F B G J H I 
+      A C D E B G J H I 
     - failed on trial 1 of 1000
 
 ==> FAILED
@@ -406,41 +395,41 @@ Test 4b: insert non-degenerate points; check range() with random query rectangle
     - student   range():  empty
     - reference range():  empty
     - performs incorrect traversal of kd-tree during call to range()
-    - query rectangle = [0.0, 0.125] x [0.375, 1.0]
+    - query rectangle = [0.25, 0.625] x [0.875, 1.0]
     - sequence of points inserted: 
-      A  0.375 0.5
-      B  0.5 0.0
-      C  0.625 0.625
-      D  0.875 0.875
-      E  1.0 0.75
-      F  0.25 0.25
+      A  0.875 0.5
+      B  0.375 0.25
+      C  0.0 0.75
+      D  0.125 0.625
+      E  1.0 0.375
+      F  0.75 0.0
     - student kd-tree nodes involved in calls to Point2D methods:
-      A F B C D E 
+      A B E F C D 
     - reference kd-tree nodes involved in calls to Point2D methods:
-      A F 
-    - failed on trial 2 of 1000
+      A B C D 
+    - failed on trial 1 of 1000
 
   * 10 random non-degenerate points and 1000 random rectangles in a 16-by-16 grid
     - student range() returns correct set of points
-    - student   range():  D E J 
-    - reference range():  D E J 
+    - student   range():  empty
+    - reference range():  empty
     - performs incorrect traversal of kd-tree during call to range()
-    - query rectangle = [0.25, 0.75] x [0.1875, 0.8125]
+    - query rectangle = [0.5, 0.6875] x [0.75, 0.8125]
     - sequence of points inserted: 
-      A  0.0625 0.4375
-      B  0.3125 0.875
-      C  0.875 0.75
-      D  0.4375 0.25
-      E  0.5625 0.625
-      F  0.1875 1.0
-      G  0.8125 0.0625
-      H  0.125 0.6875
-      I  1.0 0.0
-      J  0.6875 0.3125
+      A  0.125 0.1875
+      B  0.0625 0.375
+      C  0.375 0.3125
+      D  0.0 1.0
+      E  0.9375 0.875
+      F  0.1875 0.5
+      G  0.625 0.0625
+      H  0.875 0.625
+      I  0.8125 0.5625
+      J  0.3125 0.25
     - student kd-tree nodes involved in calls to Point2D methods:
-      A B C F D I G E H J 
+      A B C D G E J F H I 
     - reference kd-tree nodes involved in calls to Point2D methods:
-      A B C D G E H J 
+      A C E F H I 
     - failed on trial 1 of 1000
 
   * 20 random non-degenerate points and 1000 random rectangles in a 32-by-32 grid
@@ -448,44 +437,44 @@ Test 4b: insert non-degenerate points; check range() with random query rectangle
     - student   range():  empty
     - reference range():  empty
     - performs incorrect traversal of kd-tree during call to range()
-    - query rectangle = [0.15625, 0.1875] x [0.1875, 0.59375]
+    - query rectangle = [0.6875, 0.78125] x [0.28125, 0.71875]
     - sequence of points inserted: 
-      A  0.28125 0.0625
-      B  1.0 0.75
-      C  0.65625 0.40625
-      D  0.40625 0.28125
-      E  0.9375 0.78125
-      F  0.78125 0.125
-      G  0.21875 0.71875
-      H  0.90625 0.03125
-      I  0.4375 0.625
-      J  0.3125 0.25
-      K  0.375 0.375
-      L  0.6875 0.21875
-      M  0.75 0.3125
-      N  0.59375 0.84375
-      O  0.0 0.9375
-      P  0.71875 0.5
-      Q  0.46875 0.8125
-      R  0.03125 0.46875
-      S  0.25 0.6875
-      T  0.0625 0.53125
+      A  0.875 0.21875
+      B  1.0 0.4375
+      C  0.65625 0.75
+      D  0.0 0.3125
+      E  0.3125 0.6875
+      F  0.09375 0.1875
+      G  0.4375 0.59375
+      H  0.96875 0.09375
+      I  0.84375 0.65625
+      J  0.0625 0.78125
+      K  0.90625 0.03125
+      L  0.5625 0.34375
+      M  0.03125 0.8125
+      N  0.53125 0.125
+      O  0.9375 0.84375
+      P  0.125 0.875
+      Q  0.15625 0.53125
+      R  0.25 0.9375
+      S  0.71875 0.15625
+      T  0.625 0.375
     - student kd-tree nodes involved in calls to Point2D methods:
-      A G B R O C E S D F N T J I H L Q K M P 
+      A C B D J H O E M P K F R G L I N S Q T 
     - reference kd-tree nodes involved in calls to Point2D methods:
-      A G R S T 
+      A C D E F G L S T I 
     - failed on trial 1 of 1000
 
   * 30 random non-degenerate points and 1000 random rectangles in a 64-by-64 grid
     - student range() returns correct set of points
-    - student   range():  empty
-    - reference range():  empty
+    - student   range():  B H K P Z I D R A Y V B 
+    - reference range():  B I Y B D V R H K P A Z 
     - performs incorrect traversal of kd-tree during call to range()
-    - query rectangle = [0.328125, 0.59375] x [0.765625, 0.78125]
+    - query rectangle = [0.234375, 0.953125] x [0.234375, 0.71875]
     - number of entries in student   solution: 30
-    - number of entries in reference solution: 11
-    - 19 extra entries in student solution, including:
-      '(0.3125, 1.0)'
+    - number of entries in reference solution: 27
+    - 3 extra entries in student solution, including:
+      '(0.4375, 1.0)'
 
     - failed on trial 1 of 1000
 
@@ -523,10 +512,10 @@ Test 5d: insert general points; check nearest() with random query points
 Test 6a: insert points from file; check nearest() with random query points
          and check traversal of kd-tree
   * input5.txt
-    - student   nearest() = (0.5, 0.4)
-    - reference nearest() = (0.5, 0.4)
+    - student   nearest() = (0.9, 0.6)
+    - reference nearest() = (0.9, 0.6)
     - performs incorrect traversal of kd-tree during call to nearest()
-    - query point = (0.46, 0.42)
+    - query point = (0.95, 0.87)
     - sequence of points inserted: 
       A  0.7 0.2
       B  0.5 0.4
@@ -536,14 +525,14 @@ Test 6a: insert points from file; check nearest() with random query points
     - student sequence of kd-tree nodes involved in calls to Point2D methods:
       A B E C D 
     - reference sequence of kd-tree nodes involved in calls to Point2D methods:
-      A B D C 
+      A E B D 
     - failed on trial 1 of 1000
 
   * input10.txt
-    - student   nearest() = (0.417, 0.362)
-    - reference nearest() = (0.417, 0.362)
+    - student   nearest() = (0.564, 0.413)
+    - reference nearest() = (0.564, 0.413)
     - performs incorrect traversal of kd-tree during call to nearest()
-    - query point = (0.37, 0.32)
+    - query point = (0.84, 0.38)
     - sequence of points inserted: 
       A  0.372 0.497
       B  0.564 0.413
@@ -558,7 +547,7 @@ Test 6a: insert points from file; check nearest() with random query points
     - student sequence of kd-tree nodes involved in calls to Point2D methods:
       A C B D F G H E J I 
     - reference sequence of kd-tree nodes involved in calls to Point2D methods:
-      A C D B G J 
+      A B G J H I 
     - failed on trial 1 of 1000
 
 ==> FAILED
@@ -566,109 +555,109 @@ Test 6a: insert points from file; check nearest() with random query points
 Test 6b: insert non-degenerate points; check nearest() with random query points
          and check traversal of kd-tree
   * 5 random non-degenerate points in a 8-by-8 grid
-    - student   nearest() = (0.75, 0.625)
-    - reference nearest() = (0.75, 0.625)
+    - student   nearest() = (0.5, 0.875)
+    - reference nearest() = (0.5, 0.875)
     - performs incorrect traversal of kd-tree during call to nearest()
-    - query point = (0.625, 0.375)
+    - query point = (0.25, 0.75)
     - sequence of points inserted: 
-      A  0.75 0.625
-      B  1.0 0.75
-      C  0.0 0.875
-      D  0.5 0.125
-      E  0.375 0.0
+      A  0.625 0.0
+      B  0.125 0.125
+      C  0.375 0.25
+      D  0.5 0.875
+      E  0.75 0.5
     - student sequence of kd-tree nodes involved in calls to Point2D methods:
-      A C B D E 
+      A B E C D 
     - reference sequence of kd-tree nodes involved in calls to Point2D methods:
-      A C D E B 
+      A B C D 
     - failed on trial 1 of 1000
 
   * 10 random non-degenerate points in a 16-by-16 grid
-    - student   nearest() = (0.8125, 0.5625)
-    - reference nearest() = (0.8125, 0.5625)
+    - student   nearest() = (0.0, 1.0)
+    - reference nearest() = (0.0, 1.0)
     - performs incorrect traversal of kd-tree during call to nearest()
-    - query point = (0.75, 0.375)
+    - query point = (0.1875, 0.9375)
     - sequence of points inserted: 
-      A  0.1875 0.1875
-      B  0.6875 0.9375
-      C  0.8125 0.5625
-      D  0.3125 0.5
-      E  0.5625 0.0
-      F  0.4375 0.875
-      G  0.875 0.6875
-      H  0.25 0.25
-      I  0.0625 0.0625
-      J  0.0 1.0
+      A  1.0 0.4375
+      B  0.3125 0.5
+      C  0.5 0.0625
+      D  0.4375 0.8125
+      E  0.0 1.0
+      F  0.5625 0.3125
+      G  0.8125 0.375
+      H  0.125 0.0
+      I  0.25 0.125
+      J  0.9375 0.25
     - student sequence of kd-tree nodes involved in calls to Point2D methods:
-      A I B J C D G E F H 
+      A B C D H F E I J G 
     - reference sequence of kd-tree nodes involved in calls to Point2D methods:
-      A B C D E H F G 
+      A B D E 
     - failed on trial 1 of 1000
 
   * 20 random non-degenerate points in a 32-by-32 grid
-    - student   nearest() = (0.09375, 0.375)
-    - reference nearest() = (0.09375, 0.375)
+    - student   nearest() = (0.1875, 0.4375)
+    - reference nearest() = (0.1875, 0.4375)
     - performs incorrect traversal of kd-tree during call to nearest()
-    - query point = (0.03125, 0.21875)
+    - query point = (0.03125, 0.34375)
     - sequence of points inserted: 
-      A  0.34375 0.125
-      B  0.875 0.40625
-      C  0.96875 0.9375
-      D  0.5625 0.53125
-      E  0.0625 0.84375
-      F  1.0 0.25
-      G  0.6875 0.09375
-      H  0.90625 0.03125
-      I  0.75 0.34375
-      J  0.21875 0.28125
-      K  0.8125 0.15625
-      L  0.40625 0.71875
-      M  0.65625 0.875
-      N  0.46875 0.3125
-      O  0.09375 0.375
-      P  0.3125 0.90625
-      Q  0.78125 0.75
-      R  0.71875 0.5625
-      S  0.15625 0.4375
-      T  0.625 0.78125
+      A  0.46875 0.0625
+      B  0.40625 0.3125
+      C  0.59375 0.5
+      D  0.15625 0.1875
+      E  0.90625 0.8125
+      F  0.09375 0.71875
+      G  0.6875 0.59375
+      H  0.28125 0.0
+      I  1.0 0.84375
+      J  0.3125 0.40625
+      K  0.0625 0.875
+      L  0.65625 0.375
+      M  0.21875 0.6875
+      N  0.25 0.78125
+      O  0.0 0.15625
+      P  0.5625 0.5625
+      Q  0.53125 0.53125
+      R  0.8125 0.96875
+      S  0.875 0.65625
+      T  0.1875 0.4375
     - student sequence of kd-tree nodes involved in calls to Point2D methods:
-      A E B J P F C O G D S H I L N K M Q R T 
+      A B C D F L E O H K J G I M P R T N Q S 
     - reference sequence of kd-tree nodes involved in calls to Point2D methods:
-      A E J O S 
+      A B F K J M T D O H 
     - failed on trial 1 of 1000
 
   * 30 random non-degenerate points in a 64-by-64 grid
-    - student   nearest() = (0.9375, 0.375)
-    - reference nearest() = (0.9375, 0.375)
+    - student   nearest() = (1.0, 0.34375)
+    - reference nearest() = (1.0, 0.34375)
     - performs incorrect traversal of kd-tree during call to nearest()
     - number of student   entries = 30
-    - number of reference entries = 8
+    - number of reference entries = 9
     - entry 1 of the two sequences are not equal
-    - student   entry 1 = (0.28125, 0.8125)
-    - reference entry 1 = (0.84375, 0.0625)
+    - student   entry 1 = (0.0, 0.375)
+    - reference entry 1 = (0.8125, 0.921875)
 
     - failed on trial 1 of 1000
 
   * 50 random non-degenerate points in a 128-by-128 grid
-    - student   nearest() = (0.09375, 0.4453125)
-    - reference nearest() = (0.09375, 0.4453125)
+    - student   nearest() = (0.859375, 0.4609375)
+    - reference nearest() = (0.859375, 0.4609375)
     - performs incorrect traversal of kd-tree during call to nearest()
     - number of student   entries = 50
-    - number of reference entries = 12
-    - entry 2 of the two sequences are not equal
-    - student   entry 2 = (0.296875, 0.703125)
-    - reference entry 2 = (0.03125, 0.3671875)
+    - number of reference entries = 9
+    - entry 1 of the two sequences are not equal
+    - student   entry 1 = (0.2734375, 0.6171875)
+    - reference entry 1 = (0.8125, 0.34375)
 
     - failed on trial 1 of 1000
 
   * 1000 random non-degenerate points in a 2048-by-2048 grid
-    - student   nearest() = (0.21240234375, 0.05224609375)
-    - reference nearest() = (0.21240234375, 0.05224609375)
+    - student   nearest() = (0.244140625, 0.54541015625)
+    - reference nearest() = (0.244140625, 0.54541015625)
     - performs incorrect traversal of kd-tree during call to nearest()
     - number of student   entries = 1000
-    - number of reference entries = 28
-    - entry 2 of the two sequences are not equal
-    - student   entry 2 = (0.82763671875, 0.8505859375)
-    - reference entry 2 = (0.2607421875, 0.05712890625)
+    - number of reference entries = 20
+    - entry 1 of the two sequences are not equal
+    - student   entry 1 = (0.0859375, 0.95166015625)
+    - reference entry 1 = (0.3388671875, 0.41455078125)
 
     - failed on trial 1 of 1000
 
@@ -679,18 +668,7 @@ Test 7: check with no points
   * contains()
   * nearest()
   * range()
-
-    java.lang.NullPointerException
-
-    TSet$inOrderIterator.next(KdTree.java:202)
-    TSet$inOrderIterator.next(KdTree.java:190)
-    KdTree.range(KdTree.java:60)
-    TestKdTree.checkRange(TestKdTree.java:576)
-    TestKdTree.checkRange(TestKdTree.java:518)
-    TestKdTree.test7(TestKdTree.java:1833)
-    TestKdTree.main(TestKdTree.java:1992)
-
-==> FAILED
+==> passed
 
 Test 8: check that the specified exception is thrown with null arguments
   * argument to insert() is null
@@ -760,7 +738,7 @@ Test 10: insert n random points into two different KdTree objects;
 ==> passed
 
 
-Total: 21/27 tests passed!
+Total: 23/27 tests passed!
 
 
 ================================================================
@@ -853,38 +831,38 @@ Inserting n points into a PointSET
 
                n      ops per second
 ----------------------------------------
-=> passed   160000    1211863         
-=> passed   320000     895533         
-=> passed   640000     960787         
-=> passed  1280000     793662         
+=> passed   160000    1309276         
+=> passed   320000    1197961         
+=> passed   640000    1021076         
+=> passed  1280000     882137         
 ==> 4/4 tests passed
 
 Performing contains() queries after inserting n points into a PointSET
 
                n      ops per second
 ----------------------------------------
-=> passed   160000     764732         
-=> passed   320000     688753         
-=> passed   640000     644561         
-=> passed  1280000     585124         
+=> passed   160000     843731         
+=> passed   320000     693330         
+=> passed   640000     668370         
+=> passed  1280000     624378         
 ==> 4/4 tests passed
 
 Performing range() queries after inserting n points into a PointSET
 
                n      ops per second
 ----------------------------------------
-=> passed    10000       4183         
-=> passed    20000       1549         
-=> passed    40000        692         
+=> passed    10000       4624         
+=> passed    20000       1483         
+=> passed    40000        691         
 ==> 3/3 tests passed
 
 Performing nearest() queries after inserting n points into a PointSET
 
                n      ops per second
 ----------------------------------------
-=> passed    10000       5284         
-=> passed    20000       1677         
-=> passed    40000        741         
+=> passed    10000       5690         
+=> passed    20000       1618         
+=> passed    40000        730         
 ==> 3/3 tests passed
 
 Total: 14/14 tests passed!
@@ -905,10 +883,10 @@ Test 1a-d: Insert n points into a 2d tree. The table gives the average number of
                                                                                                 Point2D
                n      ops per second       RectHV()           x()               y()             equals()
 ----------------------------------------------------------------------------------------------------------------
-=> passed   160000    1907569               0.0              22.1              21.1              21.6         
-=> passed   320000    1889383               0.0              22.5              21.5              22.0         
-=> passed   640000    1368693               0.0              24.0              23.0              23.5         
-=> passed  1280000    1086657               0.0              26.1              25.1              25.6         
+=> passed   160000    1797586               0.0              22.1              21.1              21.6         
+=> passed   320000    1525987               0.0              22.5              21.5              22.0         
+=> passed   640000    1234022               0.0              24.0              23.0              23.5         
+=> passed  1280000     933558               0.0              26.1              25.1              25.6         
 ==> 4/4 tests passed
 
 
@@ -918,14 +896,14 @@ Test 2a-h: Perform contains() queries after inserting n points into a 2d tree. T
                                                                                Point2D
                n      ops per second       x()               y()               equals()
 -----------------------------------------------------------------------------------------------
-=> passed    10000    1237759              18.5              17.5              18.0         
-=> passed    20000    1259688              19.7              18.7              19.2         
-=> passed    40000    1138809              21.8              20.8              21.3         
-=> passed    80000    1121153              22.0              21.0              21.5         
-=> passed   160000     847366              23.2              22.2              22.7         
-=> passed   320000     807540              25.0              24.0              24.5         
-=> passed   640000     601201              25.7              24.7              25.2         
-=> passed  1280000     608838              27.2              26.2              26.7         
+=> passed    10000    1225246              18.5              17.5              18.0         
+=> passed    20000    1235699              19.7              18.7              19.2         
+=> passed    40000    1175985              21.8              20.8              21.3         
+=> passed    80000    1043837              22.0              21.0              21.5         
+=> passed   160000     750128              23.2              22.2              22.7         
+=> passed   320000     578064              25.0              24.0              24.5         
+=> passed   640000     722716              25.7              24.7              25.2         
+=> passed  1280000     490676              27.2              26.2              26.7         
 ==> 8/8 tests passed
 
 
@@ -934,14 +912,14 @@ Test 3a-h: Perform range() queries after inserting n points into a 2d tree. The 
 
                n      ops per second       intersects()      contains()        x()               y()
 ---------------------------------------------------------------------------------------------------------------
-=> FAILED    10000       3558   (0.1x)      0.0               0.0           10000.0  (50.0x)  10000.0 (100.0x)
-=> FAILED    20000       1765   (0.0x)      0.0               0.0           20000.0 (100.0x)  20000.0 (200.0x)
-=> FAILED    40000        880   (0.0x)      0.0               0.0           40000.0 (200.0x)  40000.0 (400.0x)
-=> FAILED    80000        414   (0.0x)      0.0               0.0           80000.0 (400.0x)  80000.0 (800.0x)
-=> FAILED   160000        157   (0.0x)      0.0               0.0          160000.0 (800.0x) 160000.0 (2e+03x)
-=> FAILED   320000         66   (0.0x)      0.0               0.0          320000.0 (2e+03x) 320000.0 (3e+03x)
-=> FAILED   640000         25   (0.0x)      0.0               0.0          640000.0 (3e+03x) 640000.0 (6e+03x)
-=> FAILED  1280000          9   (0.0x)      0.0               0.0          1280000.0 (6e+03x) 1280000.0 (1e+04x)
+=> FAILED    10000       3740   (0.1x)      0.0               0.0           10000.0  (50.0x)  10000.0 (100.0x)
+=> FAILED    20000       1804   (0.0x)      0.0               0.0           20000.0 (100.0x)  20000.0 (200.0x)
+=> FAILED    40000        840   (0.0x)      0.0               0.0           40000.0 (200.0x)  40000.0 (400.0x)
+=> FAILED    80000        374   (0.0x)      0.0               0.0           80000.0 (400.0x)  80000.0 (800.0x)
+=> FAILED   160000        151   (0.0x)      0.0               0.0          160000.0 (800.0x) 160000.0 (2e+03x)
+=> FAILED   320000         51   (0.0x)      0.0               0.0          320000.0 (2e+03x) 320000.0 (3e+03x)
+=> FAILED   640000         22   (0.0x)      0.0               0.0          640000.0 (3e+03x) 640000.0 (6e+03x)
+=> FAILED  1280000         10   (0.0x)      0.0               0.0          1280000.0 (6e+03x) 1280000.0 (1e+04x)
 ==> 0/8 tests passed
 
 
@@ -951,14 +929,14 @@ Test 4a-h: Perform nearest() queries after inserting n points into a 2d tree. Th
                                          Point2D                 RectHV
                n      ops per second     distanceSquaredTo()     distanceSquaredTo()        x()               y()
 ------------------------------------------------------------------------------------------------------------------------
-=> FAILED    10000     4019   (0.1x)          0.0                    0.0                 20002.0  (25.0x)  20002.0  (25.0x)
-=> FAILED    20000     1829   (0.1x)          0.0                    0.0                 40002.0  (50.0x)  40002.0  (50.0x)
-=> FAILED    40000      877   (0.0x)          0.0                    0.0                 80002.0 (100.0x)  80002.0 (100.0x)
-=> FAILED    80000      417   (0.0x)          0.0                    0.0                160002.0 (200.0x) 160002.0 (200.0x)
-=> FAILED   160000      141   (0.0x)          0.0                    0.0                320002.0 (400.0x) 320002.0 (400.0x)
-=> FAILED   320000       51   (0.0x)          0.0                    0.0                640002.0 (800.0x) 640002.0 (800.0x)
-=> FAILED   640000       23   (0.0x)          0.0                    0.0               1280002.0 (2e+03x) 1280002.0 (2e+03x)
-=> FAILED  1280000       11   (0.0x)          0.0                    0.0               2560002.0 (3e+03x) 2560002.0 (3e+03x)
+=> FAILED    10000     4045   (0.1x)          0.0                    0.0                 20002.0  (25.0x)  20002.0  (25.0x)
+=> FAILED    20000     1827   (0.1x)          0.0                    0.0                 40002.0  (50.0x)  40002.0  (50.0x)
+=> FAILED    40000      872   (0.0x)          0.0                    0.0                 80002.0 (100.0x)  80002.0 (100.0x)
+=> FAILED    80000      383   (0.0x)          0.0                    0.0                160002.0 (200.0x) 160002.0 (200.0x)
+=> FAILED   160000      147   (0.0x)          0.0                    0.0                320002.0 (400.0x) 320002.0 (400.0x)
+=> FAILED   320000       56   (0.0x)          0.0                    0.0                640002.0 (800.0x) 640002.0 (800.0x)
+=> FAILED   640000       21   (0.0x)          0.0                    0.0               1280002.0 (2e+03x) 1280002.0 (2e+03x)
+=> FAILED  1280000       10   (0.0x)          0.0                    0.0               2560002.0 (3e+03x) 2560002.0 (3e+03x)
 ==> 0/8 tests passed
 
 
