@@ -57,6 +57,8 @@ public class KdTree {
 	   
 	   	LinkedList<Point2D> inRange = new LinkedList<Point2D>();
 	   	
+	   	
+	   	
 	   	for(Point2D p: tree) {
 	   		double x = p.x();
 	   		double y = p.y();
@@ -173,6 +175,10 @@ class TSet implements Iterable<Point2D>{
 	}
 	
 	public boolean contains(Point2D p) {
+		if(root == null) {
+			return false;
+		}
+		
 		return root.contains(p);
 	}
 	
