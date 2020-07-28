@@ -6,7 +6,7 @@ Compilation:  PASSED
 API:          PASSED
 
 Spotbugs:     PASSED
-PMD:          FAILED (4 warnings)
+PMD:          FAILED (3 warnings)
 Checkstyle:   FAILED (0 errors, 94 warnings)
 
 Correctness:  8/35 tests passed
@@ -20,8 +20,8 @@ ASSESSMENT DETAILS
 
 The following files were submitted:
 ----------------------------------
-6.0K Jul 28 18:36 KdTree.java
-3.9K Jul 28 18:36 PointSET.java
+6.1K Jul 28 18:42 KdTree.java
+3.9K Jul 28 18:42 PointSET.java
 
 
 ********************************************************************************
@@ -55,7 +55,6 @@ KdTree:
 
 % spotbugs *.class
 *-----------------------------------------------------------
-M D RV_RETURN_VALUE_IGNORED_NO_SIDE_EFFECT RV: Calls the method 'contains()' but ignores its return value. The method, however, does not produce any effect other than returning a value.  At KdTree.java:[line 223]
 L B IT_NO_SUCH_ELEMENT It: The 'next()' method must throw a 'java.util.NoSuchElementException' if it is called when there are no more elements to return.  At KdTree.java:[lines 166-171]
 M C UWF_UNWRITTEN_FIELD UwF: The instance (or static) variable 'tree' is never initialized; all reads of it will return the default value (0 or null). Check for errors (should it have been initialized?), or remove if useless.  At KdTree.java:[line 29]
 M C UWF_UNWRITTEN_FIELD UwF: The instance (or static) variable 'root' is never initialized; all reads of it will return the default value (0 or null). Check for errors (should it have been initialized?), or remove if useless.  At KdTree.java:[line 161]
@@ -78,8 +77,7 @@ M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'tree'
 KdTree.java:8: The private instance (or static) variable 'size' can be made 'final'; it is initialized only in the declaration or constructor. [ImmutableField]
 KdTree.java:135: All instance (and static) variables must be 'private'. [OnlyPrivateInstanceVariables]
 KdTree.java:176: Use the 'isEmpty()' method instead of comparing 'size()' to '0'. [UseCollectionIsEmpty]
-KdTree.java:226: The 'if' or 'else' clause appears to serve no purpose because its body is empty. [EmptyIfStmt]
-PMD ends with 4 warnings.
+PMD ends with 3 warnings.
 
 
 ================================================================
@@ -1389,7 +1387,7 @@ Test 9a: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:1998)
 
     - sequence of operations was:
-           st.insert(0.6875, 0.0625)
+           st.insert(0.625, 0.75)
 
   * 20000 calls with non-degenerate points in a 128-by-128 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1402,7 +1400,7 @@ Test 9a: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:1998)
 
     - sequence of operations was:
-           st.insert(0.4453125, 0.9765625)
+           st.insert(0.921875, 0.9375)
 
   * 20000 calls with non-degenerate points in a 1024-by-1024 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1415,8 +1413,7 @@ Test 9a: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:1998)
 
     - sequence of operations was:
-           st.isEmpty()  ==>  true
-           st.insert(0.6767578125, 0.333984375)
+           st.insert(0.044921875, 0.283203125)
 
   * 20000 calls with non-degenerate points in a 8192-by-8192 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1430,7 +1427,7 @@ Test 9a: check intermixed sequence of calls to insert(), isEmpty(),
 
     - sequence of operations was:
            st.isEmpty()  ==>  true
-           st.insert(0.213134765625, 0.094482421875)
+           st.insert(0.4085693359375, 0.3216552734375)
 
   * 20000 calls with non-degenerate points in a 65536-by-65536 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1443,7 +1440,8 @@ Test 9a: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:1998)
 
     - sequence of operations was:
-           st.insert(0.675445556640625, 0.94403076171875)
+           st.size()  ==>  0
+           st.insert(0.9849700927734375, 0.61553955078125)
 
 ==> FAILED
 
@@ -1474,7 +1472,10 @@ Test 9b: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2001)
 
     - sequence of operations was:
-           st.insert(0.125, 0.0625)
+           st.isEmpty()  ==>  true
+           st.size()  ==>  0
+           st.isEmpty()  ==>  true
+           st.insert(0.8125, 0.0625)
 
   * 20000 calls with distinct points in a 128-by-128 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1487,7 +1488,8 @@ Test 9b: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2001)
 
     - sequence of operations was:
-           st.insert(0.359375, 0.546875)
+           st.size()  ==>  0
+           st.insert(0.2109375, 0.4609375)
 
   * 20000 calls with distinct points in a 1024-by-1024 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1500,7 +1502,7 @@ Test 9b: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2001)
 
     - sequence of operations was:
-           st.insert(0.6806640625, 0.982421875)
+           st.insert(0.4072265625, 0.4482421875)
 
   * 20000 calls with distinct points in a 8192-by-8192 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1513,7 +1515,7 @@ Test 9b: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2001)
 
     - sequence of operations was:
-           st.insert(0.00390625, 0.42822265625)
+           st.insert(0.8448486328125, 0.6572265625)
 
   * 20000 calls with distinct points in a 65536-by-65536 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1526,7 +1528,7 @@ Test 9b: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2001)
 
     - sequence of operations was:
-           st.insert(0.3441162109375, 0.191741943359375)
+           st.insert(0.061859130859375, 0.1764678955078125)
 
 ==> FAILED
 
@@ -1544,9 +1546,7 @@ Test 9c: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2004)
 
     - sequence of operations was:
-           st.isEmpty()  ==>  true
-           st.size()  ==>  0
-           st.insert(0.0, 1.0)
+           st.insert(1.0, 1.0)
 
   * 20000 calls with general points in a 16-by-16 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1559,7 +1559,7 @@ Test 9c: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2004)
 
     - sequence of operations was:
-           st.insert(0.625, 0.75)
+           st.insert(0.4375, 0.75)
 
   * 20000 calls with general points in a 128-by-128 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1572,7 +1572,7 @@ Test 9c: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2004)
 
     - sequence of operations was:
-           st.insert(0.1015625, 0.71875)
+           st.insert(0.53125, 0.71875)
 
   * 20000 calls with general points in a 1024-by-1024 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1585,7 +1585,9 @@ Test 9c: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2004)
 
     - sequence of operations was:
-           st.insert(0.4560546875, 0.0908203125)
+           st.isEmpty()  ==>  true
+           st.size()  ==>  0
+           st.insert(0.4306640625, 0.623046875)
 
   * 20000 calls with general points in a 8192-by-8192 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1598,7 +1600,7 @@ Test 9c: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2004)
 
     - sequence of operations was:
-           st.insert(0.451416015625, 0.2977294921875)
+           st.insert(0.21484375, 0.7645263671875)
 
   * 20000 calls with general points in a 65536-by-65536 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
@@ -1611,7 +1613,7 @@ Test 9c: check intermixed sequence of calls to insert(), isEmpty(),
     TestKdTree.main(TestKdTree.java:2004)
 
     - sequence of operations was:
-           st.insert(0.566925048828125, 0.0121612548828125)
+           st.insert(0.7294769287109375, 0.0687103271484375)
 
 ==> FAILED
 
@@ -1629,7 +1631,7 @@ Test 10: insert n random points into two different KdTree objects;
 
     - sequence of operations was:
            KdTree st1 = new KdTree();
-           st1.insert((0.75, 0.25))
+           st1.insert((0.0, 0.25))
   * 20 random general points in a 8-by-8 grid
 
     java.lang.NullPointerException
@@ -1641,7 +1643,7 @@ Test 10: insert n random points into two different KdTree objects;
 
     - sequence of operations was:
            KdTree st1 = new KdTree();
-           st1.insert((0.875, 0.25))
+           st1.insert((0.5, 0.125))
   * 100 random general points in a 128-by-128 grid
 
     java.lang.NullPointerException
@@ -1653,7 +1655,7 @@ Test 10: insert n random points into two different KdTree objects;
 
     - sequence of operations was:
            KdTree st1 = new KdTree();
-           st1.insert((0.5390625, 0.7578125))
+           st1.insert((0.6015625, 0.9375))
   * 1000 random general points in a 65536-by-65536 grid
 
     java.lang.NullPointerException
@@ -1665,7 +1667,7 @@ Test 10: insert n random points into two different KdTree objects;
 
     - sequence of operations was:
            KdTree st1 = new KdTree();
-           st1.insert((0.1888580322265625, 0.0636749267578125))
+           st1.insert((0.608856201171875, 0.028411865234375))
 ==> FAILED
 
 
@@ -1709,7 +1711,13 @@ Maximum allowed memory is 96n + 200 bytes.
 => passed       25         2552               2568
 => passed      100         9752               9768
 => passed      400        38552              38568
-=> p
+=> passed      800        76952              76968
+==> 8/8 tests passed
+
+Total: 8/8 tests passed!
+
+Estimated student   memory (bytes) = 96.00 n + 152.00  (R^2 = 1.000)
+Estimated reference memory (bytes) = 96.00 n 
 
 ...
 

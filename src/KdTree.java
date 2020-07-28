@@ -220,13 +220,13 @@ class TreeNode{
 			if(left == null) {
 				return false;
 			}else {
-				left.contains(p);
+				return left.contains(p);
 			}
 		}else if(comparision > 0) {
 			if(right == null) {			//return false if null
-				
+				return false;
 			}else {						//keep looking if the tree exists
-				left.contains(p);
+				return left.contains(p);
 			}
 		}
 		
