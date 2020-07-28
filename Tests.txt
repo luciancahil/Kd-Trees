@@ -7,21 +7,21 @@ API:          PASSED
 
 Spotbugs:     PASSED
 PMD:          FAILED (4 warnings)
-Checkstyle:   FAILED (0 errors, 84 warnings)
+Checkstyle:   FAILED (0 errors, 92 warnings)
 
-Correctness:  6/35 tests passed
+Correctness:  7/35 tests passed
 Memory:       8/16 tests passed
 Timing:       14/42 tests passed
 
-Aggregate score: 31.95%
+Aggregate score: 33.67%
 [Compilation: 5%, API: 5%, Spotbugs: 0%, PMD: 0%, Checkstyle: 0%, Correctness: 60%, Memory: 10%, Timing: 20%]
 
 ASSESSMENT DETAILS
 
 The following files were submitted:
 ----------------------------------
-5.7K Jul 28 18:24 KdTree.java
-3.4K Jul 28 18:24 PointSET.java
+6.0K Jul 28 18:30 KdTree.java
+3.8K Jul 28 18:30 PointSET.java
 
 
 ********************************************************************************
@@ -55,19 +55,19 @@ KdTree:
 
 % spotbugs *.class
 *-----------------------------------------------------------
-M D RV_RETURN_VALUE_IGNORED_NO_SIDE_EFFECT RV: Calls the method 'contains()' but ignores its return value. The method, however, does not produce any effect other than returning a value.  At KdTree.java:[line 205]
-L B IT_NO_SUCH_ELEMENT It: The 'next()' method must throw a 'java.util.NoSuchElementException' if it is called when there are no more elements to return.  At KdTree.java:[lines 148-153]
-M C UWF_UNWRITTEN_FIELD UwF: The instance (or static) variable 'tree' is never initialized; all reads of it will return the default value (0 or null). Check for errors (should it have been initialized?), or remove if useless.  At KdTree.java:[line 26]
-M C UWF_UNWRITTEN_FIELD UwF: The instance (or static) variable 'root' is never initialized; all reads of it will return the default value (0 or null). Check for errors (should it have been initialized?), or remove if useless.  At KdTree.java:[line 143]
-L P SIC_INNER_SHOULD_BE_STATIC_NEEDS_THIS SIC: Should the inner class 'TSet$inOrderIterator' be refactored into a static nested class?  At KdTree.java:[lines 138-158]
-M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'tree', which appears to be null.  At KdTree.java:[line 26]
-M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'tree', which appears to be null.  At KdTree.java:[line 32]
-M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'root', which appears to be null.  At KdTree.java:[line 128]
-M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'root', which appears to be null.  At KdTree.java:[line 124]
-M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'tree', which appears to be null.  At KdTree.java:[line 47]
-M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'root', which appears to be null.  At KdTree.java:[line 131]
-M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'tree', which appears to be null.  At KdTree.java:[line 37]
-M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'tree', which appears to be null.  At KdTree.java:[line 60]
+M D RV_RETURN_VALUE_IGNORED_NO_SIDE_EFFECT RV: Calls the method 'contains()' but ignores its return value. The method, however, does not produce any effect other than returning a value.  At KdTree.java:[line 220]
+L B IT_NO_SUCH_ELEMENT It: The 'next()' method must throw a 'java.util.NoSuchElementException' if it is called when there are no more elements to return.  At KdTree.java:[lines 163-168]
+M C UWF_UNWRITTEN_FIELD UwF: The instance (or static) variable 'tree' is never initialized; all reads of it will return the default value (0 or null). Check for errors (should it have been initialized?), or remove if useless.  At KdTree.java:[line 29]
+M C UWF_UNWRITTEN_FIELD UwF: The instance (or static) variable 'root' is never initialized; all reads of it will return the default value (0 or null). Check for errors (should it have been initialized?), or remove if useless.  At KdTree.java:[line 158]
+L P SIC_INNER_SHOULD_BE_STATIC_NEEDS_THIS SIC: Should the inner class 'TSet$inOrderIterator' be refactored into a static nested class?  At KdTree.java:[lines 153-173]
+M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'tree', which appears to be null.  At KdTree.java:[line 29]
+M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'tree', which appears to be null.  At KdTree.java:[line 39]
+M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'root', which appears to be null.  At KdTree.java:[line 143]
+M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'root', which appears to be null.  At KdTree.java:[line 139]
+M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'tree', which appears to be null.  At KdTree.java:[line 58]
+M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'root', which appears to be null.  At KdTree.java:[line 146]
+M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'tree', which appears to be null.  At KdTree.java:[line 44]
+M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'tree', which appears to be null.  At KdTree.java:[line 75]
 
 
 ================================================================
@@ -76,9 +76,9 @@ M C NP_UNWRITTEN_FIELD NP: Dereferences the instance (or static) variable 'tree'
 % pmd .
 *-----------------------------------------------------------
 KdTree.java:8: The private instance (or static) variable 'size' can be made 'final'; it is initialized only in the declaration or constructor. [ImmutableField]
-KdTree.java:117: All instance (and static) variables must be 'private'. [OnlyPrivateInstanceVariables]
-KdTree.java:158: Use the 'isEmpty()' method instead of comparing 'size()' to '0'. [UseCollectionIsEmpty]
-KdTree.java:208: The 'if' or 'else' clause appears to serve no purpose because its body is empty. [EmptyIfStmt]
+KdTree.java:132: All instance (and static) variables must be 'private'. [OnlyPrivateInstanceVariables]
+KdTree.java:173: Use the 'isEmpty()' method instead of comparing 'size()' to '0'. [UseCollectionIsEmpty]
+KdTree.java:223: The 'if' or 'else' clause appears to serve no purpose because its body is empty. [EmptyIfStmt]
 PMD ends with 4 warnings.
 
 
@@ -90,52 +90,52 @@ PMD ends with 4 warnings.
 [WARN] KdTree.java:1:1: Your program defines 3 outer types, but there should be only 1. [OuterTypeNumber]
 [WARN] KdTree.java:8:1: File contains tab characters (this is the first occurrence). Configure your editor to replace tabs with spaces. [FileTabCharacter]
 [WARN] KdTree.java:26:8: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:37:8: 'for' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:43:6: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:47:9: 'for' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:51:13: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:63:8: 'for' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:66:12: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:79:8: 'for' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:79:41: '+=' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:115:1: The .java file must have exactly one top-level class. [OneTopLevelClass]
-[WARN] KdTree.java:115:39: '>' is followed by an illegal character. [GenericWhitespace]
-[WARN] KdTree.java:115:40: '{' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:117:5: Declare static and instance variables in order of their access modifiers: public, protected, package, and private. [DeclarationOrder]
-[WARN] KdTree.java:131:33: '{' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:131:34: 'return' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:131:51: ';' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:131:52: '}' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:138:19: The class 'inOrderIterator' must start with an uppercase letter and use CamelCase. [TypeName]
-[WARN] KdTree.java:138:62: '>' is followed by an illegal character. [GenericWhitespace]
-[WARN] KdTree.java:138:63: '{' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:150:13: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:151:13: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:166:3: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:167:1: The .java file must have exactly one top-level class. [OneTopLevelClass]
-[WARN] KdTree.java:167:15: '{' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:171:51: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:173:53: '{' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:181:9: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:182:13: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:184:13: '}' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:184:14: 'else' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:187:9: '}' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:187:10: 'else' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:187:15: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:188:13: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:188:43: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:190:13: '}' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:29:8: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:35:8: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:44:8: 'for' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:50:6: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:52:8: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:58:9: 'for' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:62:13: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:71:8: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:78:8: 'for' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:81:12: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:94:8: 'for' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:94:41: '+=' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:130:1: The .java file must have exactly one top-level class. [OneTopLevelClass]
+[WARN] KdTree.java:130:39: '>' is followed by an illegal character. [GenericWhitespace]
+[WARN] KdTree.java:130:40: '{' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:132:5: Declare static and instance variables in order of their access modifiers: public, protected, package, and private. [DeclarationOrder]
+[WARN] KdTree.java:146:33: '{' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:146:34: 'return' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:146:51: ';' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:146:52: '}' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:153:19: The class 'inOrderIterator' must start with an uppercase letter and use CamelCase. [TypeName]
+[WARN] KdTree.java:153:62: '>' is followed by an illegal character. [GenericWhitespace]
+[WARN] KdTree.java:153:63: '{' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:165:13: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:166:13: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:181:3: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:182:1: The .java file must have exactly one top-level class. [OneTopLevelClass]
+[WARN] KdTree.java:182:15: '{' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:186:51: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:188:53: '{' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:196:9: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:197:13: 'if' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:199:13: '}' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:199:14: 'else' is not preceded with whitespace. [WhitespaceAround]
+[WARN] KdTree.java:202:9: '}' is not followed by whitespace. [WhitespaceAround]
+[WARN] KdTree.java:202:10: 'else' is not preceded with whitespace. [WhitespaceAround]
 ...
-Checkstyle ends with 0 errors and 82 warnings.
+Checkstyle ends with 0 errors and 90 warnings.
 
 % custom checkstyle checks for PointSET.java
 *-----------------------------------------------------------
 
 % custom checkstyle checks for KdTree.java
 *-----------------------------------------------------------
-[WARN] KdTree.java:115:12: Using interface inheritance suggests poor design in this program. [Design]
-[WARN] KdTree.java:138:39: Using interface inheritance suggests poor design in this program. [Design]
+[WARN] KdTree.java:130:12: Using interface inheritance suggests poor design in this program. [Design]
+[WARN] KdTree.java:153:39: Using interface inheritance suggests poor design in this program. [Design]
 Checkstyle ends with 0 errors and 2 warnings.
 
 
@@ -199,7 +199,7 @@ Test 5: call methods before inserting any points
     java.base/java.util.TreeMap.key(TreeMap.java:1324)
     java.base/java.util.TreeMap.firstKey(TreeMap.java:289)
     java.base/java.util.TreeSet.first(TreeSet.java:394)
-    PointSET.nearest(PointSET.java:59)
+    PointSET.nearest(PointSET.java:75)
     TestPointSET.checkNearest(TestPointSET.java:212)
     TestPointSET.test5(TestPointSET.java:707)
     TestPointSET.main(TestPointSET.java:794)
@@ -209,26 +209,10 @@ Test 5: call methods before inserting any points
 
 Test 6: call methods with null argument
   * insert()
-    - throws wrong exception when calling insert() with a null first argument
-    - throws a java.lang.NullPointerException
-    - should throw a java.lang.IllegalArgumentException
-
   * contains()
-    - throws wrong exception when calling contains() with a null argument
-    - throws a java.lang.NullPointerException
-    - should throw a java.lang.IllegalArgumentException
-
   * range()
-    - throws wrong exception when calling range() with a null argument
-    - throws a java.lang.NullPointerException
-    - should throw a java.lang.IllegalArgumentException
-
   * nearest()
-    - throws wrong exception when calling nearest() with a null argument
-    - throws a java.lang.NullPointerException
-    - should throw a java.lang.IllegalArgumentException
-
-==> FAILED
+==> passed
 
 Test 7: check intermixed sequence of calls to insert(), isEmpty(),
         size(), contains(), range(), and nearest() with
@@ -251,7 +235,7 @@ Test 8: check that two PointSET objects can be created at the same time
 ==> passed
 
 
-Total: 6/8 tests passed!
+Total: 7/8 tests passed!
 
 
 ================================================================
@@ -279,7 +263,7 @@ Test 1a: insert points from file; check size() and isEmpty() after each insertio
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:161)
     TestKdTree.test1a(TestKdTree.java:1581)
@@ -289,7 +273,7 @@ Test 1a: insert points from file; check size() and isEmpty() after each insertio
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:161)
     TestKdTree.test1a(TestKdTree.java:1582)
@@ -299,7 +283,7 @@ Test 1a: insert points from file; check size() and isEmpty() after each insertio
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:161)
     TestKdTree.test1a(TestKdTree.java:1583)
@@ -312,7 +296,7 @@ Test 1b: insert non-degenerate points; check size() and isEmpty() after each ins
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
     TestKdTree.test1b(TestKdTree.java:1590)
@@ -322,7 +306,7 @@ Test 1b: insert non-degenerate points; check size() and isEmpty() after each ins
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
     TestKdTree.test1b(TestKdTree.java:1591)
@@ -332,7 +316,7 @@ Test 1b: insert non-degenerate points; check size() and isEmpty() after each ins
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
     TestKdTree.test1b(TestKdTree.java:1592)
@@ -342,7 +326,7 @@ Test 1b: insert non-degenerate points; check size() and isEmpty() after each ins
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
     TestKdTree.test1b(TestKdTree.java:1593)
@@ -352,7 +336,7 @@ Test 1b: insert non-degenerate points; check size() and isEmpty() after each ins
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
     TestKdTree.test1b(TestKdTree.java:1594)
@@ -362,7 +346,7 @@ Test 1b: insert non-degenerate points; check size() and isEmpty() after each ins
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
     TestKdTree.test1b(TestKdTree.java:1595)
@@ -375,7 +359,7 @@ Test 1c: insert distinct points; check size() and isEmpty() after each insertion
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
     TestKdTree.test1c(TestKdTree.java:1602)
@@ -385,7 +369,7 @@ Test 1c: insert distinct points; check size() and isEmpty() after each insertion
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
     TestKdTree.test1c(TestKdTree.java:1603)
@@ -395,7 +379,7 @@ Test 1c: insert distinct points; check size() and isEmpty() after each insertion
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
     TestKdTree.test1c(TestKdTree.java:1604)
@@ -405,7 +389,7 @@ Test 1c: insert distinct points; check size() and isEmpty() after each insertion
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
     TestKdTree.test1c(TestKdTree.java:1605)
@@ -415,7 +399,7 @@ Test 1c: insert distinct points; check size() and isEmpty() after each insertion
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
     TestKdTree.test1c(TestKdTree.java:1606)
@@ -425,7 +409,7 @@ Test 1c: insert distinct points; check size() and isEmpty() after each insertion
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
     TestKdTree.test1c(TestKdTree.java:1607)
@@ -438,7 +422,7 @@ Test 1d: insert general points; check size() and isEmpty() after each insertion
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
     TestKdTree.test1d(TestKdTree.java:1614)
@@ -448,7 +432,7 @@ Test 1d: insert general points; check size() and isEmpty() after each insertion
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
     TestKdTree.test1d(TestKdTree.java:1615)
@@ -458,7 +442,7 @@ Test 1d: insert general points; check size() and isEmpty() after each insertion
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
     TestKdTree.test1d(TestKdTree.java:1616)
@@ -468,7 +452,7 @@ Test 1d: insert general points; check size() and isEmpty() after each insertion
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
     TestKdTree.test1d(TestKdTree.java:1617)
@@ -478,7 +462,7 @@ Test 1d: insert general points; check size() and isEmpty() after each insertion
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
     TestKdTree.test1d(TestKdTree.java:1618)
@@ -488,7 +472,7 @@ Test 1d: insert general points; check size() and isEmpty() after each insertion
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:187)
     TestKdTree.checkSizeAndIsEmpty(TestKdTree.java:156)
     TestKdTree.test1d(TestKdTree.java:1619)
@@ -501,7 +485,7 @@ Test 2a: insert points from file; check contains() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.contains(KdTree.java:32)
+    KdTree.contains(KdTree.java:39)
     TestKdTree.checkContains(TestKdTree.java:245)
     TestKdTree.checkContains(TestKdTree.java:229)
     TestKdTree.test2a(TestKdTree.java:1627)
@@ -511,7 +495,7 @@ Test 2a: insert points from file; check contains() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:229)
     TestKdTree.test2a(TestKdTree.java:1628)
@@ -521,7 +505,7 @@ Test 2a: insert points from file; check contains() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:229)
     TestKdTree.test2a(TestKdTree.java:1629)
@@ -531,7 +515,7 @@ Test 2a: insert points from file; check contains() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:229)
     TestKdTree.test2a(TestKdTree.java:1630)
@@ -544,7 +528,7 @@ Test 2b: insert non-degenerate points; check contains() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2b(TestKdTree.java:1638)
@@ -554,7 +538,7 @@ Test 2b: insert non-degenerate points; check contains() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2b(TestKdTree.java:1639)
@@ -564,7 +548,7 @@ Test 2b: insert non-degenerate points; check contains() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2b(TestKdTree.java:1640)
@@ -574,7 +558,7 @@ Test 2b: insert non-degenerate points; check contains() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2b(TestKdTree.java:1641)
@@ -584,7 +568,7 @@ Test 2b: insert non-degenerate points; check contains() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2b(TestKdTree.java:1642)
@@ -594,7 +578,7 @@ Test 2b: insert non-degenerate points; check contains() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2b(TestKdTree.java:1643)
@@ -607,7 +591,7 @@ Test 2c: insert distinct points; check contains() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2c(TestKdTree.java:1651)
@@ -617,7 +601,7 @@ Test 2c: insert distinct points; check contains() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2c(TestKdTree.java:1652)
@@ -627,7 +611,7 @@ Test 2c: insert distinct points; check contains() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2c(TestKdTree.java:1653)
@@ -637,7 +621,7 @@ Test 2c: insert distinct points; check contains() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2c(TestKdTree.java:1654)
@@ -647,7 +631,7 @@ Test 2c: insert distinct points; check contains() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2c(TestKdTree.java:1655)
@@ -657,7 +641,7 @@ Test 2c: insert distinct points; check contains() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2c(TestKdTree.java:1656)
@@ -670,7 +654,7 @@ Test 2d: insert general points; check contains() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2d(TestKdTree.java:1664)
@@ -680,7 +664,7 @@ Test 2d: insert general points; check contains() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2d(TestKdTree.java:1665)
@@ -690,7 +674,7 @@ Test 2d: insert general points; check contains() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2d(TestKdTree.java:1666)
@@ -700,7 +684,7 @@ Test 2d: insert general points; check contains() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkContains(TestKdTree.java:239)
     TestKdTree.checkContains(TestKdTree.java:223)
     TestKdTree.test2d(TestKdTree.java:1667)
@@ -713,7 +697,7 @@ Test 3a: insert points from file; check range() with random query rectangles
 
     java.lang.NullPointerException
 
-    KdTree.range(KdTree.java:47)
+    KdTree.range(KdTree.java:58)
     TestKdTree.checkRange(TestKdTree.java:576)
     TestKdTree.checkRange(TestKdTree.java:529)
     TestKdTree.test3a(TestKdTree.java:1675)
@@ -723,7 +707,7 @@ Test 3a: insert points from file; check range() with random query rectangles
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRange(TestKdTree.java:544)
     TestKdTree.checkRange(TestKdTree.java:529)
     TestKdTree.test3a(TestKdTree.java:1676)
@@ -733,7 +717,7 @@ Test 3a: insert points from file; check range() with random query rectangles
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRange(TestKdTree.java:544)
     TestKdTree.checkRange(TestKdTree.java:529)
     TestKdTree.test3a(TestKdTree.java:1677)
@@ -743,7 +727,7 @@ Test 3a: insert points from file; check range() with random query rectangles
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRange(TestKdTree.java:544)
     TestKdTree.checkRange(TestKdTree.java:529)
     TestKdTree.test3a(TestKdTree.java:1678)
@@ -756,7 +740,7 @@ Test 3b: insert non-degenerate points; check range() with random query rectangle
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRange(TestKdTree.java:544)
     TestKdTree.checkRange(TestKdTree.java:523)
     TestKdTree.test3b(TestKdTree.java:1686)
@@ -766,7 +750,7 @@ Test 3b: insert non-degenerate points; check range() with random query rectangle
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRange(TestKdTree.java:544)
     TestKdTree.checkRange(TestKdTree.java:523)
     TestKdTree.test3b(TestKdTree.java:1687)
@@ -776,7 +760,7 @@ Test 3b: insert non-degenerate points; check range() with random query rectangle
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRange(TestKdTree.java:544)
     TestKdTree.checkRange(TestKdTree.java:523)
     TestKdTree.test3b(TestKdTree.java:1688)
@@ -786,7 +770,7 @@ Test 3b: insert non-degenerate points; check range() with random query rectangle
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRange(TestKdTree.java:544)
     TestKdTree.checkRange(TestKdTree.java:523)
     TestKdTree.test3b(TestKdTree.java:1689)
@@ -796,7 +780,7 @@ Test 3b: insert non-degenerate points; check range() with random query rectangle
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRange(TestKdTree.java:544)
     TestKdTree.checkRange(TestKdTree.java:523)
     TestKdTree.test3b(TestKdTree.java:1690)
@@ -806,7 +790,7 @@ Test 3b: insert non-degenerate points; check range() with random query rectangle
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRange(TestKdTree.java:544)
     TestKdTree.checkRange(TestKdTree.java:523)
     TestKdTree.test3b(TestKdTree.java:1691)
@@ -819,7 +803,7 @@ Test 3c: insert distinct points; check range() with random query rectangles
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRange(TestKdTree.java:544)
     TestKdTree.checkRange(TestKdTree.java:523)
     TestKdTree.test3c(TestKdTree.java:1698)
@@ -829,7 +813,7 @@ Test 3c: insert distinct points; check range() with random query rectangles
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRange(TestKdTree.java:544)
     TestKdTree.checkRange(TestKdTree.java:523)
     TestKdTree.test3c(TestKdTree.java:1699)
@@ -839,7 +823,7 @@ Test 3c: insert distinct points; check range() with random query rectangles
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRange(TestKdTree.java:544)
     TestKdTree.checkRange(TestKdTree.java:523)
     TestKdTree.test3c(TestKdTree.java:1700)
@@ -849,7 +833,7 @@ Test 3c: insert distinct points; check range() with random query rectangles
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRange(TestKdTree.java:544)
     TestKdTree.checkRange(TestKdTree.java:523)
     TestKdTree.test3c(TestKdTree.java:1701)
@@ -859,7 +843,7 @@ Test 3c: insert distinct points; check range() with random query rectangles
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRange(TestKdTree.java:544)
     TestKdTree.checkRange(TestKdTree.java:523)
     TestKdTree.test3c(TestKdTree.java:1702)
@@ -869,7 +853,7 @@ Test 3c: insert distinct points; check range() with random query rectangles
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRange(TestKdTree.java:544)
     TestKdTree.checkRange(TestKdTree.java:523)
     TestKdTree.test3c(TestKdTree.java:1703)
@@ -882,7 +866,7 @@ Test 3d: insert general points; check range() with random query rectangles
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRange(TestKdTree.java:544)
     TestKdTree.checkRange(TestKdTree.java:523)
     TestKdTree.test3d(TestKdTree.java:1711)
@@ -892,7 +876,7 @@ Test 3d: insert general points; check range() with random query rectangles
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRange(TestKdTree.java:544)
     TestKdTree.checkRange(TestKdTree.java:523)
     TestKdTree.test3d(TestKdTree.java:1712)
@@ -902,7 +886,7 @@ Test 3d: insert general points; check range() with random query rectangles
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRange(TestKdTree.java:544)
     TestKdTree.checkRange(TestKdTree.java:523)
     TestKdTree.test3d(TestKdTree.java:1713)
@@ -912,7 +896,7 @@ Test 3d: insert general points; check range() with random query rectangles
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRange(TestKdTree.java:544)
     TestKdTree.checkRange(TestKdTree.java:523)
     TestKdTree.test3d(TestKdTree.java:1714)
@@ -926,7 +910,7 @@ Test 3e: insert random points; check range() with tiny rectangles
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRangeTiny(TestKdTree.java:613)
     TestKdTree.test3e(TestKdTree.java:1722)
     TestKdTree.main(TestKdTree.java:1965)
@@ -935,7 +919,7 @@ Test 3e: insert random points; check range() with tiny rectangles
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRangeTiny(TestKdTree.java:613)
     TestKdTree.test3e(TestKdTree.java:1723)
     TestKdTree.main(TestKdTree.java:1965)
@@ -944,7 +928,7 @@ Test 3e: insert random points; check range() with tiny rectangles
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRangeTiny(TestKdTree.java:613)
     TestKdTree.test3e(TestKdTree.java:1724)
     TestKdTree.main(TestKdTree.java:1965)
@@ -953,7 +937,7 @@ Test 3e: insert random points; check range() with tiny rectangles
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRangeTiny(TestKdTree.java:613)
     TestKdTree.test3e(TestKdTree.java:1725)
     TestKdTree.main(TestKdTree.java:1965)
@@ -962,7 +946,7 @@ Test 3e: insert random points; check range() with tiny rectangles
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRangeTiny(TestKdTree.java:613)
     TestKdTree.test3e(TestKdTree.java:1726)
     TestKdTree.main(TestKdTree.java:1965)
@@ -971,7 +955,7 @@ Test 3e: insert random points; check range() with tiny rectangles
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRangeTiny(TestKdTree.java:613)
     TestKdTree.test3e(TestKdTree.java:1727)
     TestKdTree.main(TestKdTree.java:1965)
@@ -984,7 +968,7 @@ Test 4a: insert points from file; check range() with random query rectangles
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRangeTraversal(TestKdTree.java:677)
     TestKdTree.checkRangeTraversal(TestKdTree.java:660)
     TestKdTree.test4a(TestKdTree.java:1736)
@@ -994,7 +978,7 @@ Test 4a: insert points from file; check range() with random query rectangles
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRangeTraversal(TestKdTree.java:677)
     TestKdTree.checkRangeTraversal(TestKdTree.java:660)
     TestKdTree.test4a(TestKdTree.java:1737)
@@ -1008,7 +992,7 @@ Test 4b: insert non-degenerate points; check range() with random query rectangle
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRangeTraversal(TestKdTree.java:677)
     TestKdTree.checkRangeTraversal(TestKdTree.java:654)
     TestKdTree.test4b(TestKdTree.java:1747)
@@ -1018,7 +1002,7 @@ Test 4b: insert non-degenerate points; check range() with random query rectangle
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRangeTraversal(TestKdTree.java:677)
     TestKdTree.checkRangeTraversal(TestKdTree.java:654)
     TestKdTree.test4b(TestKdTree.java:1748)
@@ -1028,7 +1012,7 @@ Test 4b: insert non-degenerate points; check range() with random query rectangle
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRangeTraversal(TestKdTree.java:677)
     TestKdTree.checkRangeTraversal(TestKdTree.java:654)
     TestKdTree.test4b(TestKdTree.java:1749)
@@ -1038,7 +1022,7 @@ Test 4b: insert non-degenerate points; check range() with random query rectangle
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRangeTraversal(TestKdTree.java:677)
     TestKdTree.checkRangeTraversal(TestKdTree.java:654)
     TestKdTree.test4b(TestKdTree.java:1750)
@@ -1048,7 +1032,7 @@ Test 4b: insert non-degenerate points; check range() with random query rectangle
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkRangeTraversal(TestKdTree.java:677)
     TestKdTree.checkRangeTraversal(TestKdTree.java:654)
     TestKdTree.test4b(TestKdTree.java:1751)
@@ -1061,7 +1045,7 @@ Test 5a: insert points from file; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.nearest(KdTree.java:60)
+    KdTree.nearest(KdTree.java:75)
     TestKdTree.checkNearest(TestKdTree.java:316)
     TestKdTree.checkNearest(TestKdTree.java:282)
     TestKdTree.test5a(TestKdTree.java:1759)
@@ -1071,7 +1055,7 @@ Test 5a: insert points from file; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearest(TestKdTree.java:298)
     TestKdTree.checkNearest(TestKdTree.java:282)
     TestKdTree.test5a(TestKdTree.java:1760)
@@ -1081,7 +1065,7 @@ Test 5a: insert points from file; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearest(TestKdTree.java:298)
     TestKdTree.checkNearest(TestKdTree.java:282)
     TestKdTree.test5a(TestKdTree.java:1761)
@@ -1091,7 +1075,7 @@ Test 5a: insert points from file; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearest(TestKdTree.java:298)
     TestKdTree.checkNearest(TestKdTree.java:282)
     TestKdTree.test5a(TestKdTree.java:1762)
@@ -1104,7 +1088,7 @@ Test 5b: insert non-degenerate points; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearest(TestKdTree.java:298)
     TestKdTree.checkNearest(TestKdTree.java:276)
     TestKdTree.test5b(TestKdTree.java:1771)
@@ -1114,7 +1098,7 @@ Test 5b: insert non-degenerate points; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearest(TestKdTree.java:298)
     TestKdTree.checkNearest(TestKdTree.java:276)
     TestKdTree.test5b(TestKdTree.java:1772)
@@ -1124,7 +1108,7 @@ Test 5b: insert non-degenerate points; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearest(TestKdTree.java:298)
     TestKdTree.checkNearest(TestKdTree.java:276)
     TestKdTree.test5b(TestKdTree.java:1773)
@@ -1134,7 +1118,7 @@ Test 5b: insert non-degenerate points; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearest(TestKdTree.java:298)
     TestKdTree.checkNearest(TestKdTree.java:276)
     TestKdTree.test5b(TestKdTree.java:1774)
@@ -1144,7 +1128,7 @@ Test 5b: insert non-degenerate points; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearest(TestKdTree.java:298)
     TestKdTree.checkNearest(TestKdTree.java:276)
     TestKdTree.test5b(TestKdTree.java:1775)
@@ -1157,7 +1141,7 @@ Test 5c: insert distinct points; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearest(TestKdTree.java:298)
     TestKdTree.checkNearest(TestKdTree.java:276)
     TestKdTree.test5c(TestKdTree.java:1783)
@@ -1167,7 +1151,7 @@ Test 5c: insert distinct points; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearest(TestKdTree.java:298)
     TestKdTree.checkNearest(TestKdTree.java:276)
     TestKdTree.test5c(TestKdTree.java:1784)
@@ -1177,7 +1161,7 @@ Test 5c: insert distinct points; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearest(TestKdTree.java:298)
     TestKdTree.checkNearest(TestKdTree.java:276)
     TestKdTree.test5c(TestKdTree.java:1785)
@@ -1187,7 +1171,7 @@ Test 5c: insert distinct points; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearest(TestKdTree.java:298)
     TestKdTree.checkNearest(TestKdTree.java:276)
     TestKdTree.test5c(TestKdTree.java:1786)
@@ -1197,7 +1181,7 @@ Test 5c: insert distinct points; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearest(TestKdTree.java:298)
     TestKdTree.checkNearest(TestKdTree.java:276)
     TestKdTree.test5c(TestKdTree.java:1787)
@@ -1210,7 +1194,7 @@ Test 5d: insert general points; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearest(TestKdTree.java:298)
     TestKdTree.checkNearest(TestKdTree.java:276)
     TestKdTree.test5d(TestKdTree.java:1795)
@@ -1220,7 +1204,7 @@ Test 5d: insert general points; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearest(TestKdTree.java:298)
     TestKdTree.checkNearest(TestKdTree.java:276)
     TestKdTree.test5d(TestKdTree.java:1796)
@@ -1230,7 +1214,7 @@ Test 5d: insert general points; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearest(TestKdTree.java:298)
     TestKdTree.checkNearest(TestKdTree.java:276)
     TestKdTree.test5d(TestKdTree.java:1797)
@@ -1244,7 +1228,7 @@ Test 6a: insert points from file; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearestTraversal(TestKdTree.java:382)
     TestKdTree.checkNearestTraversal(TestKdTree.java:361)
     TestKdTree.test6a(TestKdTree.java:1806)
@@ -1254,7 +1238,7 @@ Test 6a: insert points from file; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearestTraversal(TestKdTree.java:382)
     TestKdTree.checkNearestTraversal(TestKdTree.java:361)
     TestKdTree.test6a(TestKdTree.java:1807)
@@ -1268,7 +1252,7 @@ Test 6b: insert non-degenerate points; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearestTraversal(TestKdTree.java:382)
     TestKdTree.checkNearestTraversal(TestKdTree.java:366)
     TestKdTree.test6b(TestKdTree.java:1817)
@@ -1278,7 +1262,7 @@ Test 6b: insert non-degenerate points; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearestTraversal(TestKdTree.java:382)
     TestKdTree.checkNearestTraversal(TestKdTree.java:366)
     TestKdTree.test6b(TestKdTree.java:1818)
@@ -1288,7 +1272,7 @@ Test 6b: insert non-degenerate points; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearestTraversal(TestKdTree.java:382)
     TestKdTree.checkNearestTraversal(TestKdTree.java:366)
     TestKdTree.test6b(TestKdTree.java:1819)
@@ -1298,7 +1282,7 @@ Test 6b: insert non-degenerate points; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearestTraversal(TestKdTree.java:382)
     TestKdTree.checkNearestTraversal(TestKdTree.java:366)
     TestKdTree.test6b(TestKdTree.java:1820)
@@ -1308,7 +1292,7 @@ Test 6b: insert non-degenerate points; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearestTraversal(TestKdTree.java:382)
     TestKdTree.checkNearestTraversal(TestKdTree.java:366)
     TestKdTree.test6b(TestKdTree.java:1821)
@@ -1318,7 +1302,7 @@ Test 6b: insert non-degenerate points; check nearest() with random query points
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNearestTraversal(TestKdTree.java:382)
     TestKdTree.checkNearestTraversal(TestKdTree.java:366)
     TestKdTree.test6b(TestKdTree.java:1822)
@@ -1332,7 +1316,7 @@ Test 7: check with no points
 
     java.lang.NullPointerException
 
-    KdTree.contains(KdTree.java:32)
+    KdTree.contains(KdTree.java:39)
     TestKdTree.checkContains(TestKdTree.java:245)
     TestKdTree.checkContains(TestKdTree.java:218)
     TestKdTree.test7(TestKdTree.java:1831)
@@ -1342,7 +1326,7 @@ Test 7: check with no points
 
     java.lang.NullPointerException
 
-    KdTree.nearest(KdTree.java:60)
+    KdTree.nearest(KdTree.java:75)
     TestKdTree.checkNearest(TestKdTree.java:316)
     TestKdTree.checkNearest(TestKdTree.java:271)
     TestKdTree.test7(TestKdTree.java:1832)
@@ -1352,7 +1336,7 @@ Test 7: check with no points
 
     java.lang.NullPointerException
 
-    KdTree.range(KdTree.java:47)
+    KdTree.range(KdTree.java:58)
     TestKdTree.checkRange(TestKdTree.java:576)
     TestKdTree.checkRange(TestKdTree.java:518)
     TestKdTree.test7(TestKdTree.java:1833)
@@ -1365,7 +1349,7 @@ Test 8: check that the specified exception is thrown with null arguments
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNullInsert(TestKdTree.java:1549)
     TestKdTree.test8(TestKdTree.java:1840)
     TestKdTree.main(TestKdTree.java:1995)
@@ -1376,7 +1360,7 @@ Test 8: check that the specified exception is thrown with null arguments
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNullContains(TestKdTree.java:1444)
     TestKdTree.test8(TestKdTree.java:1841)
     TestKdTree.main(TestKdTree.java:1995)
@@ -1387,7 +1371,7 @@ Test 8: check that the specified exception is thrown with null arguments
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNullRange(TestKdTree.java:1479)
     TestKdTree.test8(TestKdTree.java:1842)
     TestKdTree.main(TestKdTree.java:1995)
@@ -1398,7 +1382,7 @@ Test 8: check that the specified exception is thrown with null arguments
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkNullNearest(TestKdTree.java:1514)
     TestKdTree.test8(TestKdTree.java:1843)
     TestKdTree.main(TestKdTree.java:1995)
@@ -1415,7 +1399,7 @@ Test 9a: check intermixed sequence of calls to insert(), isEmpty(),
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9a(TestKdTree.java:1852)
     TestKdTree.main(TestKdTree.java:1998)
@@ -1428,68 +1412,68 @@ Test 9a: check intermixed sequence of calls to insert(), isEmpty(),
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9a(TestKdTree.java:1853)
     TestKdTree.main(TestKdTree.java:1998)
 
     - sequence of operations was:
-           st.insert(0.25, 0.875)
+           st.insert(0.8125, 0.25)
 
   * 20000 calls with non-degenerate points in a 128-by-128 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9a(TestKdTree.java:1854)
     TestKdTree.main(TestKdTree.java:1998)
 
     - sequence of operations was:
            st.size()  ==>  0
-           st.size()  ==>  0
-           st.insert(0.5546875, 0.2578125)
+           st.insert(0.359375, 0.6875)
 
   * 20000 calls with non-degenerate points in a 1024-by-1024 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9a(TestKdTree.java:1855)
     TestKdTree.main(TestKdTree.java:1998)
 
     - sequence of operations was:
-           st.insert(0.201171875, 0.1826171875)
+           st.size()  ==>  0
+           st.insert(0.5771484375, 0.1064453125)
 
   * 20000 calls with non-degenerate points in a 8192-by-8192 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9a(TestKdTree.java:1856)
     TestKdTree.main(TestKdTree.java:1998)
 
     - sequence of operations was:
-           st.isEmpty()  ==>  true
-           st.insert(0.0975341796875, 0.842529296875)
+           st.insert(0.8494873046875, 0.9207763671875)
 
   * 20000 calls with non-degenerate points in a 65536-by-65536 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9a(TestKdTree.java:1857)
     TestKdTree.main(TestKdTree.java:1998)
 
     - sequence of operations was:
-           st.insert(0.4381256103515625, 0.455902099609375)
+           st.isEmpty()  ==>  true
+           st.insert(0.675933837890625, 0.931304931640625)
 
 ==> FAILED
 
@@ -1501,80 +1485,81 @@ Test 9b: check intermixed sequence of calls to insert(), isEmpty(),
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9b(TestKdTree.java:1866)
     TestKdTree.main(TestKdTree.java:2001)
 
     - sequence of operations was:
-           st.insert(1.0, 0.0)
+           st.isEmpty()  ==>  true
+           st.insert(1.0, 1.0)
 
   * 20000 calls with distinct points in a 16-by-16 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9b(TestKdTree.java:1867)
     TestKdTree.main(TestKdTree.java:2001)
 
     - sequence of operations was:
-           st.insert(0.4375, 0.6875)
+           st.insert(0.0, 0.5)
 
   * 20000 calls with distinct points in a 128-by-128 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9b(TestKdTree.java:1868)
     TestKdTree.main(TestKdTree.java:2001)
 
     - sequence of operations was:
-           st.isEmpty()  ==>  true
-           st.insert(0.7578125, 0.71875)
+           st.insert(0.0625, 0.21875)
 
   * 20000 calls with distinct points in a 1024-by-1024 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9b(TestKdTree.java:1869)
     TestKdTree.main(TestKdTree.java:2001)
 
     - sequence of operations was:
-           st.size()  ==>  0
-           st.insert(0.7080078125, 0.228515625)
+           st.insert(0.6806640625, 0.171875)
 
   * 20000 calls with distinct points in a 8192-by-8192 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9b(TestKdTree.java:1870)
     TestKdTree.main(TestKdTree.java:2001)
 
     - sequence of operations was:
-           st.insert(0.8280029296875, 0.4864501953125)
+           st.insert(0.451904296875, 0.603759765625)
 
   * 20000 calls with distinct points in a 65536-by-65536 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9b(TestKdTree.java:1871)
     TestKdTree.main(TestKdTree.java:2001)
 
     - sequence of operations was:
-           st.insert(0.4972991943359375, 0.243133544921875)
+           st.isEmpty()  ==>  true
+           st.size()  ==>  0
+           st.insert(0.531768798828125, 0.04681396484375)
 
 ==> FAILED
 
@@ -1586,78 +1571,79 @@ Test 9c: check intermixed sequence of calls to insert(), isEmpty(),
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9c(TestKdTree.java:1880)
     TestKdTree.main(TestKdTree.java:2004)
 
     - sequence of operations was:
-           st.insert(0.0, 0.0)
+           st.insert(1.0, 1.0)
 
   * 20000 calls with general points in a 16-by-16 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9c(TestKdTree.java:1881)
     TestKdTree.main(TestKdTree.java:2004)
 
     - sequence of operations was:
-           st.insert(0.4375, 1.0)
+           st.isEmpty()  ==>  true
+           st.insert(0.4375, 0.75)
 
   * 20000 calls with general points in a 128-by-128 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9c(TestKdTree.java:1882)
     TestKdTree.main(TestKdTree.java:2004)
 
     - sequence of operations was:
-           st.insert(0.3515625, 0.59375)
+           st.insert(0.0703125, 0.2890625)
 
   * 20000 calls with general points in a 1024-by-1024 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9c(TestKdTree.java:1883)
     TestKdTree.main(TestKdTree.java:2004)
 
     - sequence of operations was:
-           st.insert(0.7197265625, 0.67578125)
+           st.insert(0.1513671875, 0.806640625)
 
   * 20000 calls with general points in a 8192-by-8192 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9c(TestKdTree.java:1884)
     TestKdTree.main(TestKdTree.java:2004)
 
     - sequence of operations was:
-           st.insert(0.3489990234375, 0.05322265625)
+           st.insert(0.0062255859375, 0.425537109375)
 
   * 20000 calls with general points in a 65536-by-65536 grid
     and probabilities (0.3, 0.05, 0.05, 0.2, 0.2, 0.2)
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkAll(TestKdTree.java:829)
     TestKdTree.test9c(TestKdTree.java:1885)
     TestKdTree.main(TestKdTree.java:2004)
 
     - sequence of operations was:
-           st.insert(0.5805511474609375, 0.9371490478515625)
+           st.insert(0.716705322265625, 0.2610626220703125)
 
 ==> FAILED
 
@@ -1668,44 +1654,65 @@ Test 10: insert n random points into two different KdTree objects;
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkImmutabilityTwoKdTreeObjects(TestKdTree.java:1187)
     TestKdTree.test10(TestKdTree.java:1896)
     TestKdTree.main(TestKdTree.java:2007)
 
     - sequence of operations was:
            KdTree st1 = new KdTree();
-           st1.insert((0.5, 0.0))
+           st1.insert((0.0, 0.0))
   * 20 random general points in a 8-by-8 grid
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkImmutabilityTwoKdTreeObjects(TestKdTree.java:1187)
     TestKdTree.test10(TestKdTree.java:1897)
     TestKdTree.main(TestKdTree.java:2007)
 
     - sequence of operations was:
            KdTree st1 = new KdTree();
-           st1.insert((0.75, 0.5))
+           st1.insert((0.75, 0.75))
   * 100 random general points in a 128-by-128 grid
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
+    KdTree.insert(KdTree.java:29)
     TestKdTree.checkImmutabilityTwoKdTreeObjects(TestKdTree.java:1187)
     TestKdTree.test10(TestKdTree.java:1898)
     TestKdTree.main(TestKdTree.java:2007)
 
     - sequence of operations was:
            KdTree st1 = new KdTree();
-           st1.insert((0.4453125, 0.2890625))
+           st1.insert((0.90625, 0.0))
   * 1000 random general points in a 65536-by-65536 grid
 
     java.lang.NullPointerException
 
-    KdTree.insert(KdTree.java:26)
-    TestKdTree.checkIm
+    KdTree.insert(KdTree.java:29)
+    TestKdTree.checkImmutabilityTwoKdTreeObjects(TestKdTree.java:1187)
+    TestKdTree.test10(TestKdTree.java:1899)
+    TestKdTree.main(TestKdTree.java:2007)
+
+    - sequence of operations was:
+           KdTree st1 = new KdTree();
+           st1.insert((0.979156494140625, 0.17523193359375))
+==> FAILED
+
+
+Total: 0/27 tests passed!
+
+
+================================================================
+********************************************************************************
+*  MEMORY
+********************************************************************************
+
+Analyzing memory of Point2D
+*-----------------------------------------------------------
+Memory of Point2D object = 32 bytes
+
 
 ...
 
