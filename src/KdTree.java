@@ -27,7 +27,7 @@ public class KdTree {
 	   if(p == null) {
 		   throw new IllegalArgumentException();
 	   }
-
+	   size++;
 	   tree.add(p);
    }
    
@@ -127,6 +127,21 @@ public class KdTree {
 	   System.out.println("Within rect: " + ps.range(rect));
    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
