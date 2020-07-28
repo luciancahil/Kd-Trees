@@ -27,8 +27,9 @@ public class KdTree {
 	   if(p == null) {
 		   throw new IllegalArgumentException();
 	   }
-	   size++;
-	   tree.add(p);
+	   
+	   if(tree.add(p))
+		   size++;
    }
    
    
@@ -162,10 +163,13 @@ class TSet implements Iterable<Point2D>{
 		
 	}
 	
-	public void add(Point2D p) {
-		if(root == null)
+	public boolean add(Point2D p) {
+		if(root == null) {
 			root = new TreeNode(p, true);
-		root.add(p);
+			return true;
+		}
+		
+		return root.add(p);
 	}
 	
 	public boolean contains(Point2D p) {
@@ -219,29 +223,29 @@ class TreeNode{
 		this.isVertical = isVertical;
 	}
 	
-	public void add(Point2D p) {
-		
-		
+	public boolean add(Point2D p) {
 		double comparision = compareTo(p);
+		
+		if(val.equals(p))
+			return false;
+		
 		
 		if(comparision < 0) {
 			if(left == null) {
 				left = new TreeNode(p, !isVertical);
+				return true;
 			}else {
-				left.add(p);
+				return left.add(p);
 			}
-		}else if(comparision > 0) {
+		}else if(comparision >= 0) {
 			if(right == null) {			//set value if null
 				right = new TreeNode(p, !isVertical);
 			}else {						//keep looking if the tree exists
-				right.add(p);
+				return right.add(p);
 			}
-		}else {
-			if(val.equals(p))
-				return;
-			
-			right.add(p);
 		}
+		
+		return true;
 	}
 	
 	public boolean contains(Point2D p) {
@@ -256,7 +260,7 @@ class TreeNode{
 			}else {
 				return left.contains(p);
 			}
-		}else if(comparision > 0) {
+		}else if(comparision >= 0) {
 			if(right == null) {			//return false if null
 				return false;
 			}else {						//keep looking if the tree exists
