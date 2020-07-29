@@ -55,20 +55,7 @@ public class KdTree {
 		   throw new IllegalArgumentException();
 	   }
 	   
-	   	LinkedList<Point2D> inRange = new LinkedList<Point2D>();
-	   	
-	   	
-	   	
-	   	for(Point2D p: tree) {
-	   		double x = p.x();
-	   		double y = p.y();
-	   		
-	   		if(x >= rect.xmin() && x <= rect.xmax() && y >= rect.ymin() && y <= rect.ymax()) {
-	   			inRange.add(p);
-	   		}
-	   	}
-	   	
-	   	return inRange;
+	   return tree.inRange(rect);
    }
    
    public Point2D nearest(Point2D p) {            // a nearest neighbor in the set to point p; null if the set is empty 
@@ -167,6 +154,18 @@ class TSet implements Iterable<Point2D>{
 		
 	}
 	
+	public Iterable<Point2D> inRange(RectHV rect) {
+		if(root == null)
+			return new LinkedList<Point2D>();
+		
+		LinkedList<Point2D> inRange = root.inRange(rect);
+
+				
+		
+		
+		return inRange;
+	}
+
 	public boolean add(Point2D p) {
 		if(root == null) {
 			root = new TreeNode(p, true);
@@ -232,6 +231,49 @@ class TreeNode{
 		this.isVertical = isVertical;
 	}
 	
+	public LinkedList<Point2D> inRange(RectHV rect) {
+		LinkedList<Point2D> inRange = new LinkedList<Point2D>();
+		double x = val.x();
+		double y = val.y();
+		
+		if(x >= rect.xmin() && x <= rect.xmax() && y >= rect.ymin() && y <= rect.ymax()) {
+   			inRange.add(val);
+   		}
+		
+		
+		if(left != null) {
+			if(isVertical) {
+				if(rect.xmin() < val.x()) {			//The left of the rectangle is to the left of the point. We must check left
+					addPoints(inRange, left.inRange(rect));
+				}
+			}else {			//this point drew a horizontal line
+				if(rect.ymin() < val.y()) {			//the bottom of the rect is below the line. We must check below
+					addPoints(inRange, left.inRange(rect));
+				}
+			}
+		}
+		
+		if(right != null) {
+			if(isVertical) {
+				if(rect.xmax() > val.x()) {			//The right of the rectangle is to the right of the point. We must check left
+					addPoints(inRange, right.inRange(rect));
+				}
+			}else {			//this point drew a horizontal line
+				if(rect.ymax() > val.y()) {			//the top of the rect is above the line. We must check below
+					addPoints(inRange, right.inRange(rect));
+				}
+			}
+		}
+		
+		return inRange;
+	}
+	
+	private void addPoints(LinkedList<Point2D> main, LinkedList<Point2D> append) {
+		for(Point2D p: append) {
+			main.add(p);
+		}
+	}
+
 	public boolean add(Point2D p) {
 		double comparision = compareTo(p);
 		
