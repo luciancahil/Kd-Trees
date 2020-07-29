@@ -85,9 +85,9 @@ public class KdTree {
 		   ps.insert(p);
 	   }
 	   
-	   Point2D p = new Point2D(0.699, 0.773);
+	   Point2D p = new Point2D(0.289, 0.459);
 	   
-	   System.out.println(ps.nearest(p));
+	   System.out.println(ps.nearest(p));		//should be (0.32, 0.708)
 	   /*
 	   double x = Double.parseDouble(args[0]);
 	   double y = Double.parseDouble(args[1]);
@@ -232,53 +232,62 @@ class TreeNode{
 		double compare = compareTo(p);
 		double distance = distance(val, p);
 		
-		if(compare <= 0) {	//point is either below/left of/on the line
-			if(left != null) {
-				Point2D secondPoint = left.nearest(p);
-				double secondDistance = distance(secondPoint, p);
+		if(compare <= 0) {//point is either below/left of/on the line
+			Point2D secondPoint = null;
+			double secondDistance = 0;
+			
+			if(left != null) {		//check the left/below of the line to see if there is a closer point
+				secondPoint = left.nearest(p);
+				secondDistance = distance(secondPoint, p);
 				
 				if(distance > secondDistance) {//Point in the left is closer to the new point, so we change closest
 					closest = secondPoint;
 					distance = secondDistance;
 				}
+			}
 				
-				if(distance <= -compare || right ==  null) {		//Point is closer to the nearest point than the line of the current point; no need to check the other side
-					return closest;
-				}
+			if(distance <= -compare || right ==  null) {//if right is null, there are no points to check. 
+				return closest;							//If distance is less than the distance between p and the line, no points on the other side can exist
+			}
+			
+			
+			secondPoint = right.nearest(p);		//see if a point on the right is colser
+			secondDistance = distance(secondPoint, p);
+			if(distance > secondDistance) {//Point in the right is closer to the new point, so we change closest
+				closest = secondPoint;
+				distance = secondDistance;
 				
-				
+			}
+		}else if(compare >= 0) {	//point is either above/right/on the line
+			Point2D secondPoint = null;
+			double secondDistance = 0;
+			
+			if(right != null) {			//check the above/right to see if a closser point exist
 				secondPoint = right.nearest(p);
 				secondDistance = distance(secondPoint, p);
+				
 				if(distance > secondDistance) {//Point in the right is closer to the new point, so we change closest
 					closest = secondPoint;
 					distance = secondDistance;
 				}
 			}
-		}else if(compare >= 0) {	//point is either above/right/on the line
-			if(right != null) {
-				Point2D secondPoint = right.nearest(p);
-				double secondDistance = distance(secondPoint, p);
 				
-				if(distance > secondDistance) {//Point in the right is closer to the new point, so we change closest
-					closest = secondPoint;
-					distance = secondDistance;
-				}
-				
-				if(distance <= -compare || left == null) {		//Point is closer to the nearest point than the line of the current point; no need to check the other side
-					return closest;
-				}
-				
-				
-				secondPoint = left.nearest(p);
-				if(distance > secondDistance) {//Point in the left is closer to the new point, so we change closest
-					closest = secondPoint;
-					distance = secondDistance;
-				}
+			if(distance <= -compare || left == null) {
+				return closest;
+			}
+			
+			
+			secondPoint = left.nearest(p);
+			secondDistance = distance(secondPoint, p);
+			if(distance > secondDistance) {//Point in the left is closer to the new point, so we change closest
+				closest = secondPoint;
+				distance = secondDistance;
 			}
 		}
 		
+		
 		return closest;
-	}//(0.417, 0.362)
+	}
 	
 	private double distance(Point2D val, Point2D p) {
 		return Math.pow(val.x() - p.x(), 2) + Math.pow(val.y() - p.y(), 2);
@@ -392,3 +401,25 @@ class TreeNode{
 	public Point2D val()					{return val;}
 	public String toString()		{return val.toString() + ", " + isVertical;}
 }
+
+
+/*
+
+Test 5a: insert points from file; check nearest() with random query points
+  * input0.txt
+  * input1.txt
+  * input5.txt
+    - failed on trial 13 of 10000
+    - sequence of points inserted: 
+      A  0.7 0.2
+      B  0.5 0.4
+      C  0.2 0.3
+      D  0.4 0.7
+      E  0.9 0.6
+    - query point                   = (0.289, 0.459)
+    - student   nearest()           = (0.5, 0.4)
+    - reference nearest()           = (0.2, 0.3)
+    - student   distanceSquaredTo() = 0.048002
+    - reference distanceSquaredTo() = 0.033202
+
+*/
