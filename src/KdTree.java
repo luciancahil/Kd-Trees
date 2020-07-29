@@ -85,7 +85,7 @@ public class KdTree {
 		   ps.insert(p);
 	   }
 	   
-	   Point2D p = new Point2D(0.289, 0.459);
+	   Point2D p = new Point2D(0.8125, 0.3125);
 	   
 	   System.out.println(ps.nearest(p));		//should be (0.32, 0.708)
 	   /*
@@ -290,7 +290,7 @@ class TreeNode{
 	}
 	
 	private double distance(Point2D val, Point2D p) {
-		return Math.pow(val.x() - p.x(), 2) + Math.pow(val.y() - p.y(), 2);
+		return Math.pow(Math.pow(val.x() - p.x(), 2) + Math.pow(val.y() - p.y(), 2), 0.5);
 	}
 
 	public LinkedList<Point2D> inRange(RectHV rect) {
@@ -405,21 +405,25 @@ class TreeNode{
 
 /*
 
-Test 5a: insert points from file; check nearest() with random query points
-  * input0.txt
-  * input1.txt
-  * input5.txt
-    - failed on trial 13 of 10000
+Test 5b: insert non-degenerate points; check nearest() with random query points
+  * 5 random non-degenerate points in a 8-by-8 grid
+  * 10 random non-degenerate points in a 16-by-16 grid
+    - failed on trial 5 of 10000
     - sequence of points inserted: 
-      A  0.7 0.2
-      B  0.5 0.4
-      C  0.2 0.3
-      D  0.4 0.7
-      E  0.9 0.6
-    - query point                   = (0.289, 0.459)
-    - student   nearest()           = (0.5, 0.4)
-    - reference nearest()           = (0.2, 0.3)
-    - student   distanceSquaredTo() = 0.048002
-    - reference distanceSquaredTo() = 0.033202
+      A  0.75 0.875
+      B  0.25 0.625
+      C  1.0 0.375
+      D  0.3125 0.5
+      E  0.5 1.0
+      F  0.4375 0.0
+      G  0.875 0.4375
+      H  0.9375 0.8125
+      I  0.125 0.75
+      J  0.6875 0.9375
+    - query point                   = (0.8125, 0.3125)
+    - student   nearest()           = (1.0, 0.375)
+    - reference nearest()           = (0.875, 0.4375)
+    - student   distanceSquaredTo() = 0.0390625
+    - reference distanceSquaredTo() = 0.01953125
 
 */
