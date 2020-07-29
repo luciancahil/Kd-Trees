@@ -243,11 +243,11 @@ class TreeNode{
 		
 		if(left != null) {
 			if(isVertical) {
-				if(rect.xmin() < val.x()) {			//The left of the rectangle is to the left of the point. We must check left
+				if(rect.xmin() <= val.x()) {			//The left of the rectangle is to the left of the point. We must check left
 					addPoints(inRange, left.inRange(rect));
 				}
 			}else {			//this point drew a horizontal line
-				if(rect.ymin() < val.y()) {			//the bottom of the rect is below the line. We must check below
+				if(rect.ymin() <= val.y()) {			//the bottom of the rect is below the line. We must check below
 					addPoints(inRange, left.inRange(rect));
 				}
 			}
@@ -255,11 +255,11 @@ class TreeNode{
 		
 		if(right != null) {
 			if(isVertical) {
-				if(rect.xmax() > val.x()) {			//The right of the rectangle is to the right of the point. We must check left
+				if(rect.xmax() >= val.x()) {			//The right of the rectangle is to the right of the point. We must check left
 					addPoints(inRange, right.inRange(rect));
 				}
 			}else {			//this point drew a horizontal line
-				if(rect.ymax() > val.y()) {			//the top of the rect is above the line. We must check below
+				if(rect.ymax() >= val.y()) {			//the top of the rect is above the line. We must check below
 					addPoints(inRange, right.inRange(rect));
 				}
 			}
