@@ -74,9 +74,7 @@ public class KdTree {
    public static void main(String[] args) {             // unit testing of the methods (optional) 
 	   KdTree ps = new KdTree();
 	   System.out.println("hi");
-	   RectHV rect = new RectHV(0.2, 0.3, 0.4, 0.6);
-	   
-	   ps.range(rect);
+	   //RectHV rect = new RectHV(0.2, 0.3, 0.4, 0.6);
 	   
 	   System.out.println("Is Empty Before: " + ps.isEmpty());
 	   for(int i = 0; i < args.length; i+= 2) {
@@ -87,6 +85,10 @@ public class KdTree {
 		   ps.insert(p);
 	   }
 	   
+	   Point2D p = new Point2D(0.699, 0.773);
+	   
+	   System.out.println(ps.nearest(p));
+	   /*
 	   double x = Double.parseDouble(args[0]);
 	   double y = Double.parseDouble(args[1]);
 	   
@@ -112,7 +114,7 @@ public class KdTree {
 	   System.out.println("Sameline contains: "  + ps.contains(sameLine));
 	   System.out.println("Size before adding Sameline: " + ps.size());
 	   ps.insert(sameLine);
-	   System.out.println("Size after adding sameline: " + ps.size());
+	   System.out.println("Size after adding sameline: " + ps.size());*/
    }
 }
 
@@ -246,6 +248,7 @@ class TreeNode{
 				
 				
 				secondPoint = right.nearest(p);
+				secondDistance = distance(secondPoint, p);
 				if(distance > secondDistance) {//Point in the right is closer to the new point, so we change closest
 					closest = secondPoint;
 					distance = secondDistance;
@@ -325,10 +328,13 @@ class TreeNode{
 	}
 
 	public boolean add(Point2D p) {
-		double comparision = compareTo(p);
-		
 		if(val.equals(p))
 			return false;
+		
+		double comparision = compareTo(p);
+		
+		
+		
 		
 		
 		if(comparision < 0) {
@@ -384,4 +390,5 @@ class TreeNode{
 	public TreeNode right()		{return right;}
 	public boolean vertical()		{return isVertical;}
 	public Point2D val()					{return val;}
+	public String toString()		{return val.toString() + ", " + isVertical;}
 }
