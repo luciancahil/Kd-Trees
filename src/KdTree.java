@@ -85,7 +85,7 @@ public class KdTree {
 		   ps.insert(p);
 	   }
 	   
-	   Point2D p = new Point2D(0.11, 0.93);
+	   Point2D p = new Point2D(0.5, 0.5625);
 	   
 	   System.out.println(ps.nearest(p));
    }
@@ -120,7 +120,7 @@ class TSet implements Iterable<Point2D>{
 	}
 	
 	public Point2D nearest(Point2D p) {
-		return root.nearest(p);
+		return root.nearest(p, Double.POSITIVE_INFINITY);
 	}
 
 	public Iterable<Point2D> inRange(RectHV rect) {
@@ -200,17 +200,20 @@ class TreeNode{
 		this.isVertical = isVertical;
 	}
 	
-	public Point2D nearest(Point2D p) {
-		Point2D closest = val;
-		double compare = compareTo(p);
-		double distance = distance(val, p);
+	public Point2D nearest(Point2D p, double closestDistance) {
+		Point2D closest = val;					//stores the closest point
+		double compare = compareTo(p);			//stores the distance from p to the axis this point drew
+		double distance = distance(val, p);		//shortest distance we've seen so far
+		
+		if(distance > closestDistance) 
+			distance = closestDistance;
 		
 		if(compare <= 0) {//point is either below/left of/on the line
 			Point2D secondPoint = null;
 			double secondDistance = 0;
 			
 			if(left != null) {		//check the left/below of the line to see if there is a closer point
-				secondPoint = left.nearest(p);
+				secondPoint = left.nearest(p, distance);
 				secondDistance = distance(secondPoint, p);
 				
 				if(distance > secondDistance) {//Point in the left is closer to the new point, so we change closest
@@ -224,7 +227,7 @@ class TreeNode{
 			}
 			
 			
-			secondPoint = right.nearest(p);		//see if a point on the right is colser
+			secondPoint = right.nearest(p, distance);		//see if a point on the right is colser
 			secondDistance = distance(secondPoint, p);
 			if(distance > secondDistance) {//Point in the right is closer to the new point, so we change closest
 				closest = secondPoint;
@@ -236,7 +239,7 @@ class TreeNode{
 			double secondDistance = 0;
 			
 			if(right != null) {			//check the above/right to see if a closser point exist
-				secondPoint = right.nearest(p);
+				secondPoint = right.nearest(p, distance);
 				secondDistance = distance(secondPoint, p);
 				
 				if(distance > secondDistance) {//Point in the right is closer to the new point, so we change closest
@@ -250,7 +253,7 @@ class TreeNode{
 			}
 			
 			
-			secondPoint = left.nearest(p);
+			secondPoint = left.nearest(p, distance);
 			secondDistance = distance(secondPoint, p);
 			if(distance > secondDistance) {//Point in the left is closer to the new point, so we change closest
 				closest = secondPoint;
@@ -377,23 +380,28 @@ class TreeNode{
 
 
 /*
-
-Test 6a: insert points from file; check nearest() with random query points
+Test 6b: insert non-degenerate points; check nearest() with random query points
          and check traversal of kd-tree
-  * input5.txt
-    - student   nearest() = (0.4, 0.7)
-    - reference nearest() = (0.4, 0.7)
+  * 5 random non-degenerate points in a 8-by-8 grid
+  * 10 random non-degenerate points in a 16-by-16 grid
+    - student   nearest() = (0.375, 0.75)
+    - reference nearest() = (0.375, 0.75)
     - performs incorrect traversal of kd-tree during call to nearest()
-    - query point = (0.11, 0.93)
+    - query point = (0.5, 0.5625)
     - sequence of points inserted: 
-      A  0.7 0.2
-      B  0.5 0.4
-      C  0.2 0.3
-      D  0.4 0.7
-      E  0.9 0.6
+      A  0.6875 0.875
+      B  0.125 0.9375
+      C  0.375 0.75
+      D  0.25 0.375
+      E  0.75 0.6875
+      F  0.8125 0.0
+      G  0.9375 0.125
+      H  0.625 0.1875
+      I  0.0625 0.625
+      J  0.1875 1.0
     - student sequence of kd-tree nodes involved in calls to Point2D methods:
-      A B D C 
+      A B C H D I E F G 
     - reference sequence of kd-tree nodes involved in calls to Point2D methods:
-      A B D 
-    - failed on trial 5 of 1000
+      A B C H D I E F 
+    - failed on trial 4 of 1000
 */
