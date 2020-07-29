@@ -66,17 +66,7 @@ public class KdTree {
 	   if(size == 0)
 		   return null;
 	   
-	   Point2D closest = tree.first();
-	   double distance = Math.pow((p.x() - closest.x()), 2) + Math.pow((p.y() - closest.y()), 2);
-	   
-	   for(Point2D inSet: tree) {
-		   double newDistance = Math.pow((p.x() - inSet.x()), 2) + Math.pow((p.y() - inSet.y()), 2);
-		   
-		   if(newDistance < distance) {
-			   closest = inSet;
-			   distance = newDistance;
-		   }
-	   }
+	   Point2D closest = tree.nearest(p);
 	   
 	   return closest;
    }
@@ -154,6 +144,10 @@ class TSet implements Iterable<Point2D>{
 		
 	}
 	
+	public Point2D nearest(Point2D p) {
+		return root.nearest(p);
+	}
+
 	public Iterable<Point2D> inRange(RectHV rect) {
 		if(root == null)
 			return new LinkedList<Point2D>();
@@ -231,6 +225,62 @@ class TreeNode{
 		this.isVertical = isVertical;
 	}
 	
+	public Point2D nearest(Point2D p) {
+		Point2D closest = val;
+		double compare = compareTo(p);
+		double distance = distance(val, p);
+		
+		if(compare <= 0) {	//point is either below/left of/on the line
+			if(left != null) {
+				Point2D secondPoint = left.nearest(p);
+				double secondDistance = distance(secondPoint, p);
+				
+				if(distance > secondDistance) {//Point in the left is closer to the new point, so we change closest
+					closest = secondPoint;
+					distance = secondDistance;
+				}
+				
+				if(distance <= -compare || right ==  null) {		//Point is closer to the nearest point than the line of the current point; no need to check the other side
+					return closest;
+				}
+				
+				
+				secondPoint = right.nearest(p);
+				if(distance > secondDistance) {//Point in the right is closer to the new point, so we change closest
+					closest = secondPoint;
+					distance = secondDistance;
+				}
+			}
+		}else if(compare >= 0) {	//point is either above/right/on the line
+			if(right != null) {
+				Point2D secondPoint = right.nearest(p);
+				double secondDistance = distance(secondPoint, p);
+				
+				if(distance > secondDistance) {//Point in the right is closer to the new point, so we change closest
+					closest = secondPoint;
+					distance = secondDistance;
+				}
+				
+				if(distance <= -compare || left == null) {		//Point is closer to the nearest point than the line of the current point; no need to check the other side
+					return closest;
+				}
+				
+				
+				secondPoint = left.nearest(p);
+				if(distance > secondDistance) {//Point in the left is closer to the new point, so we change closest
+					closest = secondPoint;
+					distance = secondDistance;
+				}
+			}
+		}
+		
+		return closest;
+	}//(0.417, 0.362)
+	
+	private double distance(Point2D val, Point2D p) {
+		return Math.pow(val.x() - p.x(), 2) + Math.pow(val.y() - p.y(), 2);
+	}
+
 	public LinkedList<Point2D> inRange(RectHV rect) {
 		LinkedList<Point2D> inRange = new LinkedList<Point2D>();
 		double x = val.x();
