@@ -85,36 +85,9 @@ public class KdTree {
 		   ps.insert(p);
 	   }
 	   
-	   Point2D p = new Point2D(0.8125, 0.3125);
+	   Point2D p = new Point2D(0.11, 0.93);
 	   
-	   System.out.println(ps.nearest(p));		//should be (0.32, 0.708)
-	   /*
-	   double x = Double.parseDouble(args[0]);
-	   double y = Double.parseDouble(args[1]);
-	   
-	   Point2D testing = new Point2D(0.47, x);
-	   Point2D inside = new Point2D(x, y);
-	   
-	   System.out.println("Is Empty After: " + ps.isEmpty());
-	   
-	   System.out.println("Contains testing: " + ps.contains(testing));
-	   System.out.println("Contains inside: " + ps.contains(inside));
-	   System.out.println("Nearest: " + ps.nearest(testing));
-	   System.out.println("Size Before Inserting Inside: " + ps.size());
-	   ps.insert(inside);
-	   System.out.println("Size After Inserting Inside: " + ps.size());
-	   System.out.println("Size Before Inserting testing: " + ps.size());
-	   ps.insert(testing);
-	   System.out.println("Size After Inserting testing: " + ps.size());
-	   
-	   
-	   System.out.println("Within rect: " + ps.range(rect));
-	   
-	   Point2D sameLine = new Point2D(0.47, 0);
-	   System.out.println("Sameline contains: "  + ps.contains(sameLine));
-	   System.out.println("Size before adding Sameline: " + ps.size());
-	   ps.insert(sameLine);
-	   System.out.println("Size after adding sameline: " + ps.size());*/
+	   System.out.println(ps.nearest(p));
    }
 }
 
@@ -272,7 +245,7 @@ class TreeNode{
 				}
 			}
 				
-			if(distance <= -compare || left == null) {
+			if(distance <= compare || left == null) {
 				return closest;
 			}
 			
@@ -405,25 +378,22 @@ class TreeNode{
 
 /*
 
-Test 5b: insert non-degenerate points; check nearest() with random query points
-  * 5 random non-degenerate points in a 8-by-8 grid
-  * 10 random non-degenerate points in a 16-by-16 grid
-    - failed on trial 5 of 10000
+Test 6a: insert points from file; check nearest() with random query points
+         and check traversal of kd-tree
+  * input5.txt
+    - student   nearest() = (0.4, 0.7)
+    - reference nearest() = (0.4, 0.7)
+    - performs incorrect traversal of kd-tree during call to nearest()
+    - query point = (0.11, 0.93)
     - sequence of points inserted: 
-      A  0.75 0.875
-      B  0.25 0.625
-      C  1.0 0.375
-      D  0.3125 0.5
-      E  0.5 1.0
-      F  0.4375 0.0
-      G  0.875 0.4375
-      H  0.9375 0.8125
-      I  0.125 0.75
-      J  0.6875 0.9375
-    - query point                   = (0.8125, 0.3125)
-    - student   nearest()           = (1.0, 0.375)
-    - reference nearest()           = (0.875, 0.4375)
-    - student   distanceSquaredTo() = 0.0390625
-    - reference distanceSquaredTo() = 0.01953125
-
+      A  0.7 0.2
+      B  0.5 0.4
+      C  0.2 0.3
+      D  0.4 0.7
+      E  0.9 0.6
+    - student sequence of kd-tree nodes involved in calls to Point2D methods:
+      A B D C 
+    - reference sequence of kd-tree nodes involved in calls to Point2D methods:
+      A B D 
+    - failed on trial 5 of 1000
 */
