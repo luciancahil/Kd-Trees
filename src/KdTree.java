@@ -81,11 +81,11 @@ public class KdTree {
 		   double x = Double.parseDouble(args[i]);
 		   double y = Double.parseDouble(args[i + 1]);
 		   
-		   Point2D p = new Point2D(x, y);
+		   Point2D p = new Point2D(x,y);
 		   ps.insert(p);
 	   }
 	   
-	   Point2D p = new Point2D(0.5, 0.5625);
+	   Point2D p = new Point2D(0.4375, 0.0);
 	   
 	   System.out.println(ps.nearest(p));
    }
@@ -115,10 +115,6 @@ class TSet implements Iterable<Point2D>{
 	private TreeNode root;
 	int size = 0;
 	
-	public TSet() {
-		
-	}
-	
 	public Point2D nearest(Point2D p) {
 		return root.nearest(p, Double.POSITIVE_INFINITY);
 	}
@@ -137,7 +133,7 @@ class TSet implements Iterable<Point2D>{
 
 	public boolean add(Point2D p) {
 		if(root == null) {
-			root = new TreeNode(p, true);
+			root = new TreeNode(p, true, 0, 1, 0, 1);
 			return true;
 		}
 		
@@ -194,10 +190,19 @@ class TreeNode{
 	private TreeNode left;
 	private TreeNode right;
 	private final boolean isVertical;			//true means it draws a vertical line, false means horizontal
+	private final double xL, xR, yL, yU;			//stores the limits of the box it is contained in. xL is left, xR is right, yL is lower, yR is upper
+	private final double x, y;				//stores the coordinates of the point contained
 	
-	public TreeNode(Point2D val, boolean isVertical){
+	
+	public TreeNode(Point2D val, boolean isVertical, double xL2, double d, double yL2, double yU2){
 		this.val = val;
+		x = val.x();
+		y = val.y();
 		this.isVertical = isVertical;
+		this.xL = xL2;
+		this.xR = d;
+		this.yL = yL2;
+		this.yU = yU2;
 	}
 	
 	public Point2D nearest(Point2D p, double closestDistance) {
@@ -222,10 +227,33 @@ class TreeNode{
 				}
 			}
 				
-			if(distance <= -compare || right ==  null) {//if right is null, there are no points to check. 
+			if(right ==  null) {//if right is null, there are no points to check. 
 				return closest;							//If distance is less than the distance between p and the line, no points on the other side can exist
 			}
 			
+			
+			//check if the line has to be diagonal
+			//if Yes, recalculate compare
+			if(isVertical) {
+				if(p.y() < right.yL()) {			//point is below of right's rectangle
+					compare = -Math.sqrt(Math.pow((p.y() - right.yL()), 2) + Math.pow((p.x() - right.xL()), 2));		//compute the distance between p and the bottom left corner of right's rectangle
+				
+				}else if(p.y() > right.yU()) {		//point is above right's rectangle
+					compare = -Math.sqrt(Math.pow((p.y() - right.yU()), 2) + Math.pow((p.x() - right.xL()), 2));		//compute the distance between p and the top left corner of right's rectangle
+				
+				}//else: point is on the same y as the rectangle
+			}else {
+				if(p.x() < right.xL()) {			//point is left of the rectangel
+					compare = -Math.sqrt(Math.pow((p.y() - right.yL()), 2) + Math.pow((p.x() - right.xL()), 2));		//compute the distance between p and the bottom left corner of right's rectangle
+				
+				}else if(p.x() > right.xR()) {		//point is right of the rectangle
+					compare = -Math.sqrt(Math.pow((p.y() - right.yL()), 2) + Math.pow((p.x() - right.xR()), 2));		//compute the distance between p and the top left corner of right's rectangle
+				
+				}//else: point is on the same y as the rectangle
+			}
+			
+			if(distance <= -compare)
+				return closest;
 			
 			secondPoint = right.nearest(p, distance);		//see if a point on the right is colser
 			secondDistance = distance(secondPoint, p);
@@ -248,10 +276,33 @@ class TreeNode{
 				}
 			}
 				
-			if(distance <= compare || left == null) {
+			if(left == null) {
 				return closest;
 			}
 			
+			
+			//check if the line has to be diagonal
+			//if Yes, recalculate compare
+			if(isVertical) {
+				if(p.y() < left.yL()) {			//point is below left's rectangle
+					compare = Math.sqrt(Math.pow((p.y() - left.yL()), 2) + Math.pow((p.x() - left.xR()), 2));		//compute the distance between p and the bottom left corner of left's rectangle
+				
+				}else if(p.y() > left.yU()) {		//point is above left's rectangle
+					compare = Math.sqrt(Math.pow((p.y() - left.yU()), 2) + Math.pow((p.x() - left.xR()), 2));		//compute the distance between p and the top left corner of left's rectangle
+				
+				}//else: point is on the same y as the rectangle
+			}else {
+				if(p.x() < left.xL()) {			//point is left of the rectangel
+					compare = Math.sqrt(Math.pow((p.y() - left.yU()), 2) + Math.pow((p.x() - left.xL()), 2));		//compute the distance between p and the bottom left corner of left's rectangle
+				
+				}else if(p.x() > left.xR()) {		//point is left of the rectangle
+					compare = Math.sqrt(Math.pow((p.y() - left.yU()), 2) + Math.pow((p.x() - left.xR()), 2));		//compute the distance between p and the top left corner of left's rectangle
+				
+				}//else: point is on the same y as the rectangle
+			}
+			
+			if(distance <= compare)
+				return closest;
 			
 			secondPoint = left.nearest(p, distance);
 			secondDistance = distance(secondPoint, p);
@@ -265,14 +316,13 @@ class TreeNode{
 		return closest;
 	}
 	
-	private double distance(Point2D val, Point2D p) {
-		return Math.pow(Math.pow(val.x() - p.x(), 2) + Math.pow(val.y() - p.y(), 2), 0.5);
+	private double distance(Point2D p1, Point2D p2) {
+		return Math.pow(Math.pow(p1.x() - p2.x(), 2) + Math.pow(p1.y() - p2.y(), 2), 0.5);
 	}
 
 	public LinkedList<Point2D> inRange(RectHV rect) {
 		LinkedList<Point2D> inRange = new LinkedList<Point2D>();
-		double x = val.x();
-		double y = val.y();
+
 		
 		if(x >= rect.xmin() && x <= rect.xmax() && y >= rect.ymin() && y <= rect.ymax()) {
    			inRange.add(val);
@@ -281,11 +331,11 @@ class TreeNode{
 		
 		if(left != null) {
 			if(isVertical) {
-				if(rect.xmin() <= val.x()) {			//The left of the rectangle is to the left of the point. We must check left
+				if(rect.xmin() <= x) {			//The left of the rectangle is to the left of the point. We must check left
 					addPoints(inRange, left.inRange(rect));
 				}
 			}else {			//this point drew a horizontal line
-				if(rect.ymin() <= val.y()) {			//the bottom of the rect is below the line. We must check below
+				if(rect.ymin() <= y) {			//the bottom of the rect is below the line. We must check below
 					addPoints(inRange, left.inRange(rect));
 				}
 			}
@@ -293,11 +343,11 @@ class TreeNode{
 		
 		if(right != null) {
 			if(isVertical) {
-				if(rect.xmax() >= val.x()) {			//The right of the rectangle is to the right of the point. We must check left
+				if(rect.xmax() >= x) {			//The right of the rectangle is to the right of the point. We must check left
 					addPoints(inRange, right.inRange(rect));
 				}
 			}else {			//this point drew a horizontal line
-				if(rect.ymax() >= val.y()) {			//the top of the rect is above the line. We must check below
+				if(rect.ymax() >= y) {			//the top of the rect is above the line. We must check below
 					addPoints(inRange, right.inRange(rect));
 				}
 			}
@@ -318,20 +368,25 @@ class TreeNode{
 		
 		double comparision = compareTo(p);
 		
-		
-		
-		
-		
 		if(comparision < 0) {
 			if(left == null) {
-				left = new TreeNode(p, !isVertical);
+				if(isVertical) {
+					left = new TreeNode(p, !isVertical, xL, x, yL, yU);
+				}else {
+					left = new TreeNode(p, !isVertical, xL, xR, yL, y);
+				}
+				
 				return true;
 			}else {
 				return left.add(p);
 			}
 		}else if(comparision >= 0) {
 			if(right == null) {			//set value if null
-				right = new TreeNode(p, !isVertical);
+				if(isVertical) {
+					right = new TreeNode(p, !isVertical, x, xR, yL, yU);
+				}else {
+					right = new TreeNode(p, !isVertical, xL, xR, y, yU);
+				}
 			}else {						//keep looking if the tree exists
 				return right.add(p);
 			}
@@ -366,16 +421,22 @@ class TreeNode{
 	
 	private double compareTo(Point2D p) {
 		if(isVertical)
-			return p.x() - val.x();
+			return p.x() - x;
 		
-		return p.y() - val.y();
+		return p.y() - y;
 	}
 
-	public TreeNode left()		{return left;}
-	public TreeNode right()		{return right;}
+	public TreeNode left()			{return left;}
+	public TreeNode right()			{return right;}
 	public boolean vertical()		{return isVertical;}
-	public Point2D val()					{return val;}
+	public Point2D val()			{return val;}
 	public String toString()		{return val.toString() + ", " + isVertical;}
+	public double xL()				{return xL;}
+	public double xR()				{return xR;}
+	public double yL()				{return yL;}
+	public double yU()				{return yU;}
+	public double y()				{return y;}
+	public double x()				{return y;}
 }
 
 
@@ -384,24 +445,24 @@ Test 6b: insert non-degenerate points; check nearest() with random query points
          and check traversal of kd-tree
   * 5 random non-degenerate points in a 8-by-8 grid
   * 10 random non-degenerate points in a 16-by-16 grid
-    - student   nearest() = (0.375, 0.75)
-    - reference nearest() = (0.375, 0.75)
+    - student   nearest() = (0.5625, 0.1875)
+    - reference nearest() = (0.5625, 0.1875)
     - performs incorrect traversal of kd-tree during call to nearest()
-    - query point = (0.5, 0.5625)
+    - query point = (0.4375, 0.0)
     - sequence of points inserted: 
-      A  0.6875 0.875
-      B  0.125 0.9375
-      C  0.375 0.75
-      D  0.25 0.375
-      E  0.75 0.6875
-      F  0.8125 0.0
-      G  0.9375 0.125
-      H  0.625 0.1875
-      I  0.0625 0.625
-      J  0.1875 1.0
+      A  0.1875 0.125
+      B  0.125 0.25
+      C  0.5625 0.1875
+      D  0.0 0.0625
+      E  0.625 0.5625
+      F  0.3125 0.75
+      G  0.375 0.8125
+      H  0.8125 0.5
+      I  0.9375 0.9375
+      J  0.5 0.3125
     - student sequence of kd-tree nodes involved in calls to Point2D methods:
-      A B C H D I E F G 
+      A C E F J H 
     - reference sequence of kd-tree nodes involved in calls to Point2D methods:
-      A B C H D I E F 
-    - failed on trial 4 of 1000
+      A C E F J 
+    - failed on trial 5 of 1000
 */
