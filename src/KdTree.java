@@ -74,7 +74,7 @@ public class KdTree {
    public static void main(String[] args) {             // unit testing of the methods (optional) 
 	   KdTree ps = new KdTree();
 	   System.out.println("hi");
-	   //RectHV rect = new RectHV(0.2, 0.3, 0.4, 0.6);
+	   RectHV rect = new RectHV(0.5, 0, 0.75, 0.25);
 	   
 	   System.out.println("Is Empty Before: " + ps.isEmpty());
 	   for(int i = 0; i < args.length; i+= 2) {
@@ -85,9 +85,8 @@ public class KdTree {
 		   ps.insert(p);
 	   }
 	   
-	   Point2D p = new Point2D(0.4375, 0.0);
 	   
-	   System.out.println(ps.nearest(p));
+	   System.out.println(ps.range(rect));
    }
 }
 
@@ -322,7 +321,8 @@ class TreeNode{
 
 	public LinkedList<Point2D> inRange(RectHV rect) {
 		LinkedList<Point2D> inRange = new LinkedList<Point2D>();
-
+		val.x();
+		val.y();
 		
 		if(x >= rect.xmin() && x <= rect.xmax() && y >= rect.ymin() && y <= rect.ymax()) {
    			inRange.add(val);
@@ -441,28 +441,21 @@ class TreeNode{
 
 
 /*
-Test 6b: insert non-degenerate points; check nearest() with random query points
+Test 4b: insert non-degenerate points; check range() with random query rectangles
          and check traversal of kd-tree
-  * 5 random non-degenerate points in a 8-by-8 grid
-  * 10 random non-degenerate points in a 16-by-16 grid
-    - student   nearest() = (0.5625, 0.1875)
-    - reference nearest() = (0.5625, 0.1875)
-    - performs incorrect traversal of kd-tree during call to nearest()
-    - query point = (0.4375, 0.0)
+  * 3 random non-degenerate points and 1000 random rectangles in a 4-by-4 grid
+    - student range() returns correct set of points
+    - student   range():  empty
+    - reference range():  empty
+    - performs incorrect traversal of kd-tree during call to range()
+    - query rectangle = [0.5, 0.75] x [0.0, 0.25]
     - sequence of points inserted: 
-      A  0.1875 0.125
-      B  0.125 0.25
-      C  0.5625 0.1875
-      D  0.0 0.0625
-      E  0.625 0.5625
-      F  0.3125 0.75
-      G  0.375 0.8125
-      H  0.8125 0.5
-      I  0.9375 0.9375
-      J  0.5 0.3125
-    - student sequence of kd-tree nodes involved in calls to Point2D methods:
-      A C E F J H 
-    - reference sequence of kd-tree nodes involved in calls to Point2D methods:
-      A C E F J 
-    - failed on trial 5 of 1000
+      A  0.0 0.5
+      B  0.25 1.0
+      C  1.0 0.75
+    - student kd-tree nodes involved in calls to Point2D methods:
+      empty
+    - reference kd-tree nodes involved in calls to Point2D methods:
+      A B C 
+    - failed on trial 1 of 1000
 */
