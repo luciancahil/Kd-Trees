@@ -6,8 +6,8 @@ Compilation:  PASSED
 API:          PASSED
 
 Spotbugs:     PASSED
-PMD:          FAILED (3 warnings)
-Checkstyle:   FAILED (0 errors, 243 warnings)
+PMD:          PASSED
+Checkstyle:   FAILED (0 errors, 103 warnings)
 
 Correctness:  35/35 tests passed
 Memory:       16/16 tests passed
@@ -20,8 +20,8 @@ ASSESSMENT DETAILS
 
 The following files were submitted:
 ----------------------------------
- 13K Jul 30 02:15 KdTree.java
-3.9K Jul 30 02:15 PointSET.java
+ 14K Jul 30 02:32 KdTree.java
+3.9K Jul 30 02:32 PointSET.java
 
 
 ********************************************************************************
@@ -55,10 +55,6 @@ KdTree:
 
 % spotbugs *.class
 *-----------------------------------------------------------
-M D RV_RETURN_VALUE_IGNORED_NO_SIDE_EFFECT RV: Calls the method 'y()' but ignores its return value. The method, however, does not produce any effect other than returning a value.  At KdTree.java:[line 325]
-M D RV_RETURN_VALUE_IGNORED_NO_SIDE_EFFECT RV: Calls the method 'x()' but ignores its return value. The method, however, does not produce any effect other than returning a value.  At KdTree.java:[line 324]
-L B IT_NO_SUCH_ELEMENT It: The 'next()' method must throw a 'java.util.NoSuchElementException' if it is called when there are no more elements to return.  At KdTree.java:[lines 168-173]
-L P SIC_INNER_SHOULD_BE_STATIC_NEEDS_THIS SIC: Should the inner class 'TSet$inOrderIterator' be refactored into a static nested class?  At KdTree.java:[lines 157-178]
 
 
 ================================================================
@@ -66,10 +62,6 @@ L P SIC_INNER_SHOULD_BE_STATIC_NEEDS_THIS SIC: Should the inner class 'TSet$inOr
 
 % pmd .
 *-----------------------------------------------------------
-KdTree.java:9: The private instance (or static) variable 'tree' can be made 'final'; it is initialized only in the declaration or constructor. [ImmutableField]
-KdTree.java:115: All instance (and static) variables must be 'private'. [OnlyPrivateInstanceVariables]
-KdTree.java:178: Use the 'isEmpty()' method instead of comparing 'size()' to '0'. [UseCollectionIsEmpty]
-PMD ends with 3 warnings.
 
 
 ================================================================
@@ -77,64 +69,53 @@ PMD ends with 3 warnings.
 
 % checkstyle *.java
 *-----------------------------------------------------------
-[WARN] KdTree.java:1:1: Your program defines 3 outer types, but there should be only 1. [OuterTypeNumber]
-[WARN] KdTree.java:8:1: File contains tab characters (this is the first occurrence). Configure your editor to replace tabs with spaces. [FileTabCharacter]
-[WARN] KdTree.java:27:8: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:31:8: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:37:8: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:46:8: 'for' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:52:6: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:54:8: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:62:8: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:66:8: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:80:8: 'for' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:80:41: '+=' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:84:37: ',' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:113:1: The .java file must have exactly one top-level class. [OneTopLevelClass]
-[WARN] KdTree.java:113:39: '>' is followed by an illegal character. [GenericWhitespace]
-[WARN] KdTree.java:113:40: '{' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:115:5: Declare static and instance variables in order of their access modifiers: public, protected, package, and private. [DeclarationOrder]
-[WARN] KdTree.java:122:9: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:134:9: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:143:9: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:150:33: '{' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:150:34: 'return' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:150:51: ';' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:150:52: '}' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:157:19: The class 'inOrderIterator' must start with an uppercase letter and use CamelCase. [TypeName]
-[WARN] KdTree.java:157:62: '>' is followed by an illegal character. [GenericWhitespace]
-[WARN] KdTree.java:157:63: '{' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:162:13: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:170:13: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:171:13: 'if' is not followed by whitespace. [WhitespaceAround]
-[WARN] KdTree.java:186:3: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:187:1: The .java file must have exactly one top-level class. [OneTopLevelClass]
-[WARN] KdTree.java:187:15: '{' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:191:51: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:192:55: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:193:47: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:196:99: '{' is not preceded with whitespace. [WhitespaceAround]
-[WARN] KdTree.java:208:51: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:209:51: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:1:1: Your program defines 2 outer types, but there should be only 1. [OuterTypeNumber]
+[WARN] KdTree.java:48:7: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:49:21: '<' is followed by whitespace. [GenericWhitespace]
+[WARN] KdTree.java:49:21: '<' is preceded with whitespace. [GenericWhitespace]
+[WARN] KdTree.java:49:31: '>' is preceded with whitespace. [GenericWhitespace]
+[WARN] KdTree.java:91:28: '<' is followed by whitespace. [GenericWhitespace]
+[WARN] KdTree.java:91:28: '<' is preceded with whitespace. [GenericWhitespace]
+[WARN] KdTree.java:91:38: '>' is preceded with whitespace. [GenericWhitespace]
+[WARN] KdTree.java:97:25: '<' is followed by whitespace. [GenericWhitespace]
+[WARN] KdTree.java:97:25: '<' is preceded with whitespace. [GenericWhitespace]
+[WARN] KdTree.java:97:35: '>' is preceded with whitespace. [GenericWhitespace]
+[WARN] KdTree.java:99:39: '<' is followed by whitespace. [GenericWhitespace]
+[WARN] KdTree.java:99:39: '<' is preceded with whitespace. [GenericWhitespace]
+[WARN] KdTree.java:99:49: '>' is preceded with whitespace. [GenericWhitespace]
+[WARN] KdTree.java:99:51: '(' is preceded with whitespace. [MethodParamPad]
+[WARN] KdTree.java:133:3: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:134:1: The .java file must have exactly one top-level class. [OneTopLevelClass]
+[WARN] KdTree.java:138:41: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:139:44: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:140:34: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:155:34: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:156:42: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:157:47: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:162:31: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:166:35: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:170:52: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:176:36: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:177:35: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:181:15: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:182:15: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:184:45: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:185:120: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:187:52: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:188:120: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:190:21: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:192:45: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:193:120: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:195:52: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
+[WARN] KdTree.java:196:120: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
 ...
-Checkstyle ends with 0 errors and 233 warnings.
+Checkstyle ends with 0 errors and 103 warnings.
 
 % custom checkstyle checks for PointSET.java
 *-----------------------------------------------------------
 
 % custom checkstyle checks for KdTree.java
 *-----------------------------------------------------------
-[WARN] KdTree.java:113:12: Using interface inheritance suggests poor design in this program. [Design]
-[WARN] KdTree.java:157:39: Using interface inheritance suggests poor design in this program. [Design]
-[WARN] KdTree.java:238:57: You should not need to call 'Math.sqrt()' in this program. [Performance]
-[WARN] KdTree.java:241:57: You should not need to call 'Math.sqrt()' in this program. [Performance]
-[WARN] KdTree.java:246:57: You should not need to call 'Math.sqrt()' in this program. [Performance]
-[WARN] KdTree.java:249:57: You should not need to call 'Math.sqrt()' in this program. [Performance]
-[WARN] KdTree.java:287:56: You should not need to call 'Math.sqrt()' in this program. [Performance]
-[WARN] KdTree.java:290:56: You should not need to call 'Math.sqrt()' in this program. [Performance]
-[WARN] KdTree.java:295:56: You should not need to call 'Math.sqrt()' in this program. [Performance]
-[WARN] KdTree.java:298:56: You should not need to call 'Math.sqrt()' in this program. [Performance]
-Checkstyle ends with 0 errors and 10 warnings.
 
 
 ================================================================
@@ -548,19 +529,19 @@ Maximum allowed memory is 312n + 192 bytes.
 
                  n       student (bytes)    reference (bytes)
 --------------------------------------------------------------
-=> passed        1          192                160
-=> passed        2          320                288
-=> passed        5          704                672
-=> passed       10         1344               1312
-=> passed       25         3264               3232
-=> passed      100        12864              12832
-=> passed      400        51264              51232
-=> passed      800       102464             102432
+=> passed        1          200                160
+=> passed        2          328                288
+=> passed        5          712                672
+=> passed       10         1352               1312
+=> passed       25         3272               3232
+=> passed      100        12872              12832
+=> passed      400        51272              51232
+=> passed      800       102472             102432
 ==> 8/8 tests passed
 
 Total: 8/8 tests passed!
 
-Estimated student   memory (bytes) = 128.00 n + 64.00  (R^2 = 1.000)
+Estimated student   memory (bytes) = 128.00 n + 72.00  (R^2 = 1.000)
 Estimated reference memory (bytes) = 128.00 n + 32.00  (R^2 = 1.000)
 
 ================================================================
@@ -580,38 +561,38 @@ Inserting n points into a PointSET
 
                n      ops per second
 ----------------------------------------
-=> passed   160000    1218064         
-=> passed   320000    1609803         
-=> passed   640000    1143198         
-=> passed  1280000     910643         
+=> passed   160000     850006         
+=> passed   320000     817171         
+=> passed   640000     620757         
+=> passed  1280000     632923         
 ==> 4/4 tests passed
 
 Performing contains() queries after inserting n points into a PointSET
 
                n      ops per second
 ----------------------------------------
-=> passed   160000     939695         
-=> passed   320000     827931         
-=> passed   640000     762185         
-=> passed  1280000     596485         
+=> passed   160000     766273         
+=> passed   320000     521584         
+=> passed   640000     498904         
+=> passed  1280000     420643         
 ==> 4/4 tests passed
 
 Performing range() queries after inserting n points into a PointSET
 
                n      ops per second
 ----------------------------------------
-=> passed    10000       4628         
-=> passed    20000       1598         
-=> passed    40000        731         
+=> passed    10000       4147         
+=> passed    20000       1387         
+=> passed    40000        409         
 ==> 3/3 tests passed
 
 Performing nearest() queries after inserting n points into a PointSET
 
                n      ops per second
 ----------------------------------------
-=> passed    10000       5121         
-=> passed    20000       1855         
-=> passed    40000        823         
+=> passed    10000       3975         
+=> passed    20000       1440         
+=> passed    40000        516         
 ==> 3/3 tests passed
 
 Total: 14/14 tests passed!
@@ -632,10 +613,10 @@ Test 1a-d: Insert n points into a 2d tree. The table gives the average number of
                                                                                                 Point2D
                n      ops per second       RectHV()           x()               y()             equals()
 ----------------------------------------------------------------------------------------------------------------
-=> passed   160000    1628770               0.0              12.1              11.6              21.6         
-=> passed   320000    1956470               0.0              12.3              11.8              22.0         
-=> passed   640000    1487009               0.0              13.0              12.5              23.5         
-=> passed  1280000    1177877               0.0              14.1              13.6              25.6         
+=> passed   160000     729799               0.0              12.1              11.6              21.6         
+=> passed   320000    1024747               0.0              12.3              11.8              22.0         
+=> passed   640000     533606               0.0              13.0              12.5              23.5         
+=> passed  1280000     519005               0.0              14.1              13.6              25.6         
 ==> 4/4 tests passed
 
 
@@ -645,14 +626,14 @@ Test 2a-h: Perform contains() queries after inserting n points into a 2d tree. T
                                                                                Point2D
                n      ops per second       x()               y()               equals()
 -----------------------------------------------------------------------------------------------
-=> passed    10000    1263786               9.2               8.8              18.0         
-=> passed    20000    1272443               9.8               9.3              19.2         
-=> passed    40000    1179134              10.9              10.4              21.3         
-=> passed    80000    1059777              11.0              10.5              21.5         
-=> passed   160000     932708              11.6              11.1              22.7         
-=> passed   320000     835571              12.5              12.0              24.5         
-=> passed   640000     630989              12.8              12.3              25.2         
-=> passed  1280000     651483              13.6              13.1              26.7         
+=> passed    10000     856514               9.2               8.8              18.0         
+=> passed    20000     839976               9.8               9.3              19.2         
+=> passed    40000     715794              10.9              10.4              21.3         
+=> passed    80000     596306              11.0              10.5              21.5         
+=> passed   160000     629835              11.6              11.1              22.7         
+=> passed   320000     476014              12.5              12.0              24.5         
+=> passed   640000     437198              12.8              12.3              25.2         
+=> passed  1280000     475332              13.6              13.1              26.7         
 ==> 8/8 tests passed
 
 
@@ -661,14 +642,14 @@ Test 3a-h: Perform range() queries after inserting n points into a 2d tree. The 
 
                n      ops per second       intersects()      contains()        x()               y()
 ---------------------------------------------------------------------------------------------------------------
-=> passed    10000     263118               0.0               0.0              31.1              31.1         
-=> passed    20000     327997               0.0               0.0              32.6              32.6         
-=> passed    40000     322279               0.0               0.0              39.3              39.3         
-=> passed    80000     381165               0.0               0.0              40.7              40.7         
-=> passed   160000     330527               0.0               0.0              42.5              42.5         
-=> passed   320000     252299               0.0               0.0              40.2              40.2         
-=> passed   640000     293613               0.0               0.0              43.3              43.3         
-=> passed  1280000     230784               0.0               0.0              47.0              47.0         
+=> passed    10000     169006               0.0               0.0              31.1              31.1         
+=> passed    20000     208641               0.0               0.0              32.6              32.6         
+=> passed    40000     132237               0.0               0.0              39.3              39.3         
+=> passed    80000     180094               0.0               0.0              40.7              40.7         
+=> passed   160000     163555               0.0               0.0              42.5              42.5         
+=> passed   320000     152316               0.0               0.0              40.2              40.2         
+=> passed   640000     193037               0.0               0.0              43.3              43.3         
+=> passed  1280000     144984               0.0               0.0              47.0              47.0         
 ==> 8/8 tests passed
 
 
@@ -678,14 +659,14 @@ Test 4a-h: Perform nearest() queries after inserting n points into a 2d tree. Th
                                          Point2D                 RectHV
                n      ops per second     distanceSquaredTo()     distanceSquaredTo()        x()               y()
 ------------------------------------------------------------------------------------------------------------------------
-=> passed    10000   383625                   0.0                    0.0                   130.6             131.6         
-=> passed    20000   346710                   0.0                    0.0                   143.8             144.6         
-=> passed    40000   287766                   0.0                    0.0                   169.4             170.4         
-=> passed    80000   250740                   0.0                    0.0                   173.3             173.5         
-=> passed   160000   204111                   0.0                    0.0                   187.8             188.7         
-=> passed   320000   170968                   0.0                    0.0                   196.0             196.3         
-=> passed   640000   179384                   0.0                    0.0                   203.7             204.0         
-=> passed  1280000   137139                   0.0                    0.0                   227.4             228.9         
+=> passed    10000   232734                   0.0                    0.0                   130.6             131.6         
+=> passed    20000   203012                   0.0                    0.0                   143.8             144.6         
+=> passed    40000   171777                   0.0                    0.0                   169.4             170.4         
+=> passed    80000   141699                   0.0                    0.0                   173.3             173.5         
+=> passed   160000   116018                   0.0                    0.0                   187.8             188.7         
+=> passed   320000    91073                   0.0                    0.0                   196.0             196.3         
+=> passed   640000    81890                   0.0                    0.0                   203.7             204.0         
+=> passed  1280000    90946                   0.0                    0.0                   227.4             228.9         
 ==> 8/8 tests passed
 
 
