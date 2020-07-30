@@ -5,10 +5,10 @@ import edu.princeton.cs.algs4.RectHV;
 
 public class PointSET {
     private int size;
-    private final TreeSet < Point2D > tree;
+    private final TreeSet<Point2D> tree;
 
     public PointSET() { // construct an empty set of points
-        tree = new TreeSet < Point2D > ();
+        tree = new TreeSet<Point2D>();
         size = 0;
     }
 
@@ -47,12 +47,12 @@ public class PointSET {
         }
     }
 
-    public Iterable < Point2D > range(RectHV rect) { // all points that are inside the rectangle (or on the boundary) 
+    public Iterable<Point2D> range(RectHV rect) { // all points that are inside the rectangle (or on the boundary) 
         if (rect == null) {
             throw new IllegalArgumentException();
         }
 
-        ArrayList < Point2D > inRange = new ArrayList < Point2D > ();
+        ArrayList<Point2D> inRange = new ArrayList<Point2D>();
 
         for (Point2D p: tree) {
             double x = p.x();

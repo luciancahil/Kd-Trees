@@ -7,7 +7,7 @@ API:          PASSED
 
 Spotbugs:     PASSED
 PMD:          PASSED
-Checkstyle:   FAILED (0 errors, 103 warnings)
+Checkstyle:   PASSED
 
 Correctness:  35/35 tests passed
 Memory:       16/16 tests passed
@@ -20,8 +20,8 @@ ASSESSMENT DETAILS
 
 The following files were submitted:
 ----------------------------------
- 14K Jul 30 02:32 KdTree.java
-3.9K Jul 30 02:32 PointSET.java
+ 14K Jul 30 03:03 KdTree.java
+3.9K Jul 30 03:03 PointSET.java
 
 
 ********************************************************************************
@@ -69,47 +69,6 @@ KdTree:
 
 % checkstyle *.java
 *-----------------------------------------------------------
-[WARN] KdTree.java:1:1: Your program defines 2 outer types, but there should be only 1. [OuterTypeNumber]
-[WARN] KdTree.java:48:7: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:49:21: '<' is followed by whitespace. [GenericWhitespace]
-[WARN] KdTree.java:49:21: '<' is preceded with whitespace. [GenericWhitespace]
-[WARN] KdTree.java:49:31: '>' is preceded with whitespace. [GenericWhitespace]
-[WARN] KdTree.java:91:28: '<' is followed by whitespace. [GenericWhitespace]
-[WARN] KdTree.java:91:28: '<' is preceded with whitespace. [GenericWhitespace]
-[WARN] KdTree.java:91:38: '>' is preceded with whitespace. [GenericWhitespace]
-[WARN] KdTree.java:97:25: '<' is followed by whitespace. [GenericWhitespace]
-[WARN] KdTree.java:97:25: '<' is preceded with whitespace. [GenericWhitespace]
-[WARN] KdTree.java:97:35: '>' is preceded with whitespace. [GenericWhitespace]
-[WARN] KdTree.java:99:39: '<' is followed by whitespace. [GenericWhitespace]
-[WARN] KdTree.java:99:39: '<' is preceded with whitespace. [GenericWhitespace]
-[WARN] KdTree.java:99:49: '>' is preceded with whitespace. [GenericWhitespace]
-[WARN] KdTree.java:99:51: '(' is preceded with whitespace. [MethodParamPad]
-[WARN] KdTree.java:133:3: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:134:1: The .java file must have exactly one top-level class. [OneTopLevelClass]
-[WARN] KdTree.java:138:41: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:139:44: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:140:34: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:155:34: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:156:42: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:157:47: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:162:31: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:166:35: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:170:52: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:176:36: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:177:35: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:181:15: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:182:15: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:184:45: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:185:120: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:187:52: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:188:120: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:190:21: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:192:45: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:193:120: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:195:52: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-[WARN] KdTree.java:196:120: '//' or '/*' is not followed by whitespace. [WhitespaceAfter]
-...
-Checkstyle ends with 0 errors and 103 warnings.
 
 % custom checkstyle checks for PointSET.java
 *-----------------------------------------------------------
@@ -503,7 +462,7 @@ Maximum allowed memory is 96n + 200 bytes.
 --------------------------------------------------------------
 => passed        1          248                264
 => passed        2          344                360
-=> passed        5          632                648
+        648
 => passed       10         1112               1128
 => passed       25         2552               2568
 => passed      100         9752               9768
@@ -529,19 +488,19 @@ Maximum allowed memory is 312n + 192 bytes.
 
                  n       student (bytes)    reference (bytes)
 --------------------------------------------------------------
-=> passed        1          200                160
-=> passed        2          328                288
-=> passed        5          712                672
-=> passed       10         1352               1312
-=> passed       25         3272               3232
-=> passed      100        12872              12832
-=> passed      400        51272              51232
-=> passed      800       102472             102432
+=> passed        1          208                160
+=> passed        2          344                288
+=> passed        5          752                672
+=> passed       10         1432               1312
+=> passed       25         3472               3232
+=> passed      100        13672              12832
+=> passed      400        54472              51232
+=> passed      800       108872             102432
 ==> 8/8 tests passed
 
 Total: 8/8 tests passed!
 
-Estimated student   memory (bytes) = 128.00 n + 72.00  (R^2 = 1.000)
+Estimated student   memory (bytes) = 136.00 n + 72.00  (R^2 = 1.000)
 Estimated reference memory (bytes) = 128.00 n + 32.00  (R^2 = 1.000)
 
 ================================================================
@@ -561,38 +520,38 @@ Inserting n points into a PointSET
 
                n      ops per second
 ----------------------------------------
-=> passed   160000     850006         
-=> passed   320000     817171         
-=> passed   640000     620757         
-=> passed  1280000     632923         
+=> passed   160000     660373         
+=> passed   320000     703447         
+=> passed   640000     540442         
+=> passed  1280000     530181         
 ==> 4/4 tests passed
 
 Performing contains() queries after inserting n points into a PointSET
 
                n      ops per second
 ----------------------------------------
-=> passed   160000     766273         
-=> passed   320000     521584         
-=> passed   640000     498904         
-=> passed  1280000     420643         
+=> passed   160000     495319         
+=> passed   320000     545633         
+=> passed   640000     458714         
+=> passed  1280000     399655         
 ==> 4/4 tests passed
 
 Performing range() queries after inserting n points into a PointSET
 
                n      ops per second
 ----------------------------------------
-=> passed    10000       4147         
-=> passed    20000       1387         
-=> passed    40000        409         
+=> passed    10000       4075         
+=> passed    20000       1388         
+=> passed    40000        391         
 ==> 3/3 tests passed
 
 Performing nearest() queries after inserting n points into a PointSET
 
                n      ops per second
 ----------------------------------------
-=> passed    10000       3975         
-=> passed    20000       1440         
-=> passed    40000        516         
+=> passed    10000       5125         
+=> passed    20000       1557         
+=> passed    40000        521         
 ==> 3/3 tests passed
 
 Total: 14/14 tests passed!
@@ -613,10 +572,10 @@ Test 1a-d: Insert n points into a 2d tree. The table gives the average number of
                                                                                                 Point2D
                n      ops per second       RectHV()           x()               y()             equals()
 ----------------------------------------------------------------------------------------------------------------
-=> passed   160000     729799               0.0              12.1              11.6              21.6         
-=> passed   320000    1024747               0.0              12.3              11.8              22.0         
-=> passed   640000     533606               0.0              13.0              12.5              23.5         
-=> passed  1280000     519005               0.0              14.1              13.6              25.6         
+=> passed   160000     648957               0.0              12.1              11.6              21.6         
+=> passed   320000     746214               0.0              12.3              11.8              22.0         
+=> passed   640000     702852               0.0              13.0              12.5              23.5         
+=> passed  1280000     624439               0.0              14.1              13.6              25.6         
 ==> 4/4 tests passed
 
 
@@ -626,14 +585,14 @@ Test 2a-h: Perform contains() queries after inserting n points into a 2d tree. T
                                                                                Point2D
                n      ops per second       x()               y()               equals()
 -----------------------------------------------------------------------------------------------
-=> passed    10000     856514               9.2               8.8              18.0         
-=> passed    20000     839976               9.8               9.3              19.2         
-=> passed    40000     715794              10.9              10.4              21.3         
-=> passed    80000     596306              11.0              10.5              21.5         
-=> passed   160000     629835              11.6              11.1              22.7         
-=> passed   320000     476014              12.5              12.0              24.5         
-=> passed   640000     437198              12.8              12.3              25.2         
-=> passed  1280000     475332              13.6              13.1              26.7         
+=> passed    10000     934695               9.2               8.8              18.0         
+=> passed    20000     717401               9.8               9.3              19.2         
+=> passed    40000     672894              10.9              10.4              21.3         
+=> passed    80000     593702              11.0              10.5              21.5         
+=> passed   160000     466966              11.6              11.1              22.7         
+=> passed   320000     532565              12.5              12.0              24.5         
+=> passed   640000     307694              12.8              12.3              25.2         
+=> passed  1280000     405405              13.6              13.1              26.7         
 ==> 8/8 tests passed
 
 
@@ -642,14 +601,14 @@ Test 3a-h: Perform range() queries after inserting n points into a 2d tree. The 
 
                n      ops per second       intersects()      contains()        x()               y()
 ---------------------------------------------------------------------------------------------------------------
-=> passed    10000     169006               0.0               0.0              31.1              31.1         
-=> passed    20000     208641               0.0               0.0              32.6              32.6         
-=> passed    40000     132237               0.0               0.0              39.3              39.3         
-=> passed    80000     180094               0.0               0.0              40.7              40.7         
-=> passed   160000     163555               0.0               0.0              42.5              42.5         
-=> passed   320000     152316               0.0               0.0              40.2              40.2         
-=> passed   640000     193037               0.0               0.0              43.3              43.3         
-=> passed  1280000     144984               0.0               0.0              47.0              47.0         
+=> passed    10000     275541               0.0               0.0              31.1              31.1         
+=> passed    20000     366824               0.0               0.0              32.6              32.6         
+=> passed    40000     236816               0.0               0.0              39.3              39.3         
+=> passed    80000     180439               0.0               0.0              40.7              40.7         
+=> passed   160000     137611               0.0               0.0              42.5              42.5         
+=> passed   320000     148973               0.0               0.0              40.2              40.2         
+=> passed   640000     128172               0.0               0.0              43.3              43.3         
+=> passed  1280000     101544               0.0               0.0              47.0              47.0         
 ==> 8/8 tests passed
 
 
@@ -659,14 +618,14 @@ Test 4a-h: Perform nearest() queries after inserting n points into a 2d tree. Th
                                          Point2D                 RectHV
                n      ops per second     distanceSquaredTo()     distanceSquaredTo()        x()               y()
 ------------------------------------------------------------------------------------------------------------------------
-=> passed    10000   232734                   0.0                    0.0                   130.6             131.6         
-=> passed    20000   203012                   0.0                    0.0                   143.8             144.6         
-=> passed    40000   171777                   0.0                    0.0                   169.4             170.4         
-=> passed    80000   141699                   0.0                    0.0                   173.3             173.5         
-=> passed   160000   116018                   0.0                    0.0                   187.8             188.7         
-=> passed   320000    91073                   0.0                    0.0                   196.0             196.3         
-=> passed   640000    81890                   0.0                    0.0                   203.7             204.0         
-=> passed  1280000    90946                   0.0                    0.0                   227.4             228.9         
+=> passed    10000   240793                   0.0                    0.0                   130.6             131.6         
+=> passed    20000   228818                   0.0                    0.0                   143.8             144.6         
+=> passed    40000   137279                   0.0                    0.0                   169.4             170.4         
+=> passed    80000   127691                   0.0                    0.0                   173.3             173.5         
+=> passed   160000    98081                   0.0                    0.0                   187.8             188.7         
+=> passed   320000   101486                   0.0                    0.0                   196.0             196.3         
+=> passed   640000    93588                   0.0                    0.0                   203.7             204.0         
+=> passed  1280000    80315                   0.0                    0.0                   227.4             228.9         
 ==> 8/8 tests passed
 
 
